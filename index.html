@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>ENES100</title>
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+        <link rel="stylesheet" href="css/style.css">
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+
+    </head>
+    <body>
+
+        <!--
+        Got the navbar from here -
+        https://medium.com/wdstack/bootstrap-4-custom-navbar-1f6a2da5ed3c
+        -->
+        <nav class="navbar navbar-expand-md navbar-expand-lg">
+            <div class="container">
+
+                <!--Logo-->
+                <a href="./index.html" id="logo" class="navbar-brand">ENES100 <span class="prod">Vision System Remote</span></a>
+
+                <!--&lt;!&ndash;Hamburger Button&ndash;&gt;-->
+                <!--<button class="navbar-toggler float-right" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">-->
+                    <!--<span class="navbar-toggler-icon">☰</span>-->
+                <!--</button>-->
+
+                <!--&lt;!&ndash;Collapsible Content&ndash;&gt;-->
+                <!--<div id="collapsibleNavbar" class="navbar-collapse collapse">-->
+                    <!--<ul class="navbar-nav ml-auto">-->
+                        <!--<li class="nav-item">-->
+                            <!--<a class="nav-link" href="#">Mission</a>-->
+                        <!--</li>-->
+                        <!--<li class="nav-item">-->
+                            <!--<a class="nav-link" href="#">Staff</a>-->
+                        <!--</li>-->
+                        <!--<li class="nav-item">-->
+                            <!--<a class="nav-link" href="#">Competition</a>-->
+                        <!--</li>-->
+                        <!--<li class="nav-item">-->
+                            <!--<a class="nav-link" href="https://github.com/umdenes100" target="_blank">GitHub</a>-->
+                        <!--</li>-->
+                    <!--</ul>-->
+                <!--</div>-->
+
+                <div class="nav-item float-right icons">
+                    <span id="status">&#9679; </span><span><button id="refresh">&#8635;</button></span>
+                </div>
+            </div>
+        </nav>
+
+        <div class="content">
+            <div class="row top">
+                <div class="col-md-4 offset-md-1">
+                    <select class="custom-select custom-select-lg mb-3">
+                        <option selected>ACMO</option>
+                        <option value="1">Water We Doing?</option>
+                        <option value="2">You're Fired</option>
+                    </select>
+
+                    <br>
+
+                </div>
+
+            </div>
+
+            <div class="row">
+
+                <div class="col-md-4 offset-md-1">
+                    <textarea id="comms" readonly></textarea>
+                </div>
+
+                <div class="col-md-6">
+
+                    <div class="embed-responsive embed-responsive-16by9 feed">
+                        <video class="embed-responsive-item" src="..."></video>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </body>
+</html>

@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css?family=Kanit:400,400i,500|Open+Sans:300|Oswald:700|PT+Mono');
+
+* {
+    font-family: 'Kanit', sans-serif;
+}
+
+nav {
+    border-bottom: 1px solid lightgrey !important;
+}
+
+#logo {
+    color: black;
+    font-family: 'Oswald', sans-serif;
+    font-size: 32px;
+}
+
+.prod {
+    font-size: 14px;
+    font-style: italic;
+}
+
+.icons {
+    font-size: 24px;
+}
+
+/*.nav-link {*/
+    /*color: black;*/
+    /*font-family: 'Open Sans', sans-serif;*/
+    /*font-size: 16px;*/
+/*}*/
+
+
+textarea {
+    height: 100%;
+    width: 80%;
+    font-family: 'PT Mono', monospace;
+    font-size: 13px;
+}
+
+.top {
+    margin-top: 3%;
+}
+
+.feed {
+    border: 1px solid black;
+}
+
+#status {
+    color: red;
+}
+
+#refresh {
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+}
