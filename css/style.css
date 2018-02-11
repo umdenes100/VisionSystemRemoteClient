@@ -31,7 +31,7 @@ nav {
 
 
 textarea {
-    height: 100%;
+    height: 80%;
     width: 80%;
     font-family: 'PT Mono', monospace;
     font-size: 13px;
@@ -42,7 +42,7 @@ textarea {
 }
 
 .feed {
-    border: 1px solid black;
+    border: 1px lightgrey;
 }
 
 #status {

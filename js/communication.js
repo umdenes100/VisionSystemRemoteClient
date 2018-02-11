@@ -1,7 +1,7 @@
 $(document).ready(
 
     function () {
-        console.log("Test");
+        // console.log("Test");
     }
 
 );
