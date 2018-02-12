@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d7580b17-a6ef-494e-9b39-a25352679d14" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
+      <change beforePath="$PROJECT_DIR$/js/communication.js" afterPath="$PROJECT_DIR$/js/communication.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -16,11 +16,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="428">
-              <caret line="90" column="69" lean-forward="false" selection-start-line="90" selection-start-column="69" selection-end-line="90" selection-end-column="69" />
+            <state relative-caret-position="23">
+              <caret line="63" column="20" lean-forward="false" selection-start-line="63" selection-start-column="20" selection-end-line="63" selection-end-column="20" />
               <folding>
                 <element signature="e#4568#4574#0" expanded="true" />
                 <element signature="e#4719#4725#0" expanded="true" />
@@ -39,11 +39,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="communication.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="communication.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/communication.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="11" column="2" lean-forward="false" selection-start-line="11" selection-start-column="2" selection-end-line="11" selection-end-column="2" />
+            <state relative-caret-position="45">
+              <caret line="3" column="46" lean-forward="false" selection-start-line="3" selection-start-column="46" selection-end-line="3" selection-end-column="46" />
               <folding />
             </state>
           </provider>
@@ -76,9 +76,9 @@
       <list>
         <option value="$PROJECT_DIR$/css/style.css" />
         <option value="$PROJECT_DIR$/js/autoscroll.js" />
-        <option value="$PROJECT_DIR$/js/communication.js" />
         <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/js/communication.js" />
       </list>
     </option>
   </component>
@@ -174,12 +174,12 @@
       <option name="presentableId" value="Default" />
       <updated>1518389423595</updated>
       <workItem from="1518389425543" duration="3004000" />
-      <workItem from="1518414689765" duration="436000" />
+      <workItem from="1518414689765" duration="497000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3440000" />
+    <option name="totallyTimeSpent" value="3501000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="20" y="43" width="1400" height="780" extended-state="0" />
@@ -268,14 +268,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/communication.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="2" lean-forward="false" selection-start-line="11" selection-start-column="2" selection-end-line="11" selection-end-column="2" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -286,12 +278,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="428">
-          <caret line="90" column="69" lean-forward="false" selection-start-line="90" selection-start-column="69" selection-end-line="90" selection-end-column="69" />
+        <state relative-caret-position="23">
+          <caret line="63" column="20" lean-forward="false" selection-start-line="63" selection-start-column="20" selection-end-line="63" selection-end-column="20" />
           <folding>
             <element signature="e#4568#4574#0" expanded="true" />
             <element signature="e#4719#4725#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/communication.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="46" lean-forward="false" selection-start-line="3" selection-start-column="46" selection-end-line="3" selection-end-column="46" />
+          <folding />
         </state>
       </provider>
     </entry>
