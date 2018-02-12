@@ -1,12 +1,53 @@
+function status(stat) {
+    if (stat === 'OPEN') {
+        if ($('#status').css('color', 'red')) {
+            $('#status').css('color', 'limegreen');
+        }
+    }
+
+    else {
+        if ($('#status').css('color', 'limegreen')) {
+            $('#status').css('color', 'red');
+        }
+    }
+}
+
 $(document).ready(
 
-    function () {
-        let connection = new WebSocket('wss://echo.websocket.org/');
+    function start () {
 
-        connection.onopen = () => { connection.send('Ping'); };
-        connection.onerror = error => { console.log('WebSocket Error: ' + error); };
-        connection.onmessage = e => { console.log('Server: ' + e.data); };
+        let servLoc = 'wss://echo.websocket.org/';
+
+        let connection = new WebSocket(servLoc);
+
+        connection.onopen = () => {
+            connection.send("Ping.");
+            status('OPEN');
+        };
+
+        connection.onerror = error => {
+            status('CLOSED');
+            console.log('WebSocket Error: ' + error);
+        };
+
+        connection.onmessage = e => {
+            console.log('Server: ' + e.data);
+            status('OPEN');
+        };
+
+        connection.onclose = () => {
+            status('CLOSED');
+            connection.send('Closed.');
+            setTimeout(() => {
+                console.log("Retrying...");
+                start();
+            }, 5000);
+        };
 
     }
 
 );
+
+// $("#refresh").on('click', () => {
+//
+// });

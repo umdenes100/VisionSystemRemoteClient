@@ -7,7 +7,7 @@ $(document).ready(
 
                 textarea.animate({
                     scrollTop: bottom
-                }, 500);
+                }, 200);
             }
         })
     }
