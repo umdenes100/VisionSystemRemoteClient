@@ -58,3 +58,7 @@ textarea {
     cursor: pointer;
     outline: inherit;
 }
+
+#stream {
+    display: block !important;
+}

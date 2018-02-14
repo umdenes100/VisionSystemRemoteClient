@@ -5,10 +5,12 @@ function status(stat) {
         }
     }
 
+    else if ($('#status').css('color', 'limegreen')) {
+        $('#status').css('color', 'red');
+    }
+
     else {
-        if ($('#status').css('color', 'limegreen')) {
-            $('#status').css('color', 'red');
-        }
+        $('#status').css('color', 'yellow');
     }
 }
 
@@ -16,7 +18,7 @@ $(document).ready(
 
     function start () {
 
-        let servLoc = 'wss://echo.websocket.org/';
+        let servLoc = 'ws://echo.websocket.org/';
 
         let connection = new WebSocket(servLoc);
 
