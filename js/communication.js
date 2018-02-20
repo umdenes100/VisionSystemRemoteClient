@@ -18,7 +18,7 @@ $(document).ready(
 
     function start () {
 
-        let servLoc = 'ws://echo.websocket.org/';
+        let servLoc = 'ws://localhost:8080';
 
         let connection = new WebSocket(servLoc);
 
@@ -35,6 +35,9 @@ $(document).ready(
         connection.onmessage = e => {
             console.log('Server: ' + e.data);
             status('OPEN');
+            mess = e.data;
+
+            $('#stream').attr('src', `data:image/jpeg;base64,${mess}`);
         };
 
         connection.onclose = () => {
