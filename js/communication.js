@@ -1,3 +1,7 @@
+function clear() {
+    $("#comms").val("");
+}
+
 function status(stat) {
     if (stat === 'OPEN') {
         if ($('#status').css('color', 'red')) {
@@ -16,40 +20,39 @@ function status(stat) {
 
 $(document).ready(
 
-    // function start () {
-    //
-    //     let servLoc = 'ws://192.168.1.2:8080/';
-    //
-    //     let connection = new WebSocket(servLoc);
-    //
-    //     connection.onopen = () => {
-    //         connection.send("Ping.");
-    //         status('OPEN');
-    //     };
-    //
-    //     connection.onerror = error => {
-    //         status('CLOSED');
-    //         console.log('WebSocket Error: ' + error);
-    //     };
-    //
-    //     connection.onmessage = e => {
-    //         // console.log('Server: ' + e.data);
-    //         status('OPEN');
-    //         mess = e.data;
-    //
-    //         $('#stream').attr('src', `data:image/jpeg;base64,${mess}`);
-    //     };
-    //
-    //     connection.onclose = () => {
-    //         status('CLOSED');
-    //         connection.send('Closed.');
-    //         setTimeout(() => {
-    //             console.log("Retrying...");
-    //             start();
-    //         }, 5000);
-    //     };
-    //
-    // }
+    function start () {
+
+        $("#clear").on('click', clear);
+
+        let servLoc = 'ws://192.168.1.2:9000/';
+
+        let connection = new WebSocket(servLoc);
+
+        connection.onopen = () => {
+            connection.send("Ping.");
+            status('OPEN');
+        };
+
+        connection.onerror = error => {
+            status('CLOSED');
+            console.log('WebSocket Error: ' + error);
+        };
+
+        connection.onmessage = e => {
+            console.log('Server: ' + e.data);
+            status('OPEN');
+        };
+
+        connection.onclose = () => {
+            status('CLOSED');
+            connection.send('Closed.');
+            setTimeout(() => {
+                console.log("Retrying...");
+                start();
+            }, 5000);
+        };
+
+    }
 
 );
 

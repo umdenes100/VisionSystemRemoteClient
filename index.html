@@ -9,10 +9,10 @@
         <link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css">
         <link rel="stylesheet" href="css/style.css">
 
-
         <script src="./bootstrap/js/jquery-3.1.1.slim.min.js"></script>
         <script src="./bootstrap/js/tether.min.js"></script>
         <script src="./bootstrap/js/bootstrap.min.js"></script>
+        <script src="./icons/fontawesome-all.js"></script>
 
         <script src="./js/communication.js"></script>
         <script src="./js/video_resize.js"></script>
@@ -63,15 +63,14 @@
 
         <div class="content top">
             <div class="row">
-                <div class="col-md-4 offset-md-1">
-                    <select class="custom-select custom-select-lg mb-3">
+                <div class="col-md-2 offset-md-1">
+                    <select class="custom-select custom-select-lg mb-4">
                         <option selected>ACMO</option>
                         <option value="1">Water We Doing?</option>
                         <option value="2">You're Fired</option>
                     </select>
 
                     <br>
-
                 </div>
 
             </div>
@@ -79,7 +78,10 @@
             <div class="row">
 
                 <div class="col-md-4 offset-md-1">
-                    <textarea id="comms" readonly>This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test.</textarea>
+                    <div class="textarea-container">
+                        <textarea id="comms" readonly>Babab</textarea>
+                        <button id="clear"><i class="fa fa-refresh" aria-hidden="true"></i></button>
+                    </div>
 
                     <div class="opts">
                         <input type="checkbox" id="debug"><label for="debug">&nbsp;Show debug messages.</label>
@@ -92,7 +94,7 @@
                 <div class="col-md-6">
 
                     <div id="drag-helper" class="embed-responsive embed-responsive-16by9 feed">
-                        <img id="stream" class="embed-responsive-item img-fluid" src="http://localhost:8080/">
+                        <img id="stream" class="embed-responsive-item img-fluid" src="http://192.168.1.2:8080/">
                     </div>
 
                 </div>
