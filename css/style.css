@@ -61,6 +61,11 @@ nav {
     border: 1px lightgrey;
 }
 
+.time {
+    text-align: right !important;
+    padding-right: 30px !important;
+}
+
 #status {
     color: red;
 }

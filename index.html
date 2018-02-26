@@ -64,10 +64,8 @@
         <div class="content top">
             <div class="row">
                 <div class="col-md-2 offset-md-1">
-                    <select class="custom-select custom-select-lg mb-4">
-                        <option selected>ACMO</option>
-                        <option value="1">Water We Doing?</option>
-                        <option value="2">You're Fired</option>
+                    <select id="ports" class="custom-select custom-select-lg mb-4">
+                        <option selected></option>
                     </select>
 
                     <br>
@@ -79,7 +77,7 @@
 
                 <div class="col-md-4 offset-md-1">
                     <div class="textarea-container">
-                        <textarea id="comms" readonly>This is a test. </textarea>
+                        <textarea id="comms" readonly></textarea>
                         <button id="clear"><i class="fas fa-sync-alt"></i></button>
                     </div>
 
@@ -90,7 +88,7 @@
                             <input type="checkbox" id="autoscroll"><label for="autoscroll">&nbsp;Autoscroll.</label>
                         </div>
 
-                        <div class="opts col-md-6">
+                        <div class="opts col-md-4 time">
                             <span id="timer_span">Timer: <span id="timer">04:31</span><br></span>
                             <span id="split_span">Split: <span id="split">02:20</span></span>
                         </div>

@@ -1,3 +1,49 @@
+function requestMessages() {
+
+}
+
+function parseData(data) {
+
+    switch(data['TYPE']) {
+        case "PORTLIST":
+
+            list = data["CONTENT"];
+
+            ports = $("#ports");
+            curr = ports.val();
+
+            ports.empty();
+            ports.append($("<option>", {
+                value : "",
+                text : ""
+            }));
+
+            for (let key in list) {
+                if (key !== list[key]) {
+                    ports.append($("<option>", {
+                        value : key,
+                        text : list[key]
+                    }));
+                }
+            }
+
+            if (curr in list) {
+                ports.val(curr);
+            } else {
+                ports.val("");
+            }
+
+            break;
+
+
+        case "MESSAGE":
+            break;
+
+        default:
+            console.log("Error.");
+    }
+}
+
 function clear() {
     $("#comms").val("");
 }
@@ -29,7 +75,7 @@ $(document).ready(
         let connection = new WebSocket(servLoc);
 
         connection.onopen = () => {
-            connection.send("Ping.");
+            // connection.send();
             status('OPEN');
         };
 
@@ -39,8 +85,16 @@ $(document).ready(
         };
 
         connection.onmessage = e => {
-            console.log('Server: ' + e.data);
+            // console.log('Server: ' + e.data);
+
             status('OPEN');
+
+            let data = JSON.parse(e.data);
+
+            // console.log(data);
+            connection.send("ttyUSB0");
+            // parseData(data);
+
         };
 
         connection.onclose = () => {
@@ -55,7 +109,3 @@ $(document).ready(
     }
 
 );
-
-// $("#refresh").on('click', () => {
-//
-// });
