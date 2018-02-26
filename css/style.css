@@ -8,6 +8,10 @@ nav {
     border-bottom: 1px solid lightgrey !important;
 }
 
+.row > div {
+    margin-bottom: 3% !important;
+}
+
 #logo {
     color: black;
     font-family: 'Oswald', sans-serif;
