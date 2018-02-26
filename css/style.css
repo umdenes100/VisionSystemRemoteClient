@@ -8,9 +8,9 @@ nav {
     border-bottom: 1px solid lightgrey !important;
 }
 
-.row > div {
-    margin-bottom: 3% !important;
-}
+/*.row > div {*/
+    /*margin-bottom: 3% !important;*/
+/*}*/
 
 #logo {
     color: black;
@@ -77,4 +77,9 @@ nav {
 
 #stream {
     display: block !important;
+}
+
+#split_span {
+    font-size: 14px !important;
+    color: #535353;
 }

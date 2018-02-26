@@ -9,7 +9,7 @@
         <link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css">
         <link rel="stylesheet" href="css/style.css">
 
-        <script src="./bootstrap/js/jquery-3.1.1.slim.min.js"></script>
+        <script src="./bootstrap/js/jquery-3.3.1.min.js"></script>
         <script src="./bootstrap/js/tether.min.js"></script>
         <script src="./bootstrap/js/bootstrap.min.js"></script>
         <script src="./icons/fontawesome-all.js"></script>
@@ -79,14 +79,22 @@
 
                 <div class="col-md-4 offset-md-1">
                     <div class="textarea-container">
-                        <textarea id="comms" readonly>Babab</textarea>
+                        <textarea id="comms" readonly>This is a test. </textarea>
                         <button id="clear"><i class="fas fa-sync-alt"></i></button>
                     </div>
 
-                    <div class="opts">
-                        <input type="checkbox" id="debug"><label for="debug">&nbsp;Show debug messages.</label>
-                        <br>
-                        <input type="checkbox" id="autoscroll"><label for="autoscroll">&nbsp;Autoscroll.</label>
+                    <div class="row">
+                        <div class="opts col-md-6">
+                            <input type="checkbox" id="debug"><label for="debug">&nbsp;Show debug messages.</label>
+                            <br>
+                            <input type="checkbox" id="autoscroll"><label for="autoscroll">&nbsp;Autoscroll.</label>
+                        </div>
+
+                        <div class="opts col-md-6">
+                            <span id="timer_span">Timer: <span id="timer">04:31</span><br></span>
+                            <span id="split_span">Split: <span id="split">02:20</span></span>
+                        </div>
+
                     </div>
 
                 </div>
