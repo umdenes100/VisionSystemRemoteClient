@@ -1,5 +1,5 @@
-function requestMessages() {
-
+function requestMessages(connection, port) {
+    connection.send(port);
 }
 
 function parseData(data) {
@@ -44,26 +44,6 @@ function parseData(data) {
     }
 }
 
-function clear() {
-    $("#comms").val("");
-}
-
-function status(stat) {
-    if (stat === 'OPEN') {
-        if ($('#status').css('color', 'red')) {
-            $('#status').css('color', 'limegreen');
-        }
-    }
-
-    else if ($('#status').css('color', 'limegreen')) {
-        $('#status').css('color', 'red');
-    }
-
-    else {
-        $('#status').css('color', 'yellow');
-    }
-}
-
 $(document).ready(
 
     function start () {
@@ -75,25 +55,18 @@ $(document).ready(
         let connection = new WebSocket(servLoc);
 
         connection.onopen = () => {
-            // connection.send();
             status('OPEN');
         };
 
         connection.onerror = error => {
             status('CLOSED');
-            console.log('WebSocket Error: ' + error);
+            console.log('WebSocket Error.');
         };
 
-        connection.onmessage = e => {
-            // console.log('Server: ' + e.data);
-
+        connection.onmessage = message => {
             status('OPEN');
-
-            let data = JSON.parse(e.data);
-
-            // console.log(data);
-            connection.send("ttyUSB0");
-            // parseData(data);
+            let data = JSON.parse(message.data);
+            parseData(data);
 
         };
 
@@ -105,6 +78,14 @@ $(document).ready(
                 start();
             }, 5000);
         };
+
+        $('#ports').on('change', () => {
+            let val = $(this).val();
+
+            if (val) {
+                requestMessages(connection, val);
+            }
+        });
 
     }
 
