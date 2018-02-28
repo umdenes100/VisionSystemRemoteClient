@@ -1,3 +1,27 @@
+let messages = [];
+
+function clear() {
+    messages = [];
+    $("#comms").val("");
+}
+
+function updateComms() {
+
+    let comm = $("#comms");
+
+    let comms = "";
+
+    for (let mess in messages) {
+        let print = (mess["M_TYPE"] === "COMMAND") || (mess["M_TYPE"] === "DEBUG" && $('#debug').is(':checked'));
+        if (print) {
+            comms += mess["CONTENT"];
+        }
+    }
+
+    comm.val(comms);
+
+}
+
 function parseData(data) {
 
     switch(data['TYPE']) {
@@ -36,22 +60,8 @@ function parseData(data) {
 
             let mess = data["CONTENT"];
 
-            switch(mess["M_TYPE"]) {
-
-                case "DEBUG":
-
-                    let comm = $("#comms");
-
-                    comm.val(comm.val() + mess["CONTENT"] + "\n");
-                    break;
-
-                case "COMMAND":
-                    console.log("Command message");
-                    break;
-
-                default:
-                    console.log("What is happening?");
-            }
+            messages.push(mess);
+            updateComms();
 
             break;
 
@@ -63,8 +73,6 @@ function parseData(data) {
 $(document).ready(
 
     function start () {
-
-        $("#clear").on('click', clear);
 
         let servLoc = 'ws://192.168.1.2:9000/';
 
@@ -102,6 +110,10 @@ $(document).ready(
                 connection.send(val);
             }
         });
+
+        $("#debug").on('change', updateComms);
+
+        $("#clear").on('click', clear);
 
     }
 

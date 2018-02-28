@@ -1,7 +1,3 @@
-function clear() {
-    $("#comms").val("");
-}
-
 function status(curr) {
 
     let stat = $('#status');
@@ -33,5 +29,6 @@ function autoscroll() {
 $(document).ready(
     function () {
         $("#autoscroll").on("click", autoscroll);
+        $("#comms").on('change', autoscroll);
     }
 );
