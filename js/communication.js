@@ -12,11 +12,14 @@ function updateComms() {
     let comms = "";
 
     for (let mess in messages) {
-        let print = (mess["M_TYPE"] === "COMMAND") || (mess["M_TYPE"] === "DEBUG" && $('#debug').is(':checked'));
+        let print = (messages[mess]["M_TYPE"] === "COMMAND") || (messages[mess]["M_TYPE"] === "DEBUG" && $('#debug').is(':checked'));
+
         if (print) {
-            comms += mess["CONTENT"];
+            comms += mess["CONTENT"] + "\n";
         }
     }
+
+    // console.log(comms);
 
     comm.val(comms);
 
@@ -57,7 +60,6 @@ function parseData(data) {
 
 
         case "MESSAGE":
-
             let mess = data["CONTENT"];
 
             messages.push(mess);
@@ -105,6 +107,9 @@ $(document).ready(
         };
 
         $('#ports').on('change', () => {
+
+            clear();
+
             let val = $('#ports').val();
             if (val) {
                 connection.send(val);
