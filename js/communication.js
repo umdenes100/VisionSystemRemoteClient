@@ -1,7 +1,3 @@
-function requestMessages(connection, port) {
-    connection.send(port);
-}
-
 function parseData(data) {
 
     switch(data['TYPE']) {
@@ -37,6 +33,26 @@ function parseData(data) {
 
 
         case "MESSAGE":
+
+            let mess = data["CONTENT"];
+
+            switch(mess["M_TYPE"]) {
+
+                case "DEBUG":
+
+                    let comm = $("#comms");
+
+                    comm.val(comm.val() + mess["CONTENT"] + "\n");
+                    break;
+
+                case "COMMAND":
+                    console.log("Command message");
+                    break;
+
+                default:
+                    console.log("What is happening?");
+            }
+
             break;
 
         default:
@@ -66,6 +82,7 @@ $(document).ready(
         connection.onmessage = message => {
             status('OPEN');
             let data = JSON.parse(message.data);
+            console.log(data);
             parseData(data);
 
         };
@@ -80,10 +97,9 @@ $(document).ready(
         };
 
         $('#ports').on('change', () => {
-            let val = $(this).val();
-
+            let val = $('#ports').val();
             if (val) {
-                requestMessages(connection, val);
+                connection.send(val);
             }
         });
 
