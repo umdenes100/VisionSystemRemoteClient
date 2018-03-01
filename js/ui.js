@@ -29,6 +29,5 @@ function autoscroll() {
 $(document).ready(
     function () {
         $("#autoscroll").on("click", autoscroll);
-        $("#comms").on('change', autoscroll);
     }
 );

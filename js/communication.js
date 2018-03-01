@@ -5,23 +5,29 @@ function clear() {
     $("#comms").val("");
 }
 
-function updateComms() {
+function updateComms(completely) {
 
     let comm = $("#comms");
 
-    let comms = "";
+    if (completely) {
 
-    for (let mess in messages) {
-        let print = (messages[mess]["M_TYPE"] === "COMMAND") || (messages[mess]["M_TYPE"] === "DEBUG" && $('#debug').is(':checked'));
+        let comms = "";
 
-        if (print) {
-            comms += mess["CONTENT"] + "\n";
+        for (let mess in messages) {
+            let valid = (messages[mess]["M_TYPE"] === "COMMAND") || (messages[mess]["M_TYPE"] === "DEBUG" && $('#debug').is(':checked'));
+
+            if (valid) {
+                comms += messages[mess]["CONTENT"];
+            }
         }
+
+        comm.val(comms);
+
+    } else {
+        comm.val(comm.val() + messages[messages.length - 1]["CONTENT"]);
     }
 
-    // console.log(comms);
-
-    comm.val(comms);
+    autoscroll();
 
 }
 
@@ -63,7 +69,7 @@ function parseData(data) {
             let mess = data["CONTENT"];
 
             messages.push(mess);
-            updateComms();
+            updateComms(false);
 
             break;
 
@@ -116,7 +122,7 @@ $(document).ready(
             }
         });
 
-        $("#debug").on('change', updateComms);
+        $("#debug").on('change', () => { updateComms(true) });
 
         $("#clear").on('click', clear);
 
