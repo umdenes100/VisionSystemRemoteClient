@@ -32,10 +32,6 @@ nav {
     border-bottom: 1px solid lightgrey !important;
 }
 
-/*.row > div {*/
-    /*margin-bottom: 3% !important;*/
-/*}*/
-
 #logo {
     color: black;
     font-family: 'Oswald', sans-serif;
@@ -57,11 +53,11 @@ nav {
     /*font-size: 16px;*/
 /*}*/
 
-
 .textarea-container {
     position:relative;
     height: 80%;
     width: 80%;
+    margin-bottom: 2%;
 }
 
 .textarea-container textarea {
@@ -75,6 +71,10 @@ nav {
     position: absolute;
     top: 10px;
     right: 10px;
+}
+
+.opts {
+    margin-bottom: 60% !important;
 }
 
 .top {

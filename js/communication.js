@@ -82,7 +82,8 @@ $(document).ready(
 
     function start () {
 
-        let servLoc = 'ws://192.168.1.2:9000/';
+        // let servLoc = 'ws://192.168.1.2:9000/';
+        let servLoc = 'ws://localhost:9000';
 
         let connection = new WebSocket(servLoc);
 
@@ -97,9 +98,9 @@ $(document).ready(
 
         connection.onmessage = message => {
             status('OPEN');
-            let data = JSON.parse(message.data);
-            console.log(data);
-            parseData(data);
+            // let data = JSON.parse(message.data);
+            console.log(message.data);
+            // parseData(data);
 
         };
 
