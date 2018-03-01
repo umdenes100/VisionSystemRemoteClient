@@ -3,70 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="d7580b17-a6ef-494e-9b39-a25352679d14" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/bootstrap/css/bootstrap-grid.css" afterPath="$PROJECT_DIR$/misc/bootstrap/css/bootstrap-grid.css" />
-      <change beforePath="$PROJECT_DIR$/bootstrap/css/bootstrap-grid.css.map" afterPath="$PROJECT_DIR$/misc/bootstrap/css/bootstrap-grid.css.map" />
-      <change beforePath="$PROJECT_DIR$/bootstrap/css/bootstrap-grid.min.css" afterPath="$PROJECT_DIR$/misc/bootstrap/css/bootstrap-grid.min.css" />
-      <change beforePath="$PROJECT_DIR$/bootstrap/css/bootstrap-grid.min.css.map" afterPath="$PROJECT_DIR$/misc/bootstrap/css/bootstrap-grid.min.css.map" />
-      <change beforePath="$PROJECT_DIR$/bootstrap/css/bootstrap-reboot.css" afterPath="$PROJECT_DIR$/misc/bootstrap/css/bootstrap-reboot.css" />
-      <change beforePath="$PROJECT_DIR$/bootstrap/css/bootstrap-reboot.css.map" afterPath="$PROJECT_DIR$/misc/bootstrap/css/bootstrap-reboot.css.map" />
-      <change beforePath="$PROJECT_DIR$/bootstrap/css/bootstrap-reboot.min.css" afterPath="$PROJECT_DIR$/misc/bootstrap/css/bootstrap-reboot.min.css" />
-      <change beforePath="$PROJECT_DIR$/bootstrap/css/bootstrap-reboot.min.css.map" afterPath="$PROJECT_DIR$/misc/bootstrap/css/bootstrap-reboot.min.css.map" />
-      <change beforePath="$PROJECT_DIR$/bootstrap/css/bootstrap.css" afterPath="$PROJECT_DIR$/misc/bootstrap/css/bootstrap.css" />
-      <change beforePath="$PROJECT_DIR$/bootstrap/css/bootstrap.css.map" afterPath="$PROJECT_DIR$/misc/bootstrap/css/bootstrap.css.map" />
-      <change beforePath="$PROJECT_DIR$/bootstrap/css/bootstrap.min.css" afterPath="$PROJECT_DIR$/misc/bootstrap/css/bootstrap.min.css" />
-      <change beforePath="$PROJECT_DIR$/bootstrap/css/bootstrap.min.css.map" afterPath="$PROJECT_DIR$/misc/bootstrap/css/bootstrap.min.css.map" />
-      <change beforePath="$PROJECT_DIR$/bootstrap/js/bootstrap.bundle.js" afterPath="$PROJECT_DIR$/misc/bootstrap/js/bootstrap.bundle.js" />
-      <change beforePath="$PROJECT_DIR$/bootstrap/js/bootstrap.bundle.js.map" afterPath="$PROJECT_DIR$/misc/bootstrap/js/bootstrap.bundle.js.map" />
-      <change beforePath="$PROJECT_DIR$/bootstrap/js/bootstrap.bundle.min.js" afterPath="$PROJECT_DIR$/misc/bootstrap/js/bootstrap.bundle.min.js" />
-      <change beforePath="$PROJECT_DIR$/bootstrap/js/bootstrap.bundle.min.js.map" afterPath="$PROJECT_DIR$/misc/bootstrap/js/bootstrap.bundle.min.js.map" />
-      <change beforePath="$PROJECT_DIR$/bootstrap/js/bootstrap.js" afterPath="$PROJECT_DIR$/misc/bootstrap/js/bootstrap.js" />
-      <change beforePath="$PROJECT_DIR$/bootstrap/js/bootstrap.js.map" afterPath="$PROJECT_DIR$/misc/bootstrap/js/bootstrap.js.map" />
-      <change beforePath="$PROJECT_DIR$/bootstrap/js/bootstrap.min.js" afterPath="$PROJECT_DIR$/misc/bootstrap/js/bootstrap.min.js" />
-      <change beforePath="$PROJECT_DIR$/bootstrap/js/bootstrap.min.js.map" afterPath="$PROJECT_DIR$/misc/bootstrap/js/bootstrap.min.js.map" />
-      <change beforePath="$PROJECT_DIR$/bootstrap/js/jquery-3.1.1.slim.min.js" afterPath="$PROJECT_DIR$/misc/bootstrap/js/jquery-3.1.1.slim.min.js" />
-      <change beforePath="$PROJECT_DIR$/bootstrap/js/jquery-3.3.1.min.js" afterPath="$PROJECT_DIR$/misc/bootstrap/js/jquery-3.3.1.min.js" />
-      <change beforePath="$PROJECT_DIR$/bootstrap/js/tether.min.js" afterPath="$PROJECT_DIR$/misc/bootstrap/js/tether.min.js" />
       <change beforePath="$PROJECT_DIR$/css/style.css" afterPath="$PROJECT_DIR$/css/style.css" />
-      <change beforePath="$PROJECT_DIR$/fonts/Kanit/Kanit-Black.ttf" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/fonts/Kanit/Kanit-BlackItalic.ttf" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/fonts/Kanit/Kanit-Bold.ttf" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/fonts/Kanit/Kanit-BoldItalic.ttf" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/fonts/Kanit/Kanit-ExtraBold.ttf" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/fonts/Kanit/Kanit-ExtraBoldItalic.ttf" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/fonts/Kanit/Kanit-ExtraLight.ttf" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/fonts/Kanit/Kanit-ExtraLightItalic.ttf" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/fonts/Kanit/Kanit-Italic.ttf" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/fonts/Kanit/Kanit-Light.ttf" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/fonts/Kanit/Kanit-LightItalic.ttf" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/fonts/Kanit/Kanit-Medium.ttf" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/fonts/Kanit/Kanit-MediumItalic.ttf" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/fonts/Kanit/Kanit-Regular.ttf" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/fonts/Kanit/Kanit-SemiBold.ttf" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/fonts/Kanit/Kanit-SemiBoldItalic.ttf" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/fonts/Kanit/Kanit-Thin.ttf" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/fonts/Kanit/Kanit-ThinItalic.ttf" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/fonts/Kanit/OFL.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/fonts/Open_Sans/LICENSE.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/fonts/Open_Sans/OpenSans-Bold.ttf" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/fonts/Open_Sans/OpenSans-BoldItalic.ttf" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/fonts/Open_Sans/OpenSans-ExtraBold.ttf" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/fonts/Open_Sans/OpenSans-ExtraBoldItalic.ttf" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/fonts/Open_Sans/OpenSans-Italic.ttf" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/fonts/Open_Sans/OpenSans-Light.ttf" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/fonts/Open_Sans/OpenSans-LightItalic.ttf" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/fonts/Open_Sans/OpenSans-Regular.ttf" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/fonts/Open_Sans/OpenSans-SemiBold.ttf" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/fonts/Open_Sans/OpenSans-SemiBoldItalic.ttf" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/fonts/Oswald/OFL.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/fonts/Oswald/Oswald-Bold.ttf" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/fonts/Oswald/Oswald-ExtraLight.ttf" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/fonts/Oswald/Oswald-Light.ttf" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/fonts/Oswald/Oswald-Medium.ttf" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/fonts/Oswald/Oswald-Regular.ttf" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/fonts/Oswald/Oswald-SemiBold.ttf" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/fonts/PT_Mono/OFL.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/fonts/PT_Mono/PTM55FT.ttf" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/icons/fontawesome-all.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/img/icon.png" afterPath="" />
       <change beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -84,11 +22,11 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="13" column="44" lean-forward="false" selection-start-line="13" selection-start-column="44" selection-end-line="13" selection-end-column="44" />
+            <state relative-caret-position="215">
+              <caret line="56" column="53" lean-forward="false" selection-start-line="56" selection-start-column="53" selection-end-line="56" selection-end-column="53" />
               <folding>
-                <element signature="e#3561#3567#0" expanded="true" />
-                <element signature="e#3720#3726#0" expanded="true" />
+                <element signature="e#3411#3417#0" expanded="true" />
+                <element signature="e#3570#3576#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -97,7 +35,7 @@
       <file leaf-file-name="communication.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/communication.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1530">
+            <state relative-caret-position="303">
               <caret line="102" column="30" lean-forward="false" selection-start-line="102" selection-start-column="30" selection-end-line="102" selection-end-column="30" />
               <folding />
             </state>
@@ -117,8 +55,8 @@
       <file leaf-file-name="style.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="17" column="33" lean-forward="false" selection-start-line="17" selection-start-column="33" selection-end-line="17" selection-end-column="33" />
+            <state relative-caret-position="463">
+              <caret line="101" column="19" lean-forward="true" selection-start-line="101" selection-start-column="19" selection-end-line="101" selection-end-column="19" />
               <folding />
             </state>
           </provider>
@@ -139,6 +77,7 @@
       <find>clear</find>
       <find>update</find>
       <find>updatecomm</find>
+      <find>refresh</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -198,11 +137,6 @@
             <path>
               <item name="VisionSystemRemoteClient" type="b2602c69:ProjectViewProjectNode" />
               <item name="VisionSystemRemoteClient" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="VisionSystemRemoteClient" type="b2602c69:ProjectViewProjectNode" />
-              <item name="VisionSystemRemoteClient" type="462c0819:PsiDirectoryNode" />
-              <item name="img" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -268,12 +202,12 @@
       <workItem from="1519832440917" duration="2504000" />
       <workItem from="1519845714202" duration="2385000" />
       <workItem from="1519921603063" duration="1572000" />
-      <workItem from="1519927783959" duration="252000" />
+      <workItem from="1519927783959" duration="851000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="34880000" />
+    <option name="totallyTimeSpent" value="35479000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="20" y="43" width="1400" height="780" extended-state="0" />
@@ -324,8 +258,8 @@
         <state relative-caret-position="1260">
           <caret line="84" column="49" lean-forward="false" selection-start-line="84" selection-start-column="49" selection-end-line="84" selection-end-column="49" />
           <folding>
-            <element signature="e#3561#3567#0" expanded="true" />
-            <element signature="e#3720#3726#0" expanded="true" />
+            <element signature="e#3411#3417#0" expanded="true" />
+            <element signature="e#3570#3576#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -353,8 +287,8 @@
         <state relative-caret-position="1260">
           <caret line="84" column="49" lean-forward="false" selection-start-line="84" selection-start-column="49" selection-end-line="84" selection-end-column="49" />
           <folding>
-            <element signature="e#3561#3567#0" expanded="true" />
-            <element signature="e#3720#3726#0" expanded="true" />
+            <element signature="e#3411#3417#0" expanded="true" />
+            <element signature="e#3570#3576#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -382,8 +316,8 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#3561#3567#0" expanded="true" />
-            <element signature="e#3720#3726#0" expanded="true" />
+            <element signature="e#3411#3417#0" expanded="true" />
+            <element signature="e#3570#3576#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -411,8 +345,8 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#3561#3567#0" expanded="true" />
-            <element signature="e#3720#3726#0" expanded="true" />
+            <element signature="e#3411#3417#0" expanded="true" />
+            <element signature="e#3570#3576#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -440,8 +374,8 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#3561#3567#0" expanded="true" />
-            <element signature="e#3720#3726#0" expanded="true" />
+            <element signature="e#3411#3417#0" expanded="true" />
+            <element signature="e#3570#3576#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -468,8 +402,8 @@
         <state relative-caret-position="945">
           <caret line="63" column="36" lean-forward="false" selection-start-line="63" selection-start-column="36" selection-end-line="63" selection-end-column="36" />
           <folding>
-            <element signature="e#3561#3567#0" expanded="true" />
-            <element signature="e#3720#3726#0" expanded="true" />
+            <element signature="e#3411#3417#0" expanded="true" />
+            <element signature="e#3570#3576#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -496,8 +430,8 @@
         <state relative-caret-position="1020">
           <caret line="68" column="0" lean-forward="true" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
           <folding>
-            <element signature="e#3561#3567#0" expanded="true" />
-            <element signature="e#3720#3726#0" expanded="true" />
+            <element signature="e#3411#3417#0" expanded="true" />
+            <element signature="e#3570#3576#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -524,8 +458,8 @@
         <state relative-caret-position="1350">
           <caret line="90" column="68" lean-forward="false" selection-start-line="90" selection-start-column="68" selection-end-line="90" selection-end-column="68" />
           <folding>
-            <element signature="e#3561#3567#0" expanded="true" />
-            <element signature="e#3720#3726#0" expanded="true" />
+            <element signature="e#3411#3417#0" expanded="true" />
+            <element signature="e#3570#3576#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -552,8 +486,8 @@
         <state relative-caret-position="15">
           <caret line="1" column="16" lean-forward="false" selection-start-line="1" selection-start-column="16" selection-end-line="1" selection-end-column="16" />
           <folding>
-            <element signature="e#3561#3567#0" expanded="true" />
-            <element signature="e#3720#3726#0" expanded="true" />
+            <element signature="e#3411#3417#0" expanded="true" />
+            <element signature="e#3570#3576#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -597,14 +531,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/communication.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1530">
-          <caret line="102" column="30" lean-forward="false" selection-start-line="102" selection-start-column="30" selection-end-line="102" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/ui.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="450">
@@ -613,21 +539,29 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/js/communication.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="303">
+          <caret line="102" column="30" lean-forward="false" selection-start-line="102" selection-start-column="30" selection-end-line="102" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="44" lean-forward="false" selection-start-line="13" selection-start-column="44" selection-end-line="13" selection-end-column="44" />
+        <state relative-caret-position="215">
+          <caret line="56" column="53" lean-forward="false" selection-start-line="56" selection-start-column="53" selection-end-line="56" selection-end-column="53" />
           <folding>
-            <element signature="e#3561#3567#0" expanded="true" />
-            <element signature="e#3720#3726#0" expanded="true" />
+            <element signature="e#3411#3417#0" expanded="true" />
+            <element signature="e#3570#3576#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="33" lean-forward="false" selection-start-line="17" selection-start-column="33" selection-end-line="17" selection-end-column="33" />
+        <state relative-caret-position="463">
+          <caret line="101" column="19" lean-forward="true" selection-start-line="101" selection-start-column="19" selection-end-line="101" selection-end-column="19" />
           <folding />
         </state>
       </provider>
