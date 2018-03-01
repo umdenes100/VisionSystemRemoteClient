@@ -3,24 +3,24 @@
 
 @font-face {
     font-family: "Kanit";
-    src: url("../fonts/Kanit/Kanit-Regular.ttf") format("woff"),
-         url("../fonts/Kanit/Kanit-Italic.ttf") format("woff"),
-         url("../fonts/Kanit/Kanit-Medium.ttf") format("woff");
+    src: url("./fonts/Kanit/Kanit-Regular.ttf") format("woff"),
+         url("./fonts/Kanit/Kanit-Italic.ttf") format("woff"),
+         url("./fonts/Kanit/Kanit-Medium.ttf") format("woff");
 }
 
 @font-face {
     font-family: "Open Sans";
-    src: url("../fonts/Open_Sans/OpenSans-Light.ttf") format("woff");
+    src: url("./fonts/Open_Sans/OpenSans-Light.ttf") format("woff");
 }
 
 @font-face {
     font-family: "Oswald";
-    src: url("../fonts/Oswald/Oswald-Bold.ttf") format("woff");
+    src: url("./fonts/Oswald/Oswald-Bold.ttf") format("woff");
 }
 
 @font-face {
     font-family: "PT Mono";
-    src: url("../fonts/PT_Mono/PTM55FT.ttf") format("woff");
+    src: url("./fonts/PT_Mono/PTM55FT.ttf") format("woff");
 }
 
 
