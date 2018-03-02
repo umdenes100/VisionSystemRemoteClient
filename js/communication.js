@@ -14,7 +14,7 @@ function updateComms(completely) {
         let comms = "";
 
         for (let mess in messages) {
-            let valid = (messages[mess]["M_TYPE"] === "COMMAND") || ($('#debug').is(':checked') && messages[mess]["M_TYPE"] === "DEBUG");
+            let valid = (messages[mess]["M_TYPE"] === "MISSION") || ($('#debug').is(':checked') && messages[mess]["M_TYPE"] === "DEBUG");
 
             if (valid) {
                 comms += messages[mess]["CONTENT"];
@@ -25,7 +25,7 @@ function updateComms(completely) {
 
     } else {
 
-        let valid = (messages[messages.length - 1]["M_TYPE"] === "COMMAND") || ($('#debug').is(':checked') && messages[messages.length - 1]["M_TYPE"] === "DEBUG");
+        let valid = (messages[messages.length - 1]["M_TYPE"] === "MISSION") || ($('#debug').is(':checked') && messages[messages.length - 1]["M_TYPE"] === "DEBUG");
 
         if (valid) {
             comm.val(comm.val() + messages[messages.length - 1]["CONTENT"]);
