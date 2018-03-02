@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d7580b17-a6ef-494e-9b39-a25352679d14" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/css/style.css" afterPath="$PROJECT_DIR$/css/style.css" />
-      <change beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
-      <change beforePath="$PROJECT_DIR$/js/communication.js" afterPath="$PROJECT_DIR$/js/communication.js" />
-    </list>
+    <list default="true" id="d7580b17-a6ef-494e-9b39-a25352679d14" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -19,11 +14,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="303">
-              <caret line="91" column="32" lean-forward="false" selection-start-line="91" selection-start-column="32" selection-end-line="91" selection-end-column="32" />
+            <state relative-caret-position="363">
+              <caret line="95" column="51" lean-forward="true" selection-start-line="95" selection-start-column="51" selection-end-line="95" selection-end-column="51" />
               <folding>
                 <element signature="e#4711#4717#0" expanded="true" />
                 <element signature="e#4717#4723#0" expanded="true" />
@@ -50,11 +45,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="communication.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="communication.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/communication.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="419">
-              <caret line="86" column="0" lean-forward="true" selection-start-line="86" selection-start-column="0" selection-end-line="87" selection-end-column="44" />
+            <state relative-caret-position="1050">
+              <caret line="70" column="26" lean-forward="true" selection-start-line="70" selection-start-column="26" selection-end-line="70" selection-end-column="26" />
               <folding />
             </state>
           </provider>
@@ -224,12 +219,12 @@
       <workItem from="1519845714202" duration="2385000" />
       <workItem from="1519921603063" duration="1572000" />
       <workItem from="1519927783959" duration="5362000" />
-      <workItem from="1520013286079" duration="3804000" />
+      <workItem from="1520013286079" duration="3976000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="43794000" />
+    <option name="totallyTimeSpent" value="43966000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="20" y="43" width="1400" height="780" extended-state="0" />
@@ -745,10 +740,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/js/communication.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1050">
+          <caret line="70" column="26" lean-forward="true" selection-start-line="70" selection-start-column="26" selection-end-line="70" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="303">
-          <caret line="91" column="32" lean-forward="false" selection-start-line="91" selection-start-column="32" selection-end-line="91" selection-end-column="32" />
+        <state relative-caret-position="363">
+          <caret line="95" column="51" lean-forward="true" selection-start-line="95" selection-start-column="51" selection-end-line="95" selection-end-column="51" />
           <folding>
             <element signature="e#4711#4717#0" expanded="true" />
             <element signature="e#4717#4723#0" expanded="true" />
@@ -771,14 +774,6 @@
             <element signature="e#5433#5439#0" expanded="true" />
             <element signature="e#5600#5606#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/communication.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="419">
-          <caret line="86" column="0" lean-forward="true" selection-start-line="86" selection-start-column="0" selection-end-line="87" selection-end-column="44" />
-          <folding />
         </state>
       </provider>
     </entry>
