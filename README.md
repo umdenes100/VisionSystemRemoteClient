@@ -17,11 +17,17 @@ Content is as follows -
 
 1. PORTLIST -
 
-Mapping of internal port name to team name.
+Mapping of internal port name to a JSON object that contains team name and mission name.
 
 {
-    "ACMO": "The Japandroids",
-    "TTYO": "Water is Lit",
+    "ACMO": {
+                "NAME": "The Japandroids",
+                "MISSION": "CHEMICAL"
+            },
+    "TTYO": {
+                "NAME": "Water is Lit",
+                "MISSION": "BLACK BOX"
+            },
     ...
 }
 
@@ -36,7 +42,6 @@ Contains a JSON object of the format -
 
 {
     "M_TYPE": "MISSION",
-    "CONTENT_TYPE": ""
     "CONTENT": ""
 }
 

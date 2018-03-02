@@ -16,13 +16,13 @@ function status(curr) {
 }
 
 function autoscroll() {
-    if($(this).is(":checked")) {
+    if($("#autoscroll").is(":checked")) {
         let textarea = $("#comms");
         let bottom = textarea.prop('scrollHeight') - textarea.height();
 
         textarea.animate({
             scrollTop: bottom
-        }, 200);
+        }, 0);
     }
 }
 

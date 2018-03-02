@@ -14,7 +14,7 @@ function updateComms(completely) {
         let comms = "";
 
         for (let mess in messages) {
-            let valid = (messages[mess]["M_TYPE"] === "COMMAND") || (messages[mess]["M_TYPE"] === "DEBUG" && $('#debug').is(':checked'));
+            let valid = (messages[mess]["M_TYPE"] === "COMMAND") || ($('#debug').is(':checked') && messages[mess]["M_TYPE"] === "DEBUG");
 
             if (valid) {
                 comms += messages[mess]["CONTENT"];
@@ -24,7 +24,13 @@ function updateComms(completely) {
         comm.val(comms);
 
     } else {
-        comm.val(comm.val() + messages[messages.length - 1]["CONTENT"]);
+
+        let valid = (messages[messages.length - 1]["M_TYPE"] === "COMMAND") || ($('#debug').is(':checked') && messages[messages.length - 1]["M_TYPE"] === "DEBUG");
+
+        if (valid) {
+            comm.val(comm.val() + messages[messages.length - 1]["CONTENT"]);
+        }
+
     }
 
     autoscroll();
@@ -82,8 +88,8 @@ $(document).ready(
 
     function start () {
 
-        // let servLoc = 'ws://192.168.1.2:9000/';
-        let servLoc = 'ws://localhost:9000';
+        let servLoc = 'ws://192.168.1.2:9000/';
+        // let servLoc = 'ws://localhost:9000';
 
         let connection = new WebSocket(servLoc);
 
@@ -98,9 +104,9 @@ $(document).ready(
 
         connection.onmessage = message => {
             status('OPEN');
-            // let data = JSON.parse(message.data);
-            console.log(message.data);
-            // parseData(data);
+            let data = JSON.parse(message.data);
+            // console.log(message.data);
+            parseData(data);
 
         };
 
@@ -118,12 +124,10 @@ $(document).ready(
             clear();
 
             let val = $('#ports').val();
-            if (val) {
-                connection.send(val);
-            }
+            connection.send(val);
         });
 
-        $("#debug").on('change', () => { updateComms(true) });
+        $("#debug").on('click', () => { updateComms(true) });
 
         $("#clear").on('click', clear);
 
