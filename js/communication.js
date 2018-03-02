@@ -1,4 +1,33 @@
 let messages = [];
+let portList = {};
+
+const ENUM2MISSION = {
+    0: "BLACK_BOX",
+    1: "CHEMICAL",
+    2: "DEBRIS",
+    3: "FIRE",
+    4: "WATER",
+    5: ""
+};
+
+const MISSION2ICON = {
+    "BLACK_BOX": '<i class="fas miss fa-cube"></i>',
+    "CHEMICAL": '<i class="fas miss fa-flask"></i>',
+    "DEBRIS": '<i class="fas miss fa-truck"></i>',
+    "FIRE": '<i class="fas miss fa-fire"></i>',
+    "WATER": '<i class="fas miss fa-tint"></i>',
+    "": '<i></i>'
+};
+
+function updateIcon() {
+    let teamName = $("#ports option:selected").text();
+
+    for (let key in portList) {
+        if (portList[key]["NAME"] === teamName) {
+            $("#mission_icon").html(MISSION2ICON[ENUM2MISSION[portList[key]["MISSION"]]]);
+        }
+    }
+}
 
 function clear() {
     messages = [];
@@ -42,7 +71,7 @@ function parseData(data) {
     switch(data['TYPE']) {
         case "PORTLIST":
 
-            list = data["CONTENT"];
+            portList = data["CONTENT"];
 
             ports = $("#ports");
             curr = ports.val();
@@ -53,20 +82,23 @@ function parseData(data) {
                 text : ""
             }));
 
-            for (let key in list) {
-                if (key !== list[key]) {
+            for (let key in portList) {
+                if (key !== portList[key]["NAME"]) {
+
                     ports.append($("<option>", {
                         value : key,
-                        text : list[key]
+                        text : portList[key]["NAME"]
                     }));
                 }
             }
 
-            if (curr in list) {
+            if (curr in portList) {
                 ports.val(curr);
             } else {
                 ports.val("");
             }
+
+            updateIcon();
 
             break;
 
@@ -105,7 +137,6 @@ $(document).ready(
         connection.onmessage = message => {
             status('OPEN');
             let data = JSON.parse(message.data);
-            // console.log(message.data);
             parseData(data);
 
         };
@@ -125,6 +156,8 @@ $(document).ready(
 
             let val = $('#ports').val();
             connection.send(val);
+
+            updateIcon();
         });
 
         $("#debug").on('click', () => { updateComms(true) });

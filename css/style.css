@@ -32,6 +32,19 @@ nav {
     border-bottom: 1px solid lightgrey !important;
 }
 
+.miss {
+    font-size: 24px !important;
+    margin-bottom: 5px !important;
+}
+
+.no-break {
+    white-space: nowrap !important;
+}
+
+/*#mission_icon {*/
+    /*text-align: right !important;*/
+/*}*/
+
 #logo {
     color: black;
     font-family: 'Oswald', sans-serif;
