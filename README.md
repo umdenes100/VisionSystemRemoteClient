@@ -42,6 +42,7 @@ Contains a JSON object of the format -
 
 {
     "M_TYPE": "MISSION",
+    "CONTENT_TYPE": "",
     "CONTENT": ""
 }
 
