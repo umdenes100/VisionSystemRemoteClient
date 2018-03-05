@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d7580b17-a6ef-494e-9b39-a25352679d14" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
-      <change beforePath="$PROJECT_DIR$/js/communication.js" afterPath="$PROJECT_DIR$/js/communication.js" />
+      <change beforePath="$PROJECT_DIR$/server.py" afterPath="$PROJECT_DIR$/server.py" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -127,6 +125,7 @@
         <option value="$PROJECT_DIR$/js/timer.js" />
         <option value="$PROJECT_DIR$/js/communication.js" />
         <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/server.py" />
       </list>
     </option>
   </component>
@@ -247,12 +246,12 @@
       <workItem from="1519921603063" duration="1572000" />
       <workItem from="1519927783959" duration="5362000" />
       <workItem from="1520013286079" duration="8008000" />
-      <workItem from="1520276681629" duration="90000" />
+      <workItem from="1520276681629" duration="268000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="48088000" />
+    <option name="totallyTimeSpent" value="48266000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="20" y="43" width="1400" height="780" extended-state="0" />
@@ -290,35 +289,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1260">
-          <caret line="84" column="49" lean-forward="false" selection-start-line="84" selection-start-column="49" selection-end-line="84" selection-end-column="49" />
-          <folding>
-            <element signature="e#4711#4717#0" expanded="true" />
-            <element signature="e#4717#4723#0" expanded="true" />
-            <element signature="e#4723#4729#0" expanded="true" />
-            <element signature="e#4729#4735#0" expanded="true" />
-            <element signature="e#4735#4741#0" expanded="true" />
-            <element signature="e#4741#4747#0" expanded="true" />
-            <element signature="e#4747#4753#0" expanded="true" />
-            <element signature="e#4753#4759#0" expanded="true" />
-            <element signature="e#4759#4765#0" expanded="true" />
-            <element signature="e#4786#4792#0" expanded="true" />
-            <element signature="e#4792#4798#0" expanded="true" />
-            <element signature="e#4798#4804#0" expanded="true" />
-            <element signature="e#4804#4810#0" expanded="true" />
-            <element signature="e#4810#4816#0" expanded="true" />
-            <element signature="e#4816#4822#0" expanded="true" />
-            <element signature="e#4822#4828#0" expanded="true" />
-            <element signature="e#4828#4834#0" expanded="true" />
-            <element signature="e#4834#4840#0" expanded="true" />
-            <element signature="e#5433#5439#0" expanded="true" />
-            <element signature="e#5600#5606#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/video_resize.js" />
     <entry file="file://$PROJECT_DIR$/js/autoscroll.js" />
     <entry file="file://$PROJECT_DIR$/css/style.css">
@@ -764,6 +734,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="350">
           <caret line="126" column="0" lean-forward="false" selection-start-line="126" selection-start-column="0" selection-end-line="126" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
