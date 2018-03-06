@@ -28,76 +28,6 @@ const MISSION2ICON = {
 };
 
 
-// TIMER STUFF START
-//
-// let timerTen = $("#timer-ten");
-// let timerSec = $("#timer-sec");
-//
-// let splitTen = $("#split-ten");
-// let splitSec = $("#split-sec");
-//
-// let Interval;
-//
-// let seconds = 0;
-// let tens = 0;
-//
-// let splitted = false;
-//
-// function startTimer () {
-//     tens++;
-//
-//     if(tens < 9){
-//         timerTen.html("0" + tens);
-//     }
-//
-//     if (tens > 9){
-//         timerTen.html(tens);
-//
-//     }
-//
-//     if (tens > 99) {
-//         seconds++;
-//         timerSec.html("0" + seconds);
-//         tens = 0;
-//         timerTen.html("0" + 0);
-//     }
-//
-//     if (seconds > 9){
-//         timerSec.html(seconds);
-//     }
-// }
-//
-//
-// function splitTimer () {
-//     splitSec.html(timerTen.html());
-//     splitTen.html(timerTen.html());
-// }
-//
-// function runTimer(comm) {
-//     switch(comm) {
-//         case "START":
-//             clearInterval(Interval);
-//             Interval = setInterval(startTimer, 10);
-//             break;
-//
-//         case "END":
-//             clearInterval(Interval);
-//             break;
-//
-//         case "SPLIT":
-//             if (ENUM2MISSION[portList[$("#ports option:selected").val()]["MISSION"]] === "CHEMICAL" && !(splitted)) {
-//                 splitTimer();
-//                 splitted = true;
-//             }
-//             break;
-//
-//         default:
-//             console.log("Timer screw up.")
-//     }
-// }
-
-// TIMER STUFF END
-
 
 
 
@@ -116,27 +46,35 @@ function clear() {
     messages = [];
     $("#comms").val("");
 
-    // clearInterval(Interval);
-    // tens = "00";
-    // seconds = "00";
-    // timerTen.html(tens);
-    // timerSec.html(seconds);
-    // splitted = false;
+
+    // Timer Clear
+    let clearedText = "--:--:--";
+
+    timeEl.text(clearedText);
+    splitEl.text(clearedText);
+
+    mils = 0;
+    secs = 0;
+    mins = 0;
 }
 
 
 function parseMission(mess) {
     switch(ENUM2MISSIONCOMM[mess["CONTENT_TYPE"]]) {
         case "START":
-            // runTimer("START");
+            start();
             break;
 
         case "END":
-            // runTimer("END");
+            end();
             break;
 
         case "NAVIGATED":
-            // runTimer("SPLIT");
+
+            if (ENUM2MISSION[portList[key]["MISSION"]] === "CHEMICAL") {
+                split();
+            }
+            
             break;
 
         default:
@@ -154,8 +92,8 @@ function updateComms(completely) {
         let comms = "";
 
         for (let mess in messages) {
-            let valid = ($('#debug').is(':checked') || (messages[mess]["M_TYPE"] === "MISSION"));
 
+            let valid = ($('#debug').is(':checked') || (messages[mess]["M_TYPE"] === "MISSION"));
             if (valid) {
                 comms += messages[mess]["CONTENT"];
             }
@@ -165,12 +103,12 @@ function updateComms(completely) {
 
     } else {
 
-        let valid = $('#debug').is(':checked') || (messages[messages.length - 1]["M_TYPE"] === "MISSION");
-
-        if (messages[messages.length - 1]["M_TYPE"] === "MISSION") {
+        let isMission = (messages[messages.length - 1]["M_TYPE"] === "MISSION");
+        if (isMission) {
             parseMission(messages[messages.length - 1]);
         }
 
+        let valid = $('#debug').is(':checked') || isMission;
         if (valid) {
             comm.val(comm.val() + messages[messages.length - 1]["CONTENT"]);
         }
@@ -237,15 +175,11 @@ function parseData(data) {
 
 
 
-
-
-
 $(document).ready(
 
     function start () {
 
         let servLoc = 'ws://192.168.1.2:9000/';
-        // let servLoc = 'ws://localhost:9000';
 
         let connection = new WebSocket(servLoc);
 
