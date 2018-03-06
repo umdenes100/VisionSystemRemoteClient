@@ -74,7 +74,7 @@ function parseMission(mess) {
             if (ENUM2MISSION[portList[key]["MISSION"]] === "CHEMICAL") {
                 split();
             }
-            
+
             break;
 
         default:
