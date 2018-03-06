@@ -34,26 +34,6 @@ nav {
 
 .miss {
     font-size: 24px !important;
-    margin-bottom: 5px !important;
-}
-
-.no-break {
-    white-space: nowrap !important;
-}
-
-/*#mission_icon {*/
-    /*text-align: right !important;*/
-/*}*/
-
-#logo {
-    color: black;
-    font-family: 'Oswald', sans-serif;
-    font-size: 32px;
-}
-
-.prod {
-    font-size: 14px;
-    font-style: italic;
 }
 
 .icons {
@@ -65,6 +45,8 @@ nav {
     /*font-family: 'Open Sans', sans-serif;*/
     /*font-size: 16px;*/
 /*}*/
+
+
 
 .textarea-container {
     position:relative;
@@ -90,24 +72,30 @@ nav {
     margin-bottom: 60% !important;
 }
 
-.top {
-    margin-top: 3%;
-}
-
 .feed {
-    border: 1px lightgrey;
+    border: 1px solid #ACACAC;
 }
 
-.time {
-    text-align: right !important;
-    padding-right: 30px !important;
+
+
+
+
+#logo {
+    color: black;
+    font-family: 'Oswald', sans-serif;
+    font-size: 32px;
 }
+
+#prod {
+    font-size: 14px;
+    font-style: italic;
+}
+
+
 
 #status {
     color: red;
 }
-
-
 
 #clear {
     border: 1px solid grey;
@@ -134,5 +122,16 @@ nav {
 
 #split_span {
     font-size: 14px !important;
-    color: #535353;
+    color: #4a4a4a;
+}
+
+
+/* Bootstrap-esque add-ons. */
+.w-80 {
+    width: 80% !important;
+}
+
+/* TESTING. */
+.test {
+    border: 1px solid black;
 }

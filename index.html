@@ -54,7 +54,7 @@
             <div class="container">
 
                 <!--Logo-->
-                <a href="./index.html" id="logo" class="navbar-brand">ENES100 <span class="prod">Vision System Remote</span></a>
+                <a href="./index.html" id="logo" class="navbar-brand">ENES100 <span id="prod">VisionSystemRemote</span></a>
 
                 <!--&lt;!&ndash;Hamburger Button&ndash;&gt;-->
                 <!--<button class="navbar-toggler float-right" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">-->
@@ -80,21 +80,31 @@
                 <!--</div>-->
 
                 <div class="nav-item float-right icons">
-                    <span id="status">&#9679; </span>
+                    <span id="status">&#9679;</span>
                 </div>
             </div>
         </nav>
 
-        <div class="content top">
+        <div class="content mt-5">
             <div class="row">
-                <div class="col-md-2 offset-md-1 no-break">
-                    <select id="ports" class="custom-select custom-select-lg mb-4">
-                        <option value="" selected></option>
-                    </select>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <span id="mission_icon"></span>
+                <div class="col-md-4 offset-md-1">
+                    <div class="row w-80">
+                        <div class="col-md-11">
+                            <select id="ports" class="custom-select custom-select-lg mb-4">
+                                <option value="" selected></option>
+                            </select>
+                        </div>
+                        <div class="col-md-1 mt-3">
+                            <span id="mission_icon"><i class="fas miss fa-cube"></i></span>
+                        </div>
+                    </div>
                 </div>
+
+                <div class="col-md-6 align-middle text-md-right">
+                    <span id="timer_span">Timer: <span id="timer"><span id="timer-ten">--</span>:<span id="timer-secs">--</span></span><br></span>
+                    <span id="split_span">Split: <span id="split"><span id="split-ten">--</span>:<span id="split-secs">--</span></span></span>
+                </div>
+
 
             </div>
 
@@ -106,18 +116,10 @@
                         <button id="clear"><i class="fas fa-eraser"></i></button>
                     </div>
 
-                    <div class="row">
-                        <div class="opts col-md-6 upper">
-                            <input type="checkbox" id="debug" checked><label for="debug">&nbsp;Show debug messages.</label>
-                            <br>
-                            <input type="checkbox" id="autoscroll" checked><label for="autoscroll">&nbsp;Autoscroll.</label>
-                        </div>
-
-                        <div class="opts col-md-4 time">
-                            <span id="timer_span">Timer: <span id="timer"><span id="timer-ten">--</span>:<span id="timer-secs">--</span></span><br></span>
-                            <span id="split_span">Split: <span id="split"><span id="split-ten">--</span>:<span id="split-secs">--</span></span>
-                        </div>
-
+                    <div class="opts">
+                        <input type="checkbox" id="debug" checked><label for="debug">&nbsp;Show debug messages.</label>
+                        <br>
+                        <input type="checkbox" id="autoscroll" checked><label for="autoscroll">&nbsp;Autoscroll.</label>
                     </div>
 
                 </div>
@@ -125,7 +127,7 @@
                 <div class="col-md-6">
 
                     <div id="drag-helper" class="embed-responsive embed-responsive-16by9 feed">
-                        <img id="stream" class="embed-responsive-item img-fluid" src="http://192.168.1.2:8080/">
+                        <!--<img id="stream" class="embed-responsive-item img-fluid" src="http://192.168.1.2:8080/">-->
                     </div>
 
                 </div>
