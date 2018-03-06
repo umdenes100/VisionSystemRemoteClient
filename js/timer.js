@@ -1,6 +1,3 @@
-const timeEl = $("#timer");
-const splitEl = $("#split");
-
 let mils = 0;
 let secs = 0;
 let mins = 0;
@@ -23,20 +20,20 @@ function addTime () {
         }
     }
 
-    timeEl.text((mins ? (mins > 9 ? mins : "0" + mins) : "00") + ":" + (secs ? (secs > 9 ? secs : "0" + secs) : "00") + ":" + (mils > 9 ? mils : "0" + mils));
+    $("#timer").text((mins ? (mins > 9 ? mins : "0" + mins) : "00") + ":" + (secs ? (secs > 9 ? secs : "0" + secs) : "00") + ":" + (mils > 9 ? mils : "0" + mils));
 
     timer();
 }
 
-function start () {
-    timeEl.text("00:00:00");
+function timerStart () {
+    $("#timer").text("00:00:00");
     timer();
 }
 
-function end () {
+function timerEnd () {
     clearTimeout(t);
 }
 
-function split () {
-    splitEl.text(timeEl.text());
+function timerSplit () {
+    $("#split").text($("#timer").text());
 }

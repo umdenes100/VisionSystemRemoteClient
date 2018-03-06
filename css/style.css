@@ -79,7 +79,6 @@ nav {
 
 
 
-
 #logo {
     color: black;
     font-family: 'Oswald', sans-serif;
@@ -120,7 +119,9 @@ nav {
     display: block !important;
 }
 
-#split_span {
+
+
+.split-el {
     font-size: 14px !important;
     color: #4a4a4a;
 }
@@ -129,6 +130,15 @@ nav {
 /* Bootstrap-esque add-ons. */
 .w-80 {
     width: 80% !important;
+}
+
+.w-150 {
+    width: 150% !important;
+}
+
+.right-align {
+    alignment: right !important;
+    text-align: right !important;
 }
 
 /* TESTING. */

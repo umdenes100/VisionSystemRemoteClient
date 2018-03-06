@@ -46,12 +46,9 @@ function clear() {
     messages = [];
     $("#comms").val("");
 
-
-    // Timer Clear
-    let clearedText = "--:--:--";
-
-    timeEl.text(clearedText);
-    splitEl.text(clearedText);
+    let clearVal = "--:--:--";
+    $("#timer").text(clearVal);
+    $("#split").text(clearVal);
 
     mils = 0;
     secs = 0;
@@ -60,25 +57,33 @@ function clear() {
 
 
 function parseMission(mess) {
+
     switch(ENUM2MISSIONCOMM[mess["CONTENT_TYPE"]]) {
         case "START":
-            start();
+
+            mils = 0;
+            secs = 0;
+            mins = 0;
+            $("#split").text("--:--:--");
+
+            timerStart();
             break;
 
         case "END":
-            end();
+            timerEnd();
             break;
 
         case "NAVIGATED":
 
-            if (ENUM2MISSION[portList[key]["MISSION"]] === "CHEMICAL") {
-                split();
+            if (ENUM2MISSION[portList[$("#ports option:selected").val()]["MISSION"]] === "CHEMICAL") {
+                timerSplit();
             }
 
             break;
 
         default:
-            console.log("We good.");
+            // console.log("");
+
     }
 }
 
