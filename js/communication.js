@@ -65,6 +65,7 @@ function parseMission(mess) {
             secs = 0;
             mins = 0;
             $("#split").text("--:--:--");
+            clearTimeout(t);
 
             timerStart();
             break;
@@ -219,6 +220,8 @@ $(document).ready(
 
             let val = $('#ports').val();
             connection.send(val);
+
+
 
             updateIcon();
         });
