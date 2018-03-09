@@ -61,11 +61,7 @@ function parseMission(mess) {
     switch(ENUM2MISSIONCOMM[mess["CONTENT_TYPE"]]) {
         case "START":
 
-            mils = 0;
-            secs = 0;
-            mins = 0;
-            $("#split").text("--:--:--");
-            clearTimeout(t);
+            timerReset();
 
             timerStart();
             break;
@@ -221,7 +217,7 @@ $(document).ready(
             let val = $('#ports').val();
             connection.send(val);
 
-
+            timerReset();
 
             updateIcon();
         });

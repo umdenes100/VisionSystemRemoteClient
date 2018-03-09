@@ -37,3 +37,11 @@ function timerEnd () {
 function timerSplit () {
     $("#split").text($("#timer").text());
 }
+
+function timerReset() {
+    mils = 0;
+    secs = 0;
+    mins = 0;
+    $("#split").text("--:--:--");
+    clearTimeout(t);
+}
