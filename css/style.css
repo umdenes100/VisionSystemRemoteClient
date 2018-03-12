@@ -40,13 +40,17 @@ nav {
     font-size: 24px;
 }
 
-/*.nav-link {*/
-    /*color: black;*/
-    /*font-family: 'Open Sans', sans-serif;*/
-    /*font-size: 16px;*/
-/*}*/
+.nav-link {
+    color: black;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    margin-right: 10px;
+}
 
-
+.nav-link:hover {
+    color: black;
+    text-decoration: underline;
+}
 
 .textarea-container {
     position:relative;
@@ -76,6 +80,9 @@ nav {
     border: 1px solid #ACACAC;
 }
 
+.lib-link {
+    font-size: 20px;
+}
 
 
 
