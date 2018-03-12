@@ -127,6 +127,18 @@ nav {
 }
 
 
+.documentation {
+    font-family: sans-serif;
+}
+
+
+
+.sticky {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 40px;
+}
+
 
 .split-el {
     font-size: 14px !important;
