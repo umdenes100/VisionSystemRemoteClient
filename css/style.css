@@ -72,6 +72,21 @@ nav {
     right: 10px;
 }
 
+.feed {
+    position:relative;
+}
+
+.feed img {
+    height: 100%;
+    width: 100%;
+}
+
+.feed button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
 .opts {
     margin-bottom: 60% !important;
 }
@@ -126,6 +141,23 @@ nav {
 }
 
 #clear:active {
+    border: 1px solid black;
+    color: black;
+    outline: 0;
+}
+
+
+#reset {
+    border: 1px solid grey;
+    border-radius: 7px;
+    color: #585858;
+}
+
+#reset:focus {
+    outline: 0;
+}
+
+#reset:active {
     border: 1px solid black;
     color: black;
     outline: 0;

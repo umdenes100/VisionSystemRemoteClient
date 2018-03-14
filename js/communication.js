@@ -225,6 +225,10 @@ $(document).ready(
         $("#debug").on('click', () => { updateComms(true) });
 
         $("#clear").on('click', clear);
+
+        $("#reset").on('click', () => {
+            $("#stream").attr('src', 'http://192.168.1.2:8080/');
+        })
     }
 
 );
