@@ -133,7 +133,7 @@ function parseData(data) {
 
             ports.empty();
             ports.append($("<option>", {
-                value : "",
+                value : "Select Team Here",
                 text : "Select Team Here"
             }));
 
