@@ -134,7 +134,7 @@ function parseData(data) {
             ports.empty();
             ports.append($("<option>", {
                 value : "",
-                text : ""
+                text : "Select Team Here"
             }));
 
             for (let key in portList) {
