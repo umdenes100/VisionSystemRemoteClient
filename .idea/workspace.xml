@@ -2,8 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d7580b17-a6ef-494e-9b39-a25352679d14" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/js/communication.js" afterPath="$PROJECT_DIR$/js/communication.js" />
+      <change beforePath="$PROJECT_DIR$/css/style.css" afterPath="$PROJECT_DIR$/css/style.css" />
+      <change beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
+      <change beforePath="$PROJECT_DIR$/library/arduino.html" afterPath="$PROJECT_DIR$/library/arduino.html" />
+      <change beforePath="$PROJECT_DIR$/library/dfrtank.html" afterPath="$PROJECT_DIR$/library/dfrtank.html" />
+      <change beforePath="$PROJECT_DIR$/library/index.html" afterPath="$PROJECT_DIR$/library/index.html" />
+      <change beforePath="$PROJECT_DIR$/static_pages/faqs.html" afterPath="$PROJECT_DIR$/static_pages/faqs.html" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -17,12 +21,62 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="174">
-              <caret line="111" column="26" lean-forward="true" selection-start-line="111" selection-start-column="26" selection-end-line="111" selection-end-column="26" />
-              <folding />
+            <state relative-caret-position="204">
+              <caret line="59" column="19" lean-forward="false" selection-start-line="59" selection-start-column="19" selection-end-line="59" selection-end-column="19" />
+              <folding>
+                <element signature="e#2901#2907#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="faqs.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/static_pages/faqs.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="348">
+              <caret line="55" column="19" lean-forward="false" selection-start-line="55" selection-start-column="19" selection-end-line="55" selection-end-column="19" />
+              <folding>
+                <element signature="e#2827#2833#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/library/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="240">
+              <caret line="43" column="17" lean-forward="true" selection-start-line="43" selection-start-column="17" selection-end-line="43" selection-end-column="17" />
+              <folding>
+                <element signature="e#2832#2838#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="dfrtank.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/library/dfrtank.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="123">
+              <caret line="55" column="37" lean-forward="false" selection-start-line="55" selection-start-column="37" selection-end-line="55" selection-end-column="37" />
+              <folding>
+                <element signature="e#2830#2836#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="arduino.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/library/arduino.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="204">
+              <caret line="55" column="19" lean-forward="false" selection-start-line="55" selection-start-column="19" selection-end-line="55" selection-end-column="19" />
+              <folding>
+                <element signature="e#2837#2843#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -30,28 +84,8 @@
       <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1815">
-              <caret line="121" column="4" lean-forward="false" selection-start-line="121" selection-start-column="4" selection-end-line="121" selection-end-column="4" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ui.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/ui.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
-              <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="communication.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/js/communication.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="437">
-              <caret line="76" column="29" lean-forward="true" selection-start-line="76" selection-start-column="29" selection-end-line="76" selection-end-column="29" />
+            <state relative-caret-position="245">
+              <caret line="173" column="16" lean-forward="false" selection-start-line="173" selection-start-column="16" selection-end-line="173" selection-end-column="16" />
               <folding />
             </state>
           </provider>
@@ -69,7 +103,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>list</find>
       <find>console</find>
       <find>autoscroll</find>
       <find>interval</find>
@@ -79,7 +112,6 @@
       <find>opts</find>
       <find>time</find>
       <find>miss</find>
-      <find>prod</find>
       <find>icons</find>
       <find>top</find>
       <find>runtimer</find>
@@ -99,6 +131,8 @@
       <find>right</find>
       <find>clear</find>
       <find>select team here</find>
+      <find>prod</find>
+      <find>disc</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -114,13 +148,13 @@
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/server.py" />
         <option value="$PROJECT_DIR$/js/timer.js" />
-        <option value="$PROJECT_DIR$/static_pages/faqs.html" />
-        <option value="$PROJECT_DIR$/library/index.html" />
-        <option value="$PROJECT_DIR$/library/dfrtank.html" />
-        <option value="$PROJECT_DIR$/library/arduino.html" />
+        <option value="$PROJECT_DIR$/js/communication.js" />
         <option value="$PROJECT_DIR$/css/style.css" />
         <option value="$PROJECT_DIR$/index.html" />
-        <option value="$PROJECT_DIR$/js/communication.js" />
+        <option value="$PROJECT_DIR$/library/dfrtank.html" />
+        <option value="$PROJECT_DIR$/library/index.html" />
+        <option value="$PROJECT_DIR$/library/arduino.html" />
+        <option value="$PROJECT_DIR$/static_pages/faqs.html" />
       </list>
     </option>
   </component>
@@ -173,7 +207,7 @@
             <path>
               <item name="VisionSystemRemoteClient" type="b2602c69:ProjectViewProjectNode" />
               <item name="VisionSystemRemoteClient" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="library" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="VisionSystemRemoteClient" type="b2602c69:ProjectViewProjectNode" />
@@ -260,12 +294,12 @@
       <workItem from="1520981077020" duration="1672000" />
       <workItem from="1521043198185" duration="75000" />
       <workItem from="1521043611628" duration="2336000" />
-      <workItem from="1521073360966" duration="920000" />
+      <workItem from="1521073360966" duration="1300000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="69515000" />
+    <option name="totallyTimeSpent" value="69895000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="20" y="43" width="1400" height="780" extended-state="0" />
@@ -307,7 +341,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1260">
           <caret line="84" column="49" lean-forward="false" selection-start-line="84" selection-start-column="49" selection-end-line="84" selection-end-column="49" />
-          <folding />
+          <folding>
+            <element signature="e#2901#2907#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -332,7 +368,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#2901#2907#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -357,7 +395,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#2901#2907#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -382,7 +422,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#2901#2907#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -406,7 +448,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="945">
           <caret line="63" column="36" lean-forward="false" selection-start-line="63" selection-start-column="36" selection-end-line="63" selection-end-column="36" />
-          <folding />
+          <folding>
+            <element signature="e#2901#2907#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -430,7 +474,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1020">
           <caret line="68" column="0" lean-forward="true" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#2901#2907#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -454,7 +500,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1350">
           <caret line="90" column="68" lean-forward="false" selection-start-line="90" selection-start-column="68" selection-end-line="90" selection-end-column="68" />
-          <folding />
+          <folding>
+            <element signature="e#2901#2907#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -478,7 +526,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
           <caret line="1" column="16" lean-forward="false" selection-start-line="1" selection-start-column="16" selection-end-line="1" selection-end-column="16" />
-          <folding />
+          <folding>
+            <element signature="e#2901#2907#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -526,40 +576,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/library/index.html">
+    <entry file="file://$PROJECT_DIR$/js/communication.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="428">
-          <caret line="69" column="49" lean-forward="false" selection-start-line="69" selection-start-column="49" selection-end-line="69" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/library/arduino.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="810">
-          <caret line="54" column="19" lean-forward="true" selection-start-line="54" selection-start-column="19" selection-end-line="54" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/library/dfrtank.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="810">
-          <caret line="54" column="19" lean-forward="true" selection-start-line="54" selection-start-column="19" selection-end-line="54" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static_pages/faqs.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="23" lean-forward="false" selection-start-line="9" selection-start-column="23" selection-end-line="9" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1815">
-          <caret line="121" column="4" lean-forward="false" selection-start-line="121" selection-start-column="4" selection-end-line="121" selection-end-column="4" />
+        <state relative-caret-position="107">
+          <caret line="54" column="13" lean-forward="true" selection-start-line="54" selection-start-column="13" selection-end-line="54" selection-end-column="13" />
           <folding />
         </state>
       </provider>
@@ -572,19 +592,61 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
+    <entry file="file://$PROJECT_DIR$/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="174">
-          <caret line="111" column="26" lean-forward="true" selection-start-line="111" selection-start-column="26" selection-end-line="111" selection-end-column="26" />
+        <state relative-caret-position="245">
+          <caret line="173" column="16" lean-forward="false" selection-start-line="173" selection-start-column="16" selection-end-line="173" selection-end-column="16" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/communication.js">
+    <entry file="file://$PROJECT_DIR$/library/arduino.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="76" column="29" lean-forward="true" selection-start-line="76" selection-start-column="29" selection-end-line="76" selection-end-column="29" />
-          <folding />
+        <state relative-caret-position="204">
+          <caret line="55" column="19" lean-forward="false" selection-start-line="55" selection-start-column="19" selection-end-line="55" selection-end-column="19" />
+          <folding>
+            <element signature="e#2837#2843#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/library/dfrtank.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="123">
+          <caret line="55" column="37" lean-forward="false" selection-start-line="55" selection-start-column="37" selection-end-line="55" selection-end-column="37" />
+          <folding>
+            <element signature="e#2830#2836#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/library/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="43" column="17" lean-forward="true" selection-start-line="43" selection-start-column="17" selection-end-line="43" selection-end-column="17" />
+          <folding>
+            <element signature="e#2832#2838#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static_pages/faqs.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="348">
+          <caret line="55" column="19" lean-forward="false" selection-start-line="55" selection-start-column="19" selection-end-line="55" selection-end-column="19" />
+          <folding>
+            <element signature="e#2827#2833#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="59" column="19" lean-forward="false" selection-start-line="59" selection-start-column="19" selection-end-line="59" selection-end-column="19" />
+          <folding>
+            <element signature="e#2901#2907#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

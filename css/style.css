@@ -170,6 +170,10 @@ nav {
     display: block !important;
 }
 
+#disc {
+    font-size: 5px;
+}
+
 
 .documentation {
     font-family: sans-serif;
