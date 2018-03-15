@@ -58,6 +58,7 @@ function clear() {
 
 function parseMission(mess) {
 
+    console.log(mess);
     switch(ENUM2MISSIONCOMM[mess["CONTENT_TYPE"]]) {
         case "START":
 
@@ -150,7 +151,7 @@ function parseData(data) {
             if (curr in portList) {
                 ports.val(curr);
             } else {
-                ports.val("");
+                ports.val("Select Team Here");
             }
 
             updateIcon();
