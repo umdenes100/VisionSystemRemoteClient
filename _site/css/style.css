@@ -1,0 +1,210 @@
+/*@import url('https://fonts.googleapis.com/css?family=Kanit:400,400i,500|Open+Sans:300|Oswald:700|PT+Mono');*/
+
+
+@font-face {
+    font-family: "Kanit";
+    src: url("./fonts/Kanit/Kanit-Regular.ttf") format("woff"),
+         url("./fonts/Kanit/Kanit-Italic.ttf") format("woff"),
+         url("./fonts/Kanit/Kanit-Medium.ttf") format("woff");
+}
+
+@font-face {
+    font-family: "Open Sans";
+    src: url("./fonts/Open_Sans/OpenSans-Light.ttf") format("woff");
+}
+
+@font-face {
+    font-family: "Oswald";
+    src: url("./fonts/Oswald/Oswald-Bold.ttf") format("woff");
+}
+
+@font-face {
+    font-family: "PT Mono";
+    src: url("./fonts/PT_Mono/PTM55FT.ttf") format("woff");
+}
+
+
+body {
+    font-family: 'Kanit', sans-serif;
+}
+
+nav {
+    border-bottom: 1px solid lightgrey !important;
+}
+
+.miss {
+    font-size: 24px !important;
+}
+
+.icons {
+    font-size: 24px;
+}
+
+.nav-link {
+    color: black;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    margin-right: 10px;
+}
+
+.nav-link:hover {
+    color: black;
+    text-decoration: underline;
+}
+
+.textarea-container {
+    position:relative;
+    height: 80%;
+    width: 80%;
+    margin-bottom: 2%;
+}
+
+.textarea-container textarea {
+    height: 100%;
+    width: 100%;
+    font-family: 'PT Mono', monospace;
+    font-size: 13px;
+}
+
+.textarea-container button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.feed {
+    position:relative;
+}
+
+.feed img {
+    height: 100%;
+    width: 100%;
+}
+
+.feed button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.opts {
+    margin-bottom: 60% !important;
+}
+
+.feed {
+    border: 1px solid #ACACAC;
+}
+
+.lib-link {
+    font-size: 20px;
+}
+
+.faq {
+    margin-top: 3%;
+    margin-bottom: 3%;
+}
+
+.question {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.answer {
+    font-size: 18px;
+}
+
+#logo {
+    color: black;
+    font-family: 'Oswald', sans-serif;
+    font-size: 32px;
+}
+
+#prod {
+    font-size: 14px;
+    font-style: italic;
+}
+
+#status {
+    color: red;
+}
+
+#clear {
+    border: 1px solid grey;
+    border-radius: 7px;
+    color: #585858;
+}
+
+#clear:focus {
+    outline: 0;
+}
+
+#clear:active {
+    border: 1px solid black;
+    color: black;
+    outline: 0;
+}
+
+
+#reset {
+    border: 1px solid grey;
+    border-radius: 7px;
+    color: #585858;
+}
+
+#reset:focus {
+    outline: 0;
+}
+
+#reset:active {
+    border: 1px solid black;
+    color: black;
+    outline: 0;
+}
+
+
+
+#stream {
+    display: block !important;
+}
+
+#disc {
+    font-size: 5px;
+}
+
+
+.documentation {
+    font-family: sans-serif;
+}
+
+
+
+.sticky {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 40px;
+}
+
+
+.split-el {
+    font-size: 14px !important;
+    color: #4a4a4a;
+}
+
+/* Bootstrap-esque add-ons. */
+.w-80 {
+    width: 80% !important;
+}
+
+.w-150 {
+    width: 150% !important;
+}
+
+.right-align {
+    alignment: right !important;
+    text-align: right !important;
+}
+
+/* TESTING. */
+.test {
+    border: 1px solid black;
+}
