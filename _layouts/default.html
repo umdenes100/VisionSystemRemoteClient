@@ -52,6 +52,50 @@
     </head>
 
     <body>
-    {{ content }}
+
+        <!--
+        Got the navbar from here -
+        https://medium.com/wdstack/bootstrap-4-custom-navbar-1f6a2da5ed3c
+        -->
+        <nav class="navbar navbar-expand-md navbar-expand-lg">
+            <div class="container">
+
+                <!--Logo-->
+                <a href="./index.html" id="logo" class="navbar-brand">ENES100<span id="prod">VisionSystemRemote</span><span
+                        id="disc">&nbsp;HyperThreaded™</span></a>
+
+                <!--Hamburger Button-->
+                <button class="navbar-toggler float-right" type="button" data-toggle="collapse"
+                        data-target="#collapsibleNavbar">
+                    <span class="navbar-toggler-icon">☰</span>
+                </button>
+
+                <!--Collapsible Content-->
+                <div id="collapsibleNavbar" class="navbar-collapse collapse">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="./library/index.html">Libraries</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./static_pages/faqs.html">FAQs</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./static_pages/simulator.html">Simulator</a>
+                        </li>
+                    </ul>
+                </div>
+
+                {% if page.remote %}
+                    <div class="nav-item float-right icons">
+                        <span id="status">&#9679;</span>
+                    </div>
+                {% endif %}
+
+            </div>
+        </nav>
+
+        {{ content }}
+
     </body>
+
 </html>
