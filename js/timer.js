@@ -1,47 +1,53 @@
-let mils = 0;
-let secs = 0;
-let mins = 0;
-
-let t;
-
-function timer () {
-    t = setTimeout(addTime, 1);
-}
-
-function addTime () {
-    mils++;
-    if (mils >= 60) {
-        mils = 0;
-        secs++;
-
-        if (secs >= 60) {
-            secs = 0;
-            mins++;
-        }
-    }
-
-    $("#timer").text((mins ? (mins > 9 ? mins : "0" + mins) : "00") + ":" + (secs ? (secs > 9 ? secs : "0" + secs) : "00") + ":" + (mils > 9 ? mils : "0" + mils));
-
-    timer();
-}
-
-function timerStart () {
-    $("#timer").text("00:00:00");
-    timer();
-}
-
-function timerEnd () {
-    clearTimeout(t);
-}
-
-function timerSplit () {
-    $("#split").text($("#timer").text());
-}
-
-function timerReset() {
-    mils = 0;
-    secs = 0;
-    mins = 0;
-    $("#split").text("--:--:--");
-    clearTimeout(t);
-}
+// let startMils = 0;
+// let startSecs = 0;
+// let startMins = 0;
+//
+// let currMils = 0;
+// let currSecs = 0;
+// let currMins = 0;
+//
+// let diffMils = 0;
+// let diffSecs = 0;
+// let diffMins = 0;
+//
+// let t;
+//
+// function updateTimer() {
+//     t = setTimeout(addTime, 1);
+// }
+//
+// function addTime () {
+//
+//     let d = new Date();
+//
+//     mils = d.getMilliseconds();
+//     secs = d.getSeconds();
+//     mins = d.getMinutes();
+//
+//     $("#timer").text(`${mins}:${secs}:${mils}`);
+//
+//     updateTimer();
+// }
+//
+//
+//
+// function timerStart () {
+//     $("#timer").text("00:00:00");
+//     updateTimer();
+// }
+//
+// function timerEnd () {
+//     clearTimeout(t);
+// }
+//
+// function timerSplit () {
+//     $("#split").text($("#timer").text());
+// }
+//
+// function timerReset() {
+//     mils = 0;
+//     secs = 0;
+//     mins = 0;
+//     $("#split").text("--:--:---");
+//     updateTimer(t);
+// }
