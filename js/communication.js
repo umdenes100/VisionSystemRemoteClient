@@ -230,6 +230,34 @@ $(document).ready(
         $("#reset").on('click', () => {
             $("#stream").attr('src', 'http://192.168.1.2:8080/');
         })
+
+        $('#expand').click(() => {
+            document.location.href = '/fullscreen';
+        })
+
+        $('#collapse').click(() => {
+            document.location.href = '/';
+        })
+
+        let timeout = null;
+        $(document).mousemove(() => {
+
+            let $element;
+
+            clearInterval(timeout);
+            if (window.location.pathname+window.location.search === '/fullscreen') {
+                $element = $('#collapse')
+            } else if (window.location.pathname+window.location.search === '/') {
+                $element = $('#expand')
+            }
+
+            $element.show();
+            $('#reset').show();
+            setInterval(function(){
+                $element.fadeOut();
+                $('#reset').fadeOut();
+            }, 5000);
+        })
     }
 
 );

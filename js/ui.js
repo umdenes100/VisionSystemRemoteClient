@@ -2,16 +2,16 @@ function status(curr) {
 
     let stat = $('#status');
 
-    if (curr === 'OPEN') {
-        stat.css('color', 'limegreen');
-    }
-
-    else if (curr === 'CLOSED') {
-        stat.css('color', 'red');
-    }
-
-    else {
-        stat.css('color', 'yellow');
+    switch (curr) {
+        case 'OPEN':
+            stat.css('color', 'limegreen');
+            break;
+        case 'CLOSED':
+            stat.css('color', 'red');
+            break;
+        default:
+            stat.css('color', 'yellow');
+            break;
     }
 }
 
