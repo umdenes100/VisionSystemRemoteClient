@@ -13,17 +13,19 @@ remote: yes
 
 <div class="container-fluid">
 	<div class="row mt-4">
-		<div class="col-12 col-md-2">
+		<div class="col-8 col-md-2">
 	        <select id="ports" class="custom-select custom-select-lg mb-4">
                 <option value="Select A Team Here" selected>
                 	Select Team Here
                 </option>
             </select>
 		</div>
-		<div class="col-12 col-md-1">
+		<div class="col-4 col-md-1">
 			<span id="mission_icon" class="float-right"></span>
 		</div>
-		<div class="col-4 col-md-2">
+
+
+		<div class="col-4 col-md-2 mt-2">
 				<span id="comm-status">Comms. Status: </span>
 	            <span id="status">&#9679;</span>
 		</div>
@@ -51,6 +53,8 @@ remote: yes
                 <input type="checkbox" id="autoscroll" checked><label for="autoscroll">&nbsp;Autoscroll.</label>
             </div>
 		</div>
+
+        
 		<div class="col-12 col-md-9">
 			<div id="stream-container" class="embed-responsive embed-responsive-16by9 feed">
                 <img id="stream" class="embed-responsive-item img-fluid" src="http://0.0.0.0:5000/">

@@ -13,43 +13,35 @@ remote: yes
 
 <div class="container-fluid">
     <div class="row mt-4">
-        <div class="col-12 col-md-4 offset-md-1">
-            <div class="row w-80">
-                <div class="col-10 col-md-10">
-                    <select id="ports" class="custom-select custom-select-lg mb-4">
-                        <option value="Select A Team Here" selected>Select Team Here</option>
-                    </select>
-                </div>
-                <div class="col-2 col-md-2 mt-3">
-                    <span id="mission_icon" class="float-right"></span>
-                </div>
-            </div>
+        <div class="col-8 offset-md-1 col-md-2">
+            <select id="ports" class="custom-select custom-select-lg mb-4">
+                <option value="Select A Team Here" selected>
+                    Select Team Here
+                </option>
+            </select>
+        </div>
+        <div class="col-4 col-md-1">
+            <span id="mission_icon" class="float-right"></span>
         </div>
 
-        <div class="col-2 float-left icons">
-            <span id="comm-status">Comms Status: </span>
-            <span id="status">&#9679;</span>
-        </div>
 
-        <div class="col-12 col-md-2 offset-md-2 align-middle">
-            <div class="row no-gutters">
-                <div class="col-2 col-md-4 offset-md-4">
-                    <p class="float-right text-right">
-                        Timer:&nbsp;<br>
-                        <span class="split-el">Split:&nbsp;</span>
-                    </p>
-                </div>
-                <div class="col-2 col-md-4">
-                    <span id="timer">--:--:--</span><br>
-                    <span id="split" class="split-el">--:--:--</span>
-                </div>
-            </div>
+        <div class="col-4 col-md-2">
+                <span id="comm-status">Comms. Status: </span>
+                <span id="status">&#9679;</span>
+        </div>
+        <div class="col-4 offset-md-3 col-md-1">
+            <p class="float-right text-right">
+                Timer:&nbsp;<br>
+                <span class="split-el">Split:&nbsp;</span>
+            </p>
+        </div>
+        <div class="col-4 col-md-1">
+            <span id="timer">--:--:--</span><br>
+            <span id="split" class="split-el">--:--:--</span>
         </div>
     </div>
-
     <div class="row">
-
-        <div class="col-md-4 offset-md-1">
+        <div class="col-12 offset-md-1 col-md-3">
             <div class="textarea-container">
                 <textarea id="comms" readonly></textarea>
                 <button id="clear"><i class="fas fa-eraser"></i></button>
@@ -60,20 +52,17 @@ remote: yes
                 <br>
                 <input type="checkbox" id="autoscroll" checked><label for="autoscroll">&nbsp;Autoscroll.</label>
             </div>
-
         </div>
 
-        <div class="col-md-6">
 
-            <div id="drag-helper" class="embed-responsive embed-responsive-16by9 feed">
+        <div class="col-12 col-md-7">
+            <div id="stream-container" class="embed-responsive embed-responsive-16by9 feed">
                 <img id="stream" class="embed-responsive-item img-fluid" src="http://0.0.0.0:5000/">
                 <button id="reset">⟳</button>
                 <button id="expand">
                     <i class="fa fa-expand" aria-hidden="true"></i>
                 </button>
             </div>
-
         </div>
-
     </div>
 </div>
