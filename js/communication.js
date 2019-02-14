@@ -239,7 +239,7 @@ $(document).ready(
             document.location.href = '/';
         })
 
-        let timeout = null;
+        let timeout;
         $(document).mousemove(() => {
 
             let $element;
