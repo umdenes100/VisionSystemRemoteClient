@@ -8,6 +8,10 @@ nav {
     border-bottom: 1px solid lightgrey !important;
 }
 
+textarea {
+    border: 1px solid lightgrey !important;
+}
+
 .miss {
     font-size: 24px !important;
 }
@@ -31,7 +35,6 @@ nav {
 .textarea-container {
     position:relative;
     height: 80%;
-    width: 80%;
     margin-bottom: 2%;
 }
 
@@ -141,7 +144,9 @@ nav {
     outline: 0;
 }
 
-
+#stream-container {
+    width: 100%;
+}
 
 #stream {
     display: block !important;
@@ -156,14 +161,11 @@ nav {
     font-family: sans-serif;
 }
 
-
-
 .sticky {
     position: -webkit-sticky;
     position: sticky;
     top: 40px;
 }
-
 
 .split-el {
     font-size: 14px !important;
