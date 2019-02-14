@@ -60,9 +60,21 @@ textarea {
     width: 100%;
 }
 
-.feed button {
+.feed #reset {
     position: absolute;
     top: 10px;
+    right: 10px;
+}
+
+.feed #expand {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}
+
+.feed #collapse {
+    position: absolute;
+    bottom: 10px;
     right: 10px;
 }
 
