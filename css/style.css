@@ -1,11 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Kanit:400,400i,500|Open+Sans:300|Oswald:700|PT+Mono');
 
-@media screen and (min-width: 800px) {
-    body {
-        overflow: hidden;
-    }
-}
-
 body {
     font-family: 'Kanit', sans-serif;
 }
