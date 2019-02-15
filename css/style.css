@@ -5,7 +5,7 @@
         overflow: hidden;
     }
 }
-
+/*
 #logo {
     color: black;
     font-family: 'Staatliches', cursive;
@@ -13,7 +13,7 @@
 }
 
 #brand img {
-    /*position: absolute;*/
+    position: absolute;
     top: 5px;
     right: 5px;
 }
@@ -182,7 +182,6 @@ textarea {
     font-size: 5px;
 }
 
-
 .documentation {
     font-family: sans-serif;
 }
@@ -198,7 +197,6 @@ textarea {
     color: #4a4a4a;
 }
 
-/* Bootstrap-esque add-ons. */
 .w-80 {
     width: 80% !important;
 }
@@ -212,7 +210,7 @@ textarea {
     text-align: right !important;
 }
 
-/* TESTING. */
 .test {
     border: 1px solid black;
 }
+*/
