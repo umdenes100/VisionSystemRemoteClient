@@ -244,7 +244,7 @@ $(document).ready(
 
             let $element;
 
-            clearInterval(timeout);
+            
             if (window.location.pathname+window.location.search === '/fullscreen') {
                 $element = $('#collapse')
             } else if (window.location.pathname+window.location.search === '/') {
@@ -253,9 +253,11 @@ $(document).ready(
 
             $element.show();
             $('#reset').show();
+
+            clearInterval(timeout);
             setInterval(function(){
-                $element.fadeOut();
-                $('#reset').fadeOut();
+                $element.hide();
+                $('#reset').hide();
             }, 5000);
         })
     }

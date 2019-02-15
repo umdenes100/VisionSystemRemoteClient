@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Kanit:400,400i,500|Open+Sans:300|Oswald:700|PT+Mono');
+@import url('https://fonts.googleapis.com/css?family=Yantramanav:400,400i,500|Open+Sans:300|Oswald:700|PT+Mono|Frijole|Roboto:500');
 
 @media screen and (min-width: 800px) {
     body {
@@ -6,8 +6,20 @@
     }
 }
 
+#logo {
+    color: black;
+    font-family: 'Staatliches', cursive;
+    font-size: 48px;
+}
+
+#brand img {
+    /*position: absolute;*/
+    top: 5px;
+    right: 5px;
+}
+
 body {
-    font-family: 'Kanit', sans-serif;
+    font-family: 'Yantramanav', sans-serif;
 }
 
 nav {
@@ -110,11 +122,7 @@ textarea {
     font-size: 18px;
 }
 
-#logo {
-    color: black;
-    font-family: 'Oswald', sans-serif;
-    font-size: 32px;
-}
+
 
 #comm-status {
     font-size: 18px;
