@@ -1,10 +1,13 @@
 @import url('https://fonts.googleapis.com/css?family=Yantramanav:400,400i,500|Open+Sans:300|Oswald:700|PT+Mono|Frijole|Roboto:500');
 
-@media screen and (min-width: 800px) {
-    body {
-        overflow: hidden;
-    }
+* {
+    box-sizing: border-box
 }
+
+html, body {
+    height: 100%;
+}
+
 /*
 #logo {
     color: black;

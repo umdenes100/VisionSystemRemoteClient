@@ -5,33 +5,61 @@ title: ENES100
 permalink: /
 
 custom_css:
- - select.css
-
-custom_js:
- - select.js
+ - index.css
 
 ---
 
-<div class="container-fluid">
-	<div class="row">
-		<div class="col-12 col-md-4 test">
+<div class="container-fluid h-100">
+	<div class="row h-100">
+		<div id="communication-panel" class="col-12 col-md-3 h-100 w-100">
 
-			<select id="month" class="select-styled test">
-			    <option value="hide">-- Month --</option>
-			    <option value="january" rel="icon-temperature">January</option>
-			    <option value="february">February</option>
-			    <option value="march">March</option>
-			    <option value="april">April</option>
-			    <option value="may">May</option>
-			    <option value="june">June</option>
-			    <option value="july">July</option>
-			    <option value="august">August</option>
-			    <option value="september">September</option>
-			    <option value="october">October</option>
-			    <option value="november">November</option>
-			    <option value="december">December</option>
-			</select>
+			<div id="select-tools" class="row h-5">
+				<select id="month" class="select-styled h-100">
+				    <option value="hide">-- Month --</option>
+				    <option value="january" rel="icon-temperature">January</option>
+				    <option value="february">February</option>
+				    <option value="march">March</option>
+				    <option value="april">April</option>
+				    <option value="may">May</option>
+				    <option value="june">June</option>
+				    <option value="july">July</option>
+				    <option value="august">August</option>
+				    <option value="september">September</option>
+				    <option value="october">October</option>
+				    <option value="november">November</option>
+				    <option value="december">December</option>
+				</select>
+			</div>
 
+			<div id="timer" class="row">
+				<div class="h-100 w-100 pt-3 pb-3">
+					Timer: --:--:--
+					<br>
+					Split: --:--:--
+				</div>
+			</div>
+
+			<div class="row h-55">
+				<textarea id="communication-window" class="w-100" readonly></textarea>
+			</div>
+			
+
+			<div id="communication-window-options" class="row h-10 pt-2">
+				<div class="col-12 col-md-12 h-100">
+					<div class="row option">
+						<input id="debug-messages" type="checkbox"></input>
+						<label for="debug-messages">Show Debug Messages</label>
+					</div>
+					<div class="row option">
+						<input id="autoscroll" type="checkbox"></input>
+						<label for="autoscroll">Autoscroll</label>
+					</div>
+				</div>
+			</div>
+
+		</div>
+		<div class="col-12 col-md-9 embed-responsive embed-responsive-16by9">
+			<img id="stream" class=" embed-responsive-item img" src="http://0.0.0.0:5000/">
 		</div>
 	</div>
 </div>
