@@ -1,5 +1,9 @@
 let messages = [];
 let portList = {};
+let previousPort = 'Select Team Here';
+
+const servLoc = 'ws://192.168.1.2:9000/';
+let connection;
 
 const ENUM2MISSION = {
     0: "BLACK_BOX",
@@ -182,9 +186,7 @@ $(document).ready(
 
     function start () {
 
-        let servLoc = 'ws://192.168.1.2:9000/';
-
-        let connection = new WebSocket(servLoc);
+        connection = new WebSocket(servLoc);
 
         connection.onopen = () => {
             status('OPEN');
@@ -216,9 +218,32 @@ $(document).ready(
             clear();
 
             let val = $('#ports').val();
-            connection.send(val);
+            if (val === 'Select Team Here') {
+                port_protocol = {
+                    PORT: previousPort,
+                    TYPE: "SOFT_CLOSE"
+                }
+            } else {
 
-            timerReset();
+                if (previousPort === 'Select Team Here') {
+                    port_protocol = {
+                        PORT: val,
+                        TYPE: "OPEN"
+                    }
+                } else {
+                    port_protocol = {
+                        PORT: previousPort,
+                        TYPE: "SWITCH",
+                        NEW_PORT: val
+                    }
+                }
+            }
+
+            previousPort = $('#ports').val();
+            console.log(previousPort)
+            connection.send(JSON.stringify(port_protocol))
+
+            // timerReset();
 
             updateIcon();
         });
@@ -261,3 +286,11 @@ $(document).ready(
     }
 
 );
+
+$(window).on("unload", function(e) {
+    port_protocol = {
+        PORT: previousPort,
+        TYPE: "HARD_CLOSE"
+    }
+    connection.send(JSON.stringify(port_protocol))
+});
