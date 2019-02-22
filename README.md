@@ -28,7 +28,7 @@ Switch a connection -
     "NEW_PORT": "ttyUSB3"
 }
 ```
-```
+
 
 ## Communication Protocol
 
