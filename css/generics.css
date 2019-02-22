@@ -18,7 +18,17 @@
 	overflow: hidden;
 }
 
-.h80 {
+.h-60 {
+	height: 60%;
+	overflow: hidden;
+}
+
+.h-65 {
+	height: 65%;
+	overflow: hidden;
+}
+
+.h-80 {
 	height: 80%;
 	overflow: hidden;
 }

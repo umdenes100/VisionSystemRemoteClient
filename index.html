@@ -7,6 +7,8 @@ permalink: /
 custom_css:
  - index.css
 
+custom_js:
+ - communication_alt.js
 ---
 
 <div class="container-fluid h-100">
@@ -29,6 +31,7 @@ custom_css:
 				    <option value="november">November</option>
 				    <option value="december">December</option>
 				</select>
+				<span id="mission_icon"></span>
 			</div>
 
 			<div id="timer" class="row">
@@ -39,12 +42,12 @@ custom_css:
 				</div>
 			</div>
 
-			<div class="row h-55">
+			<div class="row h-60">
 				<textarea id="communication-window" class="w-100" readonly></textarea>
 			</div>
 			
 
-			<div id="communication-window-options" class="row h-10 pt-2">
+			<div id="communication-window-options" class="row pt-3">
 				<div class="col-12 col-md-12 h-100">
 					<div class="row option">
 						<input id="debug-messages" type="checkbox"></input>
@@ -56,10 +59,12 @@ custom_css:
 					</div>
 				</div>
 			</div>
-
 		</div>
-		<div class="col-12 col-md-9 embed-responsive embed-responsive-16by9">
-			<img id="stream" class=" embed-responsive-item img" src="http://0.0.0.0:5000/">
+
+		<div class="col-12 col-md-9">
+			<div class="embed-responsive embed-responsive-16by9 mt-4">
+				<img id="stream" class="embed-responsive-item img-fluid" src="http://192.168.1.2:8080/">
+			</div>
 		</div>
 	</div>
 </div>

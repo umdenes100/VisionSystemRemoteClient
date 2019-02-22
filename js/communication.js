@@ -197,6 +197,7 @@ $(document).ready(
 
         connection.onmessage = message => {
             status('OPEN');
+            console.log(message.data);
             let data = JSON.parse(message.data);
             parseData(data);
 
