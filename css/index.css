@@ -13,12 +13,12 @@
 	background-color: #F5F5F5;
 }
 
-#select-tools {
+#select-container {
 	background-color: #E8E8E8;
 	border: none;
 }
 
-#select-tools > select {
+#select-container > select {
     box-shadow: none;
     background: transparent;
     -webkit-appearance: none;
