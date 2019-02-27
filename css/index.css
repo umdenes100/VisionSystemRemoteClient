@@ -19,6 +19,9 @@
 }
 
 #select-container > select {
+
+	font-size: 18px;
+
     box-shadow: none;
     background: transparent;
     -webkit-appearance: none;
@@ -35,6 +38,9 @@
 }
 
 #timer {
+
+	font-size: 16px;
+
 	border-top: 0.5px solid lightgrey;
 	border-bottom: 0.5px solid lightgrey;
 

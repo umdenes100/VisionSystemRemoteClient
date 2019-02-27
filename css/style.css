@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Molle:400i|Roboto:500|Ubuntu+Mono');
+@import url('https://fonts.googleapis.com/css?family=Quicksand|Molle:400i|Roboto:400|Ubuntu+Mono');
 
 * {
     box-sizing: border-box
@@ -6,6 +6,7 @@
 
 html, body {
     height: 100%;
+    font-family: 'Quicksand', sans-serif;
 }
 
 /*

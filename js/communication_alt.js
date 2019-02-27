@@ -2,6 +2,7 @@ const WEBSOCKET_ADDRESS = 'ws://192.168.1.2:9000/'
 const connection = new WebSocket(WEBSOCKET_ADDRESS)
 
 let selectedPort = ''
+let startTime = 0
 
 function changePort() {
     let newPort = $('#port').val()
@@ -84,10 +85,28 @@ $(document).ready(() => {
                 break
 
             case 'DEBUG':
-                $('#communication-window').append(content)
+                if ($('#debug-messages').is(":checked")) {
+                    $('#communication-window').append(content)
+                }
+                break
+
+            case 'TIME':
+                difference = content - startTime
+
+                let quotient = Math.floor(difference / 60)
+                let remainder = difference % 60
+
+                $('#minutes').text(quotient.toString().padStart(2, '0'))
+                $('#seconds').text(remainder.toString().padStart(2, '0'))
+
+                break
+
+            case 'START':
+                startTime = content
                 break
 
             default:
+                console.log(`Unexpected type: ${type}`)
                 break
         }
         
