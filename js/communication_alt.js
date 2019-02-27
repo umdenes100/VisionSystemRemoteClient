@@ -56,7 +56,6 @@ $(document).ready(() => {
         message = JSON.parse(message.data)
         let type = message['TYPE']
         let content = message['CONTENT']
-        console.log(message)
 
         switch(type) {
             case 'PORT_LIST':
@@ -78,6 +77,11 @@ $(document).ready(() => {
                 if (Object.keys(content).includes(selectedPort))  {
                     $port.val(selectedPort)
                 }
+                break
+
+            case 'DEBUG':
+                $('#communication-window').append(content)
+                autoscroll()
                 break
 
             default:
