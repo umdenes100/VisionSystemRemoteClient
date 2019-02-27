@@ -44,6 +44,8 @@
 }
 
 #communication-window {
+	font-family: 'Ubuntu Mono', monospace;
+	
 	resize: none;
 	border: none;
 }
@@ -60,14 +62,3 @@
 	margin-top: 4px;
 }
 
-/*#stream-container {
-	height: 100%;
-}
-
-@media screen and (min-width: 1224px) {
-	#stream {
-		margin-top: 5px;
-	}
-}
-
-*/
