@@ -59,6 +59,9 @@ $(document).ready(() => {
 
         switch(type) {
             case 'PORT_LIST':
+
+                console.log(message)
+
                 $port.empty()
                 $port.append($("<option>", {
                     value : '',
@@ -69,7 +72,8 @@ $(document).ready(() => {
                     if (port !== content[port]['NAME']) {
                         $port.append($("<option>", {
                             value : port,
-                            text : content[port]['NAME']
+                            text : content[port]['NAME'],
+                            class: content[port]['MISSION']
                         }))
                     }
                 })
@@ -81,7 +85,6 @@ $(document).ready(() => {
 
             case 'DEBUG':
                 $('#communication-window').append(content)
-                autoscroll()
                 break
 
             default:

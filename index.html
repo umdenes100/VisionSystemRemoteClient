@@ -8,6 +8,8 @@ custom_css:
  - index.css
 
 custom_js:
+ - glyphicon.js
+ - autoscroll.js
  - communication_alt.js
 ---
 
@@ -22,14 +24,12 @@ custom_js:
 				    <option value="banana">Banana</option>
 				    <option value="banana">Banana</option>
 				</select>
-				<span id="mission_icon"></span>
+				<span id="mission_icon"><i></i></span>
 			</div>
 
 			<div id="timer" class="row">
 				<div class="h-100 w-100 pt-3 pb-3">
 					Timer: --:--:--
-					<br>
-					Split: --:--:--
 				</div>
 			</div>
 
@@ -41,11 +41,11 @@ custom_js:
 			<div id="communication-window-options" class="row pt-3">
 				<div class="col-12 col-md-12 h-100">
 					<div class="row option">
-						<input id="debug-messages" type="checkbox"></input>
+						<input id="debug-messages" type="checkbox" checked></input>
 						<label for="debug-messages">Show Debug Messages</label>
 					</div>
 					<div class="row option">
-						<input id="autoscroll" type="checkbox"></input>
+						<input id="autoscroll" type="checkbox" checked></input>
 						<label for="autoscroll">Autoscroll</label>
 					</div>
 				</div>
