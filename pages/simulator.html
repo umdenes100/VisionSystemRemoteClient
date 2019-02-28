@@ -27,7 +27,7 @@ mac_installer: VisionSystemSim.dmg
 
 <script>
     $(document).ready(function () {
-        $.get(`https://raw.githubusercontent.com/umdenes100/{{ page.library }}/master/README.md`, function (data) {
+        $.get('https://raw.githubusercontent.com/umdenes100/{{ page.library }}/master/README.md', function (data) {
             let converter = new showdown.Converter();
             $('.documentation').html(converter.makeHtml(data));
         });
