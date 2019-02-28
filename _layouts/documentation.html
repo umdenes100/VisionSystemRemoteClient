@@ -1,8 +1,5 @@
 ---
 layout: default
-
-custom_css:
- - documentation.css
 ---
 
 <div class="content mt-5">
@@ -20,7 +17,7 @@ custom_css:
 <script>
     $(document).ready(function () {
         $.get('https://raw.githubusercontent.com/umdenes100/{{ page.library }}/master/README.md', function (data) {
-            let converter = new showdown.Converter();
+            let converter = new showdown.Converter({tables: true});
             $('.documentation').html(converter.makeHtml(data));
         });
     });
