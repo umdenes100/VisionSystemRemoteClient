@@ -117,7 +117,6 @@ $(document).ready(() => {
         connection.send('Closed.')
         setTimeout(() => {
             console.log("Retrying...")
-            start()
         }, 5000)
     }
 
