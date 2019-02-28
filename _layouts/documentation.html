@@ -1,0 +1,27 @@
+---
+layout: default
+
+custom_js:
+  - documentation.js
+---
+
+<div class="content mt-5">
+    <div class="row">
+        <div id="{{ page.library }}" class="col-md-6 offset-md-2 documentation"></div>
+
+        <div class="col-md-1 offset-md-1">
+            <form class="sticky" method="get" action="https://github.com/umdenes100/{{ page.library }}/archive/master.zip">
+                <button type="submit" class="btn btn-primary">Download</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        $.get(`https://raw.githubusercontent.com/umdenes100/{{ page.library }}/master/README.md`, function (data) {
+            let converter = new showdown.Converter();
+            $('.documentation').html(converter.makeHtml(data));
+        });
+    });
+</script>

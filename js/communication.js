@@ -1,266 +1,125 @@
-let messages = [];
-let portList = {};
+const WEBSOCKET_ADDRESS = 'ws://192.168.1.2:9000/'
+const connection = new WebSocket(WEBSOCKET_ADDRESS)
 
-const ENUM2MISSION = {
-    0: "BLACK_BOX",
-    1: "CHEMICAL",
-    2: "DEBRIS",
-    3: "FIRE",
-    4: "WATER",
-    5: ""
-};
+let selectedPort = ''
+let startTime = 0
 
-const ENUM2MISSIONCOMM = {
-    0: "BASE",
-    1: "BONUS",
-    2: "END",
-    3: "NAVIGATED",
-    4: "START"
-};
+function changePort() {
+    let newPort = $('#port').val()
+    let portProtocol
 
-const MISSION2ICON = {
-    "BLACK_BOX": '<i class="fas miss fa-cube"></i>',
-    "CHEMICAL": '<i class="fas miss fa-flask"></i>',
-    "DEBRIS": '<i class="fas miss fa-truck"></i>',
-    "FIRE": '<i class="fas miss fa-fire"></i>',
-    "WATER": '<i class="fas miss fa-tint"></i>',
-    "": '<i></i>'
-};
-
-
-
-
-
-
-function updateIcon() {
-    let teamVal = $("#ports option:selected").val();
-
-    for (let key in portList) {
-        if (key === teamVal) {
-            $("#mission_icon").html(MISSION2ICON[ENUM2MISSION[portList[key]["MISSION"]]]);
+    if (newPort === '') {
+        portProtocol = {
+            PORT: selectedPort,
+            TYPE: 'SOFT_CLOSE'
         }
-    }
-}
-
-function clear() {
-    messages = [];
-    $("#comms").val("");
-
-    let clearVal = "--:--:--";
-    $("#timer").text(clearVal);
-    $("#split").text(clearVal);
-
-    mils = 0;
-    secs = 0;
-    mins = 0;
-}
-
-
-function parseMission(mess) {
-
-    console.log(mess);
-    switch(ENUM2MISSIONCOMM[mess["CONTENT_TYPE"]]) {
-        case "START":
-
-            timerReset();
-
-            timerStart();
-            break;
-
-        case "END":
-            timerEnd();
-            break;
-
-        case "NAVIGATED":
-
-            if (ENUM2MISSION[portList[$("#ports option:selected").val()]["MISSION"]] === "CHEMICAL") {
-                timerSplit();
-            }
-
-            break;
-
-        default:
-            // console.log("");
-
-    }
-}
-
-
-function updateComms(completely) {
-
-    let comm = $("#comms");
-
-    if (completely) {
-
-        let comms = "";
-
-        for (let mess in messages) {
-
-            let valid = ($('#debug').is(':checked') || (messages[mess]["M_TYPE"] === "MISSION"));
-            if (valid) {
-                comms += messages[mess]["CONTENT"];
-            }
-        }
-
-        comm.val(comms);
-
     } else {
-
-        let isMission = (messages[messages.length - 1]["M_TYPE"] === "MISSION");
-        if (isMission) {
-            parseMission(messages[messages.length - 1]);
+        if (selectedPort === '') {
+            portProtocol = {
+                PORT: newPort,
+                TYPE: 'OPEN'
+            }
+        } else {
+            portProtocol = {
+                PORT: selectedPort,
+                TYPE: 'SWITCH',
+                NEW_PORT: newPort
+            }
         }
-
-        let valid = $('#debug').is(':checked') || isMission;
-        if (valid) {
-            comm.val(comm.val() + messages[messages.length - 1]["CONTENT"]);
-        }
-
     }
 
-    autoscroll();
+    selectedPort = newPort
 
+    connection.send(JSON.stringify(portProtocol))
 }
 
-function parseData(data) {
+$(window).on('unload', e => {
+    let portProtocol = {
+        PORT: selectedPort,
+        TYPE: 'HARD_CLOSE'
+    }
+    connection.send(JSON.stringify(portProtocol))
+})
 
-    switch(data['TYPE']) {
-        case "PORTLIST":
+$(document).ready(() => {
 
-            portList = data["CONTENT"];
+    $port = $("#port")
 
-            ports = $("#ports");
-            curr = ports.val();
+    connection.onopen = () => {
+        console.log('OPEN')
+    };
 
-            ports.empty();
-            ports.append($("<option>", {
-                value : "Select Team Here",
-                text : "Select Team Here"
-            }));
+    connection.onerror = error => {
+        console.log('WebSocket Error.')
+    };
 
-            for (let key in portList) {
-                if (key !== portList[key]["NAME"]) {
+    connection.onmessage = message => {
+        message = JSON.parse(message.data)
+        let type = message['TYPE']
+        let content = message['CONTENT']
 
-                    ports.append($("<option>", {
-                        value : key,
-                        text : portList[key]["NAME"]
-                    }));
+        switch(type) {
+            case 'PORT_LIST':
+
+                console.log(message)
+
+                $port.empty()
+                $port.append($("<option>", {
+                    value : '',
+                    text : "Select Team Here..."
+                }))
+
+                Object.keys(content).map((port, index) => {
+                    if (port !== content[port]['NAME']) {
+                        $port.append($("<option>", {
+                            value : port,
+                            text : content[port]['NAME'],
+                            class: content[port]['MISSION']
+                        }))
+                    }
+                })
+
+                if (Object.keys(content).includes(selectedPort))  {
+                    $port.val(selectedPort)
                 }
-            }
+                break
 
-            if (curr in portList) {
-                ports.val(curr);
-            } else {
-                ports.val("Select Team Here");
-            }
+            case 'DEBUG':
+                if ($('#debug-messages').is(":checked")) {
+                    $('#communication-window').append(content)
+                }
+                break
 
-            updateIcon();
+            case 'TIME':
+                difference = content - startTime
 
-            break;
+                let quotient = Math.floor(difference / 60)
+                let remainder = difference % 60
 
+                $('#minutes').text(quotient.toString().padStart(2, '0'))
+                $('#seconds').text(remainder.toString().padStart(2, '0'))
 
-        case "MESSAGE":
-            let mess = data["CONTENT"];
+                break
 
-            messages.push(mess);
-            updateComms(false);
+            case 'START':
+                startTime = content
+                break
 
-            break;
+            default:
+                console.log(`Unexpected type: ${type}`)
+                break
+        }
+        
+    };
 
-        default:
-            console.log("Error.");
-    }
-}
-
-
-
-
-
-
-
-$(document).ready(
-
-    function start () {
-
-        let servLoc = 'ws://192.168.1.2:9000/';
-
-        let connection = new WebSocket(servLoc);
-
-        connection.onopen = () => {
-            status('OPEN');
-        };
-
-        connection.onerror = error => {
-            status('CLOSED');
-            console.log('WebSocket Error.');
-        };
-
-        connection.onmessage = message => {
-            status('OPEN');
-            console.log(message.data);
-            let data = JSON.parse(message.data);
-            parseData(data);
-
-        };
-
-        connection.onclose = () => {
-            status('CLOSED');
-            connection.send('Closed.');
-            setTimeout(() => {
-                console.log("Retrying...");
-                start();
-            }, 5000);
-        };
-
-        $('#ports').on('change', () => {
-
-            clear();
-
-            let val = $('#ports').val();
-            connection.send(val);
-
-            timerReset();
-
-            updateIcon();
-        });
-
-        $("#debug").on('click', () => { updateComms(true) });
-
-        $("#clear").on('click', clear);
-
-        $("#reset").on('click', () => {
-            $("#stream").attr('src', 'http://192.168.1.2:8080/');
-        })
-
-        $('#expand').click(() => {
-            document.location.href = '/fullscreen';
-        })
-
-        $('#collapse').click(() => {
-            document.location.href = '/';
-        })
-
-        let timeout;
-        $(document).mousemove(() => {
-
-            let $element;
-
-            
-            if (window.location.pathname+window.location.search === '/fullscreen') {
-                $element = $('#collapse')
-            } else if (window.location.pathname+window.location.search === '/') {
-                $element = $('#expand')
-            }
-
-            $element.show();
-            $('#reset').show();
-
-            clearInterval(timeout);
-            setInterval(function(){
-                $element.hide();
-                $('#reset').hide();
-            }, 5000);
-        })
+    connection.onclose = () => {
+        console.log('CLOSE')
+        connection.send('Closed.')
+        setTimeout(() => {
+            console.log("Retrying...")
+            start()
+        }, 5000)
     }
 
-);
+    $port.on('change', changePort)
+})
