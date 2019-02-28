@@ -34,6 +34,36 @@ Switch a connection -
 
 Every message will have a TYPE and CONTENT.
 
+## Connecting and Disconnecting Websockets
+
+Clients will send three types of messages to connect and disconnect from the server.
+
+Open a connection - 
+```json
+{
+    "PORT": "ttyUSB4",
+    "TYPE": "OPEN"
+}
+```
+
+Close a connection - 
+```json
+{
+    "PORT": "ttyUSB4",
+    "TYPE": "CLOSE"
+}
+```
+
+Switch a connection - 
+```json
+{
+    "PORT": "ttyUSB4",
+    "TYPE": "SWITCH",
+    "NEW_PORT": "ttyUSB3"
+}
+```
+___
+
 JSON Input to the Websockets have the following structure.
 ```json
 {
