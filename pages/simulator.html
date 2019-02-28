@@ -1,22 +1,38 @@
 ---
 layout: default
 
-title: Simulator
-permalink: /simulator/
+title: VisionSystemSimulatorInstallers
+permalink: /simulator
 
-windows_url: https://github.com/umdenes100/VisionSystemSimulatorInstallers/raw/master/VisionSystemSimInstaller.exe
-mac_url: https://github.com/umdenes100/VisionSystemSimulatorInstallers/raw/master/VisionSystemSim.dmg
+library: VisionSystemSimulatorInstallers
+windows_installer: VisionSystemSimInstaller.exe
+mac_installer: VisionSystemSim.dmg
+
+custom_css:
+ - documentation.css
 ---
 
 <div class="content mt-5">
     <div class="row">
-        <div class="col-md-8 offset-md-2 documentation">
-            <h1>Simulator</h1><br>
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/AhzrnlTvZ7s" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
-            </iframe>
+        <div id="{{ page.library }}" class="col-8 offset-1 col-md-5 offset-md-2 documentation"></div>
+
+        <div class="col-8 offset-1 col-md-1 offset-md-1">
+            <form class="sticky" method="get" action="https://github.com/umdenes100/{{ library }}/raw/master/{{ windows_installer }}">
+                <button type="submit" class="btn btn-primary">Windows Download</button>
+            </form>
             <br>
-            <a class="lib-link" href="{{ page.windows_url }}">Windows Download</a><br>
-            <a class="lib-link" href="{{ page.mac_url }}">Mac Download</a><br>
+            <form class="sticky" method="get" action="https://github.com/umdenes100/{{ library }}/raw/master/{{ mac_installer }}">
+                <button type="submit" class="btn btn-primary">Mac Download</button>
+            </form>
         </div>
     </div>
 </div>
+
+<script>
+    $(document).ready(function () {
+        $.get('https://raw.githubusercontent.com/umdenes100/{{ page.library }}/master/README.md', function (data) {
+            let converter = new showdown.Converter({tables: true});
+            $('.documentation').html(converter.makeHtml(data));
+        });
+    });
+</script>

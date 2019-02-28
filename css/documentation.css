@@ -1,0 +1,21 @@
+.documentation img {
+	margin-top: 10px;
+	margin-bottom: 10px;
+	width: 80%;
+}
+
+.documentation p, .documentation ul, .documentation ol {
+	font-size: 18px;
+}
+
+.documentation table {
+	margin-top: 10px;
+	margin-bottom: 10px;
+	border-collapse: collapse;
+}
+
+.documentation tr, .documentation th, .documentation td {
+	border: 0.5px solid lightgrey;
+	padding-left: 10px;
+	padding-right: 10px;
+}

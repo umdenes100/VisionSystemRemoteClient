@@ -33,9 +33,11 @@
         <meta name="msapplication-TileImage" content="/favicons/favicon-144.png">
         <meta name="msapplication-config" content="/favicons/browserconfig.xml">
 
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
         <link rel="stylesheet" href="/css/style.css">
+        <link rel="stylesheet" href="/css/header.css">
+        <link rel="stylesheet" href="/css/generics.css">
         {% for css_link in page.custom_css %}
         <link rel="stylesheet" href="/css/{{ css_link }}">
         {% endfor %}
@@ -51,10 +53,7 @@
 
     </head>
 
-    <body>
-
+    <body class="full">
         {{ content }}
-
     </body>
-
 </html>
