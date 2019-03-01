@@ -11,6 +11,8 @@ custom_js:
  - glyphicon.js
  - autoscroll.js
  - communication.js
+
+ video_stream: http://192.168.1.2:8080/
 ---
 
 <div class="container-fluid h-100">
@@ -59,7 +61,7 @@ custom_js:
 
 		<div class="col-12 col-md-9">
 			<div id="stream-container" class="embed-responsive embed-responsive-16by9 mt-1">
-				<img id="stream" class="embed-responsive-item img-fluid" src="http://192.168.1.2:8080/">
+				<img id="stream" class="embed-responsive-item img-fluid" src="{{ video_stream }}">
 			</div>
 		</div>
 	</div>
