@@ -15,10 +15,10 @@ layout: default
 </div>
 
 <script>
-    $(document).ready(function () {
-        $.get('https://raw.githubusercontent.com/umdenes100/{{ page.library }}/master/README.md', function (data) {
-            let converter = new showdown.Converter({tables: true});
-            $('.documentation').html(converter.makeHtml(data));
-        });
-    });
+    $(document).ready(() => {
+        $.get('https://raw.githubusercontent.com/umdenes100/{{ page.library }}/master/README.md', data => {
+            let converter = new showdown.Converter({tables: true})
+            $('.documentation').html(converter.makeHtml(data))
+        })
+    })
 </script>
