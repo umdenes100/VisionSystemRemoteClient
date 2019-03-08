@@ -65,28 +65,42 @@ function clearUserInput() {
 	userInput = []
 }
 
-$(document).ready(() => {
+function goBack() {
+	$(document).keypress((e) => {
 
-	
+		if (e.keyCode == 13) {
+			userInput.push(e.keyCode)
+		}
+
+		if (userInput[userInput.length - 2] == 13 && userInput[userInput.length - 1] == 13) {
+			clearUserInput()
+			window.location.href = document.referrer
+		}
+		
+		setTimeout(clearUserInput, 2000)
+	})
+}
+
+$(document).ready(() => {
 
 	if (document.title === "LTF > UTF") {
 		new Typed('#title', titleOptions)
 		new Typed('#author', authorOptions)
 		new Typed('#text', textOptions)
 
-		$(document).keypress((e) => {
+		goBack()
 
-			if (e.keyCode == 13) {
-				userInput.push(e.keyCode)
-			}
-
-			if (userInput[userInput.length - 2] == 13 && userInput[userInput.length - 1] == 13) {
-				clearUserInput()
-				window.location.href = document.referrer
-			}
-			
-			setTimeout(clearUserInput, 2000)
+	} else if (document.title === 'UTF > LTF') {
+		new Typed("#title", {
+			strings: ["No."],
+			typeSpeed: 0,
+			showCursor: false,
+			contentType: null,
+			startDelay: 1000,
 		})
+
+		goBack()
+
 	} else {
 		$(document).keypress((e) => {
 			userInput = userInput.concat(String.fromCharCode(e.keyCode))
@@ -94,6 +108,11 @@ $(document).ready(() => {
 			if (userInput.join('').includes('ltf>utf')) {
 				clearUserInput()
 				window.location.href = '/secret'
+			}
+
+			if (userInput.join('').includes('utf>ltf')) {
+				clearUserInput()
+				window.location.href = '/notasecret'
 			}
 		})
 	}	
