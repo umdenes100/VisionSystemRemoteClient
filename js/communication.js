@@ -108,8 +108,13 @@ $(document).ready(() => {
                 startTime = content
                 break
 
+            case 'MISSION':
+                $('#communication-window').append(content)
+                break
+
             default:
                 console.log(`Unexpected type: ${type}`)
+                console.log(message)
                 break
         }
         
