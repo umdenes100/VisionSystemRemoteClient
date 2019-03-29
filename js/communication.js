@@ -1,5 +1,5 @@
 const WEBSOCKET_ADDRESS = 'ws://192.168.1.2:9000/'
-const connection = new WebSocket(WEBSOCKET_ADDRESS)
+let connection = undefined
 
 let selectedPort = ''
 let startTime = 0
@@ -42,6 +42,8 @@ $(window).on('unload', e => {
 })
 
 $(document).ready(() => {
+
+    connection = new WebSocket(WEBSOCKET_ADDRESS)
 
     $port = $("#port")
 
