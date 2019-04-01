@@ -33,6 +33,11 @@ function changePort() {
     connection.send(JSON.stringify(portProtocol))
 }
 
+function printMessage(message) {
+    let $comms = $('#communication-window')
+    $comms.val($comms.val().split('\n').slice(-100).join('\n'))
+}
+
 $(window).on('unload', e => {
     let portProtocol = {
         PORT: selectedPort,
@@ -88,7 +93,7 @@ $(document).ready(() => {
 
             case 'DEBUG':
                 if ($('#debug-messages').is(":checked")) {
-                    $('#communication-window').append(content)
+                    printMessage(content)
                 }
                 break
 
@@ -111,7 +116,7 @@ $(document).ready(() => {
                 break
 
             case 'MISSION':
-                $('#communication-window').append(content)
+                printMessage(content)
                 break
 
             default:
