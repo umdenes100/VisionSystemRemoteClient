@@ -36,7 +36,7 @@ function changePort() {
 function printMessage(message) {
     let $comms = $('#communication-window')
     $comms.append(message)
-    $comms.val($comms.val().split('\n').slice(-100).join('\n'))
+    // $comms.val($comms.val().split('\n').slice(-100).join('\n'))
 }
 
 $(window).on('unload', e => {
