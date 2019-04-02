@@ -14,3 +14,4 @@ $(document).ready(() => {
 	$('#autoscroll').on('click', autoscroll)
 	setInterval(autoscroll, 100)
 })
+

@@ -36,7 +36,10 @@ function changePort() {
 function printMessage(message) {
     let $comms = $('#communication-window')
     $comms.append(message)
-    // $comms.val($comms.val().split('\n').slice(-100).join('\n'))
+
+    let last_hundred_messages = $comms.val().split('\n').slice(-100).join('\n')
+    $comms.empty()
+    $comms.append(last_hundred_messages)
 }
 
 $(window).on('unload', e => {
@@ -66,10 +69,12 @@ $(document).ready(() => {
         let type = message['TYPE']
         let content = message['CONTENT']
 
-        console.log(message)
+
 
         switch(type) {
             case 'PORT_LIST':
+
+                console.log(message)
 
                 $port.empty()
                 $port.append($('<option>', {
@@ -101,6 +106,8 @@ $(document).ready(() => {
 
             case 'TIME':
 
+                console.log(message)
+
                 let difference = content - startTime
 
                 let quotient = Math.floor(difference / 60)
@@ -115,14 +122,23 @@ $(document).ready(() => {
                 break
 
             case 'START':
+
+                console.log(message)
+
                 startTime = content
                 break
 
             case 'MISSION':
+
+                console.log(message)
+
                 printMessage(content)
                 break
 
             default:
+
+                console.log(message)
+
                 console.log(`Unexpected type: ${type}`)
                 break
         }
