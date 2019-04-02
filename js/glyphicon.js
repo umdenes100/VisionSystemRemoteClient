@@ -20,9 +20,11 @@ function updateGlyphicon() {
 	let $selected_port = $('#port option:selected')
 	let mission = $selected_port.attr('class')
 
-	$('#mission_icon i').removeClass()
-	$('#mission_icon i').addClass(`mt-3 fas fa-lg miss ${MISSION_TO_ICON[mission]}`)
-	$('#mission_icon i').css('color', MISSION_TO_ICON_COLOR[mission])
+    let $mission_icon = $('#mission_icon i')
+
+	$mission_icon.removeClass()
+    $mission_icon.addClass(`mt-3 fas fa-lg miss ${MISSION_TO_ICON[mission]}`)
+    $mission_icon.css('color', MISSION_TO_ICON_COLOR[mission])
 }
 
 $(document).ready(() => {

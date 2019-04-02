@@ -51,7 +51,7 @@ $(document).ready(() => {
 
     connection = new WebSocket(WEBSOCKET_ADDRESS)
 
-    $port = $('#port')
+    let $port = $('#port')
 
     connection.onopen = () => {
         console.log('OPEN')
@@ -101,12 +101,12 @@ $(document).ready(() => {
 
             case 'TIME':
 
-                difference = content - startTime
+                let difference = content - startTime
 
                 let quotient = Math.floor(difference / 60)
                 if (quotient > 5) {
                     quotient = 5
-                } 
+                }
                 let remainder = difference % 60
 
                 $('#minutes').text(quotient.toString().padStart(2, '0'))
