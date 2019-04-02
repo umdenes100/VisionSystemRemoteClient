@@ -51,15 +51,15 @@ $(document).ready(() => {
 
     connection = new WebSocket(WEBSOCKET_ADDRESS)
 
-    $port = $("#port")
+    $port = $('#port')
 
     connection.onopen = () => {
         console.log('OPEN')
-    };
+    }
 
     connection.onerror = error => {
         console.log('WebSocket Error.')
-    };
+    }
 
     connection.onmessage = message => {
         message = JSON.parse(message.data)
@@ -72,14 +72,14 @@ $(document).ready(() => {
             case 'PORT_LIST':
 
                 $port.empty()
-                $port.append($("<option>", {
+                $port.append($('<option>', {
                     value : '',
-                    text : "Select Team Here..."
+                    text : 'Select Team Here...'
                 }))
 
                 Object.keys(content).map((port, index) => {
                     if (port !== content[port]['NAME']) {
-                        $port.append($("<option>", {
+                        $port.append($('<option>', {
                             value : port,
                             text : content[port]['NAME'],
                             class: content[port]['MISSION']
@@ -94,7 +94,7 @@ $(document).ready(() => {
 
             case 'DEBUG':
 
-                if ($('#debug-messages').is(":checked")) {
+                if ($('#debug-messages').is(':checked')) {
                     printMessage(content)
                 }
                 break
@@ -127,13 +127,13 @@ $(document).ready(() => {
                 break
         }
         
-    };
+    }
 
     connection.onclose = () => {
         console.log('CLOSE')
         connection.send('Closed.')
         setTimeout(() => {
-            console.log("Retrying...")
+            console.log('Retrying...')
         }, 5000)
     }
 

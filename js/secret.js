@@ -83,7 +83,7 @@ function goBack() {
 
 $(document).ready(() => {
 
-	if (document.title === "LTF > UTF") {
+	if (document.title === 'LTF > UTF') {
 		new Typed('#title', titleOptions)
 		new Typed('#author', authorOptions)
 		new Typed('#text', textOptions)
@@ -91,8 +91,8 @@ $(document).ready(() => {
 		goBack()
 
 	} else if (document.title === 'UTF > LTF') {
-		new Typed("#title", {
-			strings: ["No."],
+		new Typed('#title', {
+			strings: ['No.'],
 			typeSpeed: 0,
 			showCursor: false,
 			contentType: null,
