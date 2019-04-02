@@ -65,10 +65,10 @@ $(document).ready(() => {
         let type = message['TYPE']
         let content = message['CONTENT']
 
+        console.log(message)
+
         switch(type) {
             case 'PORT_LIST':
-
-                console.log(message)
 
                 $port.empty()
                 $port.append($("<option>", {
@@ -92,12 +92,14 @@ $(document).ready(() => {
                 break
 
             case 'DEBUG':
+
                 if ($('#debug-messages').is(":checked")) {
                     printMessage(content)
                 }
                 break
 
             case 'TIME':
+
                 difference = content - startTime
 
                 let quotient = Math.floor(difference / 60)
@@ -121,7 +123,6 @@ $(document).ready(() => {
 
             default:
                 console.log(`Unexpected type: ${type}`)
-                console.log(message)
                 break
         }
         
