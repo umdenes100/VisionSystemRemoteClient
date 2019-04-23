@@ -39,7 +39,7 @@ function printMessage(message) {
 
     let last_thousand_messages = $comms.val().split('\n').slice(-1000).join('\n')
     $comms.empty()
-    $comms.append(last_hundred_messages)
+    $comms.append(last_thousand_messages)
 }
 
 $(window).on('unload', e => {
