@@ -37,7 +37,7 @@ function printMessage(message) {
     let $comms = $('#communication-window')
     $comms.append(message)
 
-    let last_hundred_messages = $comms.val().split('\n').slice(-1000).join('\n')
+    let last_thousand_messages = $comms.val().split('\n').slice(-1000).join('\n')
     $comms.empty()
     $comms.append(last_hundred_messages)
 }
