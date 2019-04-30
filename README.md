@@ -1,4 +1,4 @@
-# enes100
+# Vision System Remote Client
 
 ## Project setup
 ```
