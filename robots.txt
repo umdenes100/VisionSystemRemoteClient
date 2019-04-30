@@ -1,2 +1,0 @@
-User-agent: *
-Sitemap: http://enes100.umd.edu/sitemap.xml

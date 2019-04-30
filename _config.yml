@@ -1,8 +1,0 @@
-url: "http://enes100.umd.edu"
-plugins:
-  - jekyll-sitemap
-  - jekyll-minifier
-
-jekyll-minifier:
-  uglifier_args:
-    harmony: true

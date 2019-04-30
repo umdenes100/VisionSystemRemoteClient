@@ -1,9 +1,0 @@
-{
-  "parserOptions": {
-    "ecmaVersion": 2018
-  },
-  "rules": {
-    "semi": ["error", "never"],
-    "quotes": ["error", "single"]
-  }
-}
