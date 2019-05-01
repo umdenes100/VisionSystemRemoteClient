@@ -13,20 +13,54 @@ custom_css:
 custom_js:
   - codemirror/lib/codemirror.js
   - codemirror/mode/clike/clike.js
-  - simulator.js
+  - simulator/editor.js
+  - simulator/preview.js
+  - simulator/osv_menu.js
+  - simulator/simulator.js
 
 custom_js_url:
   - https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.32.0/codemirror.min.js
 ---
 
-<div class="content">
-    <div class="row wrapper">
-        <div id="editor" class="col-md-5"></div>
-        <div id="actions" class="col-md-1">
+<div class="content h-100">
+    <div class="row wrapper h-100">
+        <div id="editor" class="col-md-5 h-100"></div>
+        <div id="actions" class="col-md-1 h-100">
             <button class="mt-4 mb-2">Randomize</button>
             <button class="mt-2 mb-2">Simulate</button>
             <button class="mt-2 mb-2">Save</button>
+            <label for="obstacles" class="mt-2 mb-2">
+                <input id="obstacles" type="checkbox" checked>&nbsp;&nbsp;Obstacles
+            </label>
+            <label for="ideal" class="mt-2 mb-2">
+                <input id="ideal" type="checkbox">&nbsp;&nbsp;Ideal
+            </label>
         </div>
-        <div class="col-md-6"></div>
+        <div class="col-md-6 h-100">
+            <div id="preview-row" class="row mt-3">
+                <div class="col-md-5">
+                    <div id="preview-wrapper" class="pl-1 pr-1">
+                        <canvas id="pbg"></canvas>
+                        <canvas id="pfg"></canvas>
+                    </div>
+                </div>
+<!--                <div class="col-md-7">-->
+<!--                    <canvas id="osv">-->
+
+<!--                    </canvas>-->
+<!--                </div>-->
+            </div>
+        </div>
+    </div>
+    <div class="row h-100 bt">
+        <div class="col-md-3">
+            Banana
+        </div>
+        <div class="col-md-9">
+            <div id="simulation-wrapper" class="pt-5 pl-5 pr-5 h-100">
+                <canvas id="bg"></canvas>
+                <canvas id="fg"></canvas>
+            </div>
+        </div>
     </div>
 </div>
