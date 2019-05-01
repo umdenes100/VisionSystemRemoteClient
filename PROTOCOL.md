@@ -213,6 +213,10 @@ This is where the money is. These are the messages users send to the client to d
 }
 ```
 
+## Simulator
+
+TODO: Fill this in.
+
 ## Conclusion
 
 That should be all of it. In case the back-end API changes, be sure to update this documentation as well. Also, if parts of it are confusing, rambling, or downright unintelligble, feel free to change them.
