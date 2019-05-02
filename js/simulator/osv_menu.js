@@ -17,10 +17,19 @@ class MenuOSV {
     }
 
     draw(context) {
-        console.log(context)
-        console.log(this.x, this.y, this.width, this.height)
         context.fillStyle = this.color
         context.fillRect(this.x, this.y, this.width, this.height)
+
+        let aruco = new Image()
+        aruco.src = 'img/aruco.png'
+
+        let imageDimension = Math.min(this.width, this.height) * 0.8
+        let imageX = this.x + (this.width - imageDimension) / 2
+        let imageY = this.y + (this.height - imageDimension) / 2
+
+        aruco.onload = () => {
+            context.drawImage(aruco, imageX, imageY, imageDimension, imageDimension)
+        }
     }
 }
 
@@ -58,7 +67,7 @@ class MenuCanvas {
 
         elements_to_resize.map(elementId => {
             document.getElementById(elementId)
-                .setAttribute('style',`height:${this.height()}px`)
+                    .setAttribute('style',`height:${this.height()}px`)
         })
     }
 
@@ -71,11 +80,11 @@ $(document).ready(() => {
     mcanvas.draw()
 
     $('#length').on('change', () => {
-        mcanvas.osv.actual_width = $('#length').val()
+        mcanvas.osv.actual_width = parseInt($('#length').val())
         mcanvas.draw()
     })
     $('#width').on('change', () => {
-        mcanvas.osv.actual_height = $('#width').val()
+        mcanvas.osv.actual_height = parseInt($('#width').val())
         mcanvas.draw()
     })
 })
