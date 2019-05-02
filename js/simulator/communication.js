@@ -21,15 +21,13 @@ $(document).ready(() => {
         message = JSON.parse(message.data)
         if (message.type === 'randomization') {
 
-            randomization = message
+            let canvasses = [pcanvas, canvas]
 
-            [pcanvas, canvas].map(canv => {
+            canvasses.map(canv => {
                 canv.obstacles = message.obstacles.map(obstacle => new Obstacle(obstacle.x, obstacle.y))
                 canv.destination = new Destination(message.destination.x, message.destination.y)
                 canv.draw()
             })
-
-
         } else {
             console.log('Unimplemented')
         }

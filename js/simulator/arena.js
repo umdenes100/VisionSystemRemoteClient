@@ -103,7 +103,7 @@ class Canvas {
         // this.osv_frames = undefined
     }
 
-    width(element_id) {
+    width() {
         return $(this.fg).first().parent().width()
     }
 
