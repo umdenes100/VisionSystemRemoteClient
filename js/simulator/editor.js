@@ -1,10 +1,9 @@
 let editor = undefined
 
 $(document).ready(() => {
-
     let starting_code = Cookies.get('code')
     if (starting_code === undefined) {
-        starting_code = 'void setup() {\n\n}\n\nvoid loop() {\n\n}'
+        starting_code = 'void setup() {\n\n}\n\nvoid loop() {\n\n}\n'
     }
 
 
@@ -21,6 +20,10 @@ $(document).ready(() => {
         matchBrackets: true,
 
         mode: "text/x-c++src",
+    })
+
+    $('#save').on('click', () => {
+        download(editor.getDoc().getValue(), 'enes100.ino')
     })
 })
 
