@@ -35,7 +35,7 @@ $(document).ready(() => {
 
         matchBrackets: true,
 
-        mode: "text/x-c++src",
+        mode: 'text/x-c++src',
     })
 
     $('#save').on('click', () => {

@@ -4,9 +4,13 @@
 let pcanvas = undefined
 
 $(document).ready(() => {
-
-    pcanvas = new Canvas(document.getElementById('pfg'), document.getElementById('pbg'))
+    pcanvas = new Canvas(document.getElementById('pfg'),
+                         document.getElementById('pbg'))
     pcanvas.resize(['preview-wrapper'])
+    pcanvas.draw()
 })
 
-$(window).resize(() => pcanvas.resize())
+$(window).resize(() => {
+    pcanvas.resize(['preview-wrapper'])
+    pcanvas.draw()
+})

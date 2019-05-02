@@ -7,6 +7,11 @@ $(document).ready(() => {
     canvas = new Canvas(document.getElementById('fg'),
                         document.getElementById('bg'))
     canvas.resize()
+    canvas.draw()
 })
 
-$(window).resize(() => canvas.resize())
+
+$(window).resize(() => {
+    canvas.resize()
+    canvas.draw()
+})

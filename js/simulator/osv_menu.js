@@ -1,100 +1,86 @@
-// // m stands for menu
-// // bg is background and fg is foreground.
-//
-// let osv_menu = undefined
-// let osv_menu_context = undefined
-//
-// let mosv = undefined
-// let mcanvas = undefined
-//
-// class MOSV {
-//     constructor() {
-//         this.color = '#000000'
-//     }
-//
-//     resize(canvas_width, canvas_height) {
-//
-//         let length = parseInt(document.getElementById('length').value)
-//         let breadth = parseInt(document.getElementById('breadth').value)
-//         Cookies.set('length', length, { expires: 30, path: '/simulatorweb' })
-//         Cookies.set('breadth', breadth, { expires: 30, path: '/simulatorweb' })
-//
-//         $('#actual-length').text(length)
-//         $('#actual-breadth').text(breadth)
-//
-//         this.width = (length / 300) * 0.75 * canvas_height
-//         this.height = (breadth / 300) * 0.75 * canvas_width
-//         this.x = (canvas_width - this.width) / 2
-//         this.y = (canvas_height - this.height) / 2
-//     }
-//
-//     draw() {
-//         osv_menu_context.fillStyle = this.color
-//         osv_menu_context.fillRect(this.x, this.y, this.width, this.height)
-//     }
-// }
-//
-// class MCanvas {
-//     constructor() {
-//         this.osv = new MOSV()
-//         // this.arena = new Arena()
-//         // this.rockyTerrain = new RockyTerrain()
-//         // this.obstacles = undefined
-//         // this.destination = undefined
-//         // this.osv_frames = undefined
-//     }
-//
-//     width() {
-//         return $('#osv-menu').first().parent().width()
-//     }
-//
-//     height() {
-//         return this.width()
-//     }
-//
-//     draw() {
-//
-//         osv_menu.width = this.width()
-//         osv_menu.height = this.height()
-//
-//         this.elements().map(element => {
-//             if (element !== undefined) {
-//                 element.resize(this.width(), this.height())
-//                 element.draw()
-//             }
-//         })
-//     }
-//
-//     elements() {
-//         return [this.osv].flat()
-//     }
-//
-// }
-//
-// function mresize() {
-//     mcanvas.draw()
-//
-//     let pr = document.getElementById('preview-row')
-//
-//     let height = undefined
-//     if (pcanvas !== undefined) {
-//         height = Math.max(pcanvas.height(), mcanvas.height())
-//     } else {
-//         height = mcanvas.height()
-//     }
-//
-//     pr.setAttribute("style",`height:${height}px`)
-// }
-//
-// $(document).ready(() => {
-//     osv_menu = document.getElementById('osv-menu')
-//     osv_menu_context = osv_menu.getContext('2d')
-//
-//     mcanvas = new MCanvas()
-//     mresize()
-//
-//     $('#length').on('change', mresize)
-//     $('#breadth').on('change', mresize)
-// })
-//
-// $(window).resize(mresize)
+let mcanvas = undefined
+
+class MenuOSV {
+    constructor(actual_width, actual_height) {
+        this.actual_width = actual_width
+        this.actual_height = actual_height
+
+        this.color = '#000000'
+    }
+
+    resize(canvasWidth, canvasHeight) {
+        this.width = canvasWidth * this.actual_width / 500
+        this.height = canvasHeight * this.actual_height / 500
+
+        this.x = (canvasWidth - this.width) / 2
+        this.y = (canvasHeight - this.height) / 2
+    }
+
+    draw(context) {
+        console.log(context)
+        console.log(this.x, this.y, this.width, this.height)
+        context.fillStyle = this.color
+        context.fillRect(this.x, this.y, this.width, this.height)
+    }
+}
+
+class MenuCanvas {
+    constructor(canvas) {
+        this.canvas = canvas
+        this.context = this.canvas.getContext('2d')
+
+        this.osv = new MenuOSV(225, 225)
+    }
+
+    width() {
+        return $(this.canvas).first().parent().width()
+    }
+
+    height() {
+        return this.width()
+    }
+
+    draw() {
+        this.canvas.width = this.width()
+        this.canvas.height = this.height()
+
+        this.osv.resize(this.width(), this.height())
+        this.osv.draw(this.context)
+    }
+
+    resize(elements_to_resize) {
+
+        if (elements_to_resize === undefined) {
+            elements_to_resize = []
+        }
+
+        this.draw()
+
+        elements_to_resize.map(elementId => {
+            document.getElementById(elementId)
+                .setAttribute('style',`height:${this.height()}px`)
+        })
+    }
+
+}
+
+$(document).ready(() => {
+
+    mcanvas = new MenuCanvas(document.getElementById('osv-menu'))
+    mcanvas.resize(['preview-row'])
+    mcanvas.draw()
+
+    $('#length').on('change', () => {
+        mcanvas.osv.actual_width = $('#length').val()
+        mcanvas.draw()
+    })
+    $('#width').on('change', () => {
+        mcanvas.osv.actual_height = $('#width').val()
+        mcanvas.draw()
+    })
+})
+
+$(window).resize(() => {
+    mcanvas.resize(['preview-row'])
+    mcanvas.draw()
+})
