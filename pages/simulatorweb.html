@@ -19,7 +19,10 @@ custom_js:
   - simulator/simulator.js
 
 custom_js_url:
+  - https://unpkg.com/hotkeys-js/dist/hotkeys.min.js
   - https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.32.0/codemirror.min.js
+  - https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js
+  - https://cdnjs.cloudflare.com/ajax/libs/downloadjs/1.4.8/download.min.js
 ---
 
 <div class="content h-100">
@@ -42,13 +45,14 @@ custom_js_url:
                     </div>
                     <div id="osv-size" class="pt-5">
                         <label for="length">
-                            Length: 250 100 <input type="range" min="100" max="300" value="250" class="slider" id="length"> 300
+                            Length: <strong><span id="actual-length"></span></strong>
+                            100 <input type="range" min="100" max="300" value="250" class="slider" id="length"> 300
                         </label>
-
                         <br>
                         <br>
                         <label for="breadth">
-                            Breadth: 200 100 <input type="range" min="100" max="300" value="200" class="slider" id="breadth"> 300
+                            Breadth: <strong><span id="actual-breadth"></span></strong>
+                            100 <input type="range" min="100" max="300" value="200" class="slider" id="breadth"> 300
                         </label>
 
                     </div>

@@ -68,7 +68,7 @@ function presize() {
     pcanvas.draw()
 
     let pw = document.getElementById('preview-wrapper')
-    pw.setAttribute("style",`height:${pcanvas.height()}px`)
+    pw.setAttribute('style',`height:${pcanvas.height()}px`)
 
 }
 

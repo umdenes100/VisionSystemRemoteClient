@@ -4,10 +4,39 @@
 let osv_menu = undefined
 let osv_menu_context = undefined
 
+let mosv = undefined
 let mcanvas = undefined
+
+class MOSV {
+    constructor() {
+        this.color = '#000000'
+    }
+
+    resize(canvas_width, canvas_height) {
+
+        let length = parseInt(document.getElementById('length').value)
+        let breadth = parseInt(document.getElementById('breadth').value)
+        Cookies.set('length', length, { expires: 30, path: '/simulatorweb' })
+        Cookies.set('breadth', breadth, { expires: 30, path: '/simulatorweb' })
+
+        $('#actual-length').text(length)
+        $('#actual-breadth').text(breadth)
+
+        this.width = (length / 300) * 0.75 * canvas_height
+        this.height = (breadth / 300) * 0.75 * canvas_width
+        this.x = (canvas_width - this.width) / 2
+        this.y = (canvas_height - this.height) / 2
+    }
+
+    draw() {
+        osv_menu_context.fillStyle = this.color
+        osv_menu_context.fillRect(this.x, this.y, this.width, this.height)
+    }
+}
 
 class MCanvas {
     constructor() {
+        this.osv = new MOSV()
         // this.arena = new Arena()
         // this.rockyTerrain = new RockyTerrain()
         // this.obstacles = undefined
@@ -37,7 +66,7 @@ class MCanvas {
     }
 
     elements() {
-        return [this.arena, this.rockyTerrain, this.obstacles, this.destination, this.osv].flat()
+        return [this.osv].flat()
     }
 
 }
@@ -63,6 +92,9 @@ $(document).ready(() => {
 
     mcanvas = new MCanvas()
     mresize()
+
+    $('#length').on('change', mresize)
+    $('#breadth').on('change', mresize)
 })
 
 $(window).resize(mresize)
