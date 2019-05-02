@@ -66,8 +66,10 @@ class PCanvas {
 
 function presize() {
     pcanvas.draw()
-    document.getElementById('preview-row')
-            .setAttribute("style",`height:${pcanvas.height()}px`);
+
+    let pw = document.getElementById('preview-wrapper')
+    pw.setAttribute("style",`height:${pcanvas.height()}px`)
+
 }
 
 $(document).ready(() => {

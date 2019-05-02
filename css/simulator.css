@@ -45,3 +45,12 @@ canvas {
     /*top: 0;*/
     /*left: 0;*/
 }
+
+#panel {
+    border-right: #c0c0c0 1px solid;
+}
+
+#osv-size {
+    font-size: 10px;
+    text-align: right;
+}

@@ -32,9 +32,6 @@ custom_js_url:
             <label for="obstacles" class="mt-2 mb-2">
                 <input id="obstacles" type="checkbox" checked>&nbsp;&nbsp;Obstacles
             </label>
-            <label for="ideal" class="mt-2 mb-2">
-                <input id="ideal" type="checkbox">&nbsp;&nbsp;Ideal
-            </label>
         </div>
         <div class="col-md-6 h-100">
             <div id="preview-row" class="row mt-3">
@@ -43,24 +40,37 @@ custom_js_url:
                         <canvas id="pbg"></canvas>
                         <canvas id="pfg"></canvas>
                     </div>
-                </div>
-<!--                <div class="col-md-7">-->
-<!--                    <canvas id="osv">-->
+                    <div id="osv-size" class="pt-5">
+                        <label for="length">
+                            Length: 250 100 <input type="range" min="100" max="300" value="250" class="slider" id="length"> 300
+                        </label>
 
-<!--                    </canvas>-->
-<!--                </div>-->
+                        <br>
+                        <br>
+                        <label for="breadth">
+                            Breadth: 200 100 <input type="range" min="100" max="300" value="200" class="slider" id="breadth"> 300
+                        </label>
+
+                    </div>
+                </div>
+                <div class="col-md-7 pl-5 pr-5">
+                    <canvas id="osv-menu">
+
+                    </canvas>
+                </div>
             </div>
         </div>
     </div>
     <div class="row h-100 bt">
-        <div class="col-md-3">
+        <div id="panel" class="col-md-3">
             Banana
         </div>
         <div class="col-md-9">
-            <div id="simulation-wrapper" class="pt-5 pl-5 pr-5 h-100">
+            <div id="simulation-wrapper" class="pt-5 pl-5 pr-5 h-75">
                 <canvas id="bg"></canvas>
                 <canvas id="fg"></canvas>
             </div>
+<!--            <div id="player" class="pt-2 pl-5 pr-5 test"></div>-->
         </div>
     </div>
 </div>
