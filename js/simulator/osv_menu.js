@@ -1,10 +1,25 @@
 let mcanvas = undefined
 
-class MenuOSV {
-    constructor(actual_width, actual_height) {
-        this.actual_width = actual_width
-        this.actual_height = actual_height
+class Sensor {
+    constructor() {
 
+    }
+
+    resize(canvasWidth, canvasHeight) {
+
+    }
+
+    draw(context) {
+
+    }
+}
+
+class MenuOSV {
+    constructor(actualWidth, actualHeight) {
+        this.actual_width = actualWidth
+        this.actual_height = actualHeight
+
+        this.tread_color = '#5c5b5c'
         this.color = '#000000'
     }
 
@@ -17,6 +32,17 @@ class MenuOSV {
     }
 
     draw(context) {
+
+        context.fillStyle = this.tread_color
+        context.fillRect(this.x - this.width * 0.1,
+                         this.y - (this.height * 0.15),
+                         this.width * 1.2,
+                        this.height * 0.15)
+        context.fillRect(this.x - this.width * 0.1,
+                        this.y + this.height,
+                        this.width * 1.2,
+                        this.height * 0.15)
+
         context.fillStyle = this.color
         context.fillRect(this.x, this.y, this.width, this.height)
 
@@ -38,7 +64,7 @@ class MenuCanvas {
         this.canvas = canvas
         this.context = this.canvas.getContext('2d')
 
-        this.osv = new MenuOSV(225, 225)
+        this.osv = new MenuOSV(250, 200)
     }
 
     width() {
