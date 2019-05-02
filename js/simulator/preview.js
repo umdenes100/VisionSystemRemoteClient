@@ -3,14 +3,6 @@
 
 let pcanvas = undefined
 
-// function presize() {
-//     pcanvas.draw()
-//
-//     let pw = document.getElementById('preview-wrapper')
-//     pw.setAttribute('style',`height:${pcanvas.height()}px`)
-//
-// }
-
 $(document).ready(() => {
 
     pcanvas = new Canvas(document.getElementById('pfg'), document.getElementById('pbg'))

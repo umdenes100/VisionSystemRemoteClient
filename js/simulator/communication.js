@@ -23,9 +23,12 @@ $(document).ready(() => {
 
             randomization = message
 
-            pcanvas.obstacles = message.obstacles.map(obstacle => new Obstacle(obstacle.x, obstacle.y))
-            pcanvas.destination = new Destination(message.destination.x, message.destination.y)
-            pcanvas.draw()
+            [pcanvas, canvas].map(canv => {
+                canv.obstacles = message.obstacles.map(obstacle => new Obstacle(obstacle.x, obstacle.y))
+                canv.destination = new Destination(message.destination.x, message.destination.y)
+                canv.draw()
+            })
+
 
         } else {
             console.log('Unimplemented')
