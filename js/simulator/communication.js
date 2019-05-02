@@ -42,6 +42,10 @@ $(document).ready(() => {
         }))
     })
 
+    $('#simulate').on('click', () => {
+        $("html, body").animate({ scrollTop: $(document).height() }, "slow");
+    })
+
 })
 
 
