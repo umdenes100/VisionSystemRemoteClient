@@ -1,11 +1,27 @@
 let editor = undefined
 
 $(document).ready(() => {
+
+    // console.log(Cookies.get())
+
+    // let length = Cookies.get('length')
+    // if (length === undefined) {
+    //     length = 200
+    // }
+    // $('#length').val(parseInt(length))
+    //
+    // let breadth = Cookies.get('breadth')
+    // if (breadth === undefined) {
+    //     breadth = 200
+    // }
+    // $('#breadth').val(parseInt(breadth))
+    //
     let starting_code = Cookies.get('code')
     if (starting_code === undefined) {
         starting_code = 'void setup() {\n\n}\n\nvoid loop() {\n\n}\n'
     }
 
+    // mresize()
 
     editor = CodeMirror(document.getElementById('editor'), {
         value: starting_code,
@@ -27,9 +43,25 @@ $(document).ready(() => {
     })
 })
 
-window.onbeforeunload = function (event) {
-    Cookies.set('code', editor.getDoc().getValue(), { expires: 30, path: '/simulatorweb' })
-}
+// window.onbeforeunload = function (event) {
+//
+//     // Cookies.remove('length')
+//     // Cookies.remove('breadth')
+//     // Cookies.remove('code')
+//
+//     console.log('here')
+//     console.log(Cookies.get())
+//     console.log($('#length').val())
+//     event.preventDefault()
+//     Cookies.set('length', $('#length').val(), { expires: 30, path: '/simulatorweb' })
+//     Cookies.set('breadth', $('#breadth').val(), { expires: 30, path: '/simulatorweb' })
+//     Cookies.set('code', editor.getDoc().getValue(), { expires: 30, path: '/simulatorweb' })
+//     console.log(Cookies.get())
+//     // while (true) {
+//     //
+//     // }
+//     event.preventDefault()
+// }
 
 hotkeys('ctrl+s,cmd+s', function(event, handler) {
     event.preventDefault()

@@ -23,8 +23,8 @@ $(document).ready(() => {
 
             randomization = message
 
-            pcanvas.obstacles = message.obstacles.map(obstacle => new PObstacle(obstacle.x, obstacle.y))
-            pcanvas.destination = new PDestination(message.destination.x, message.destination.y)
+            pcanvas.obstacles = message.obstacles.map(obstacle => new Obstacle(obstacle.x, obstacle.y))
+            pcanvas.destination = new Destination(message.destination.x, message.destination.y)
             pcanvas.draw()
 
         } else {
