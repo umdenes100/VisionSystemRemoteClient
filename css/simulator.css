@@ -1,0 +1,62 @@
+.CodeMirror {
+    height: 100%;
+}
+
+#actions {
+    background-color: #f5f5f5;
+    border-left: #c0c0c0 1px solid;
+    border-right: #c0c0c0 1px solid;
+    font-size: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.bt {
+    border-top: #c0c0c0 1px solid;
+}
+
+button {
+    border-radius: 5px;
+    background-color: #de223e;
+    color: #FAFAFA;
+    width: 100%;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+button:hover {
+    background-color: #c22235;
+}
+
+button:active {
+    background-color: #9f1d2c;
+}
+
+button:focus {
+    outline: none;
+}
+
+canvas {
+    border: 1px solid #6d6d6d;
+}
+
+#pfg, #pbg, #fg, #bg {
+    position: absolute;
+    /*top: 0;*/
+    /*left: 0;*/
+}
+
+#panel {
+    border-right: #c0c0c0 1px solid;
+    border-bottom: #c0c0c0 1px solid;
+}
+
+
+#simulation {
+    border-bottom: #c0c0c0 1px solid;
+}
+
+#osv-size {
+    font-size: 11px;
+    text-align: right;
+}
