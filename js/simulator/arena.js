@@ -106,6 +106,8 @@ class OSV {
         //     this.actualTheta = actualTheta
         // }
 
+        console.log(actualTheta)
+
         this.color = 'black'
     }
 
@@ -119,7 +121,7 @@ class OSV {
 
     draw(context) {
         context.fillStyle = this.color
-        context.rotate(this.actualTheta)
+        // context.rotate(Math.PI * 0.2)
         context.fillRect(this.x, this.y, this.width, this.height)
     }
 }
@@ -137,7 +139,7 @@ class Canvas {
         this.rockyTerrain = new RockyTerrain()
         this.obstacles = undefined
         this.destination = undefined
-        this.osv = new OSV()
+        this.osv = undefined
         // this.osv_frames = undefined
     }
 

@@ -17,7 +17,7 @@ $(window).resize(() => {
 })
 
 
-
+let timer = undefined
 
 $(document).ready(() => {
     $('#timestep').on('change', () => {
@@ -31,10 +31,12 @@ $(document).ready(() => {
     })
 
     $('#play').on('click', () => {
+        clearInterval(timer);
+
         let startTime = new Date().getTime()
         let actualFrames = frames.filter(frame => frame.osv !== undefined)
 
-        let timer = setInterval(simulate, 1)
+        timer = setInterval(simulate, 1)
 
         function simulate() {
             let frameIndex = Math.floor((new Date().getTime() - startTime) * 60 / 1000)

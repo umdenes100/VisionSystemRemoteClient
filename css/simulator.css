@@ -48,6 +48,12 @@ canvas {
 
 #panel {
     border-right: #c0c0c0 1px solid;
+    border-bottom: #c0c0c0 1px solid;
+}
+
+
+#simulation {
+    border-bottom: #c0c0c0 1px solid;
 }
 
 #osv-size {
