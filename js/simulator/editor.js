@@ -16,9 +16,24 @@ $(document).ready(() => {
     // }
     // $('#breadth').val(parseInt(breadth))
     //
-    let starting_code = Cookies.get('code')
+    // let starting_code = Cookies.get('code')
+    let starting_code = undefined
     if (starting_code === undefined) {
-        starting_code = 'void setup() {\n\n}\n\nvoid loop() {\n\n}\n'
+        starting_code = '' +
+            '#include "Enes100.h"\n' +
+            '#include "Tank.h"\n' +
+            '\n' +
+            'Tank tank;\n' +
+            '\n' +
+            'void setup() {\n' +
+            '\ttank.begin();\n' +
+            '\ttank.setLeftMotorPWM(6, 255);\n' +
+            '\ttank.setRightMotorPWM(7, 255);\n' +
+            '}\n' +
+            '\n' +
+            'void loop() {\n' +
+            '\n' +
+            '}\n'
     }
 
     // mresize()

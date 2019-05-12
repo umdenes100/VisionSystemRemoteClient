@@ -104,7 +104,6 @@ $(document).ready(() => {
 	} else {
 		$(document).keypress((e) => {
 			userInput = userInput.concat(String.fromCharCode(e.keyCode))
-			console.log(userInput.join(''))
 			if (userInput.join('').includes('ltf>utf')) {
 				clearUserInput()
 				window.location.href = '/secret'

@@ -15,3 +15,39 @@ $(window).resize(() => {
     canvas.resize()
     canvas.draw()
 })
+
+
+
+
+$(document).ready(() => {
+    $('#timestep').on('change', () => {
+        console.log('Showing new frame')
+        let frame = frames[parseInt($('#timestep').val())]
+        console.log(frame)
+        canvas.osv.actualX = frame.osv.x
+        canvas.osv.actualY = frame.osv.y
+        canvas.resize()
+        canvas.draw()
+    })
+
+    $('#play').on('click', () => {
+        let startTime = new Date().getTime()
+        let actualFrames = frames.filter(frame => frame.osv !== undefined)
+
+        let timer = setInterval(simulate, 1)
+
+        function simulate() {
+            let frameIndex = Math.floor((new Date().getTime() - startTime) * 60 / 1000)
+            if (frameIndex > actualFrames.length) {
+                clearInterval(timer);
+            }
+            let frame = actualFrames[frameIndex]
+            console.log(frame)
+
+            canvas.osv.actualX = frame.osv.x
+            canvas.osv.actualY = frame.osv.y
+            canvas.resize()
+            canvas.draw()
+        }
+    })
+})

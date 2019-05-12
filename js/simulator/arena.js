@@ -92,21 +92,37 @@ class Destination {
 }
 
 
-// class OSV {
-//     constructor(actual_width, actual_height) {
-//         this.actual_width = actual_width
-//         this.actual_height = actual_height
-//     }
-//
-//     resize(width, height) {
-//         this.x = width * (this.actual_x / ARENA_X)
-//         this.y = height * ((2 - this.actual_y) / ARENA_Y)
-//     }
-//
-//     draw(context) {
-//
-//     }
-// }
+class OSV {
+    constructor(actualX, actualY, actualTheta, actualWidth, actualHeight) {
+        this.actualX = actualX
+        this.actualY = actualY
+
+        this.actualWidth = actualWidth
+        this.actualHeight = actualHeight
+
+        // if (actualTheta < 0) {
+        //     this.actualTheta = Math.PI + actualTheta
+        // } else {
+        //     this.actualTheta = actualTheta
+        // }
+
+        this.color = 'black'
+    }
+
+    resize(canvasWidth, canvasHeight) {
+        this.width = canvasWidth * (this.actualWidth / ARENA_X)
+        this.height = canvasHeight * (this.actualHeight / ARENA_Y)
+
+        this.x = canvasWidth * ((this.actualX - (this.actualWidth / 2)) / ARENA_X)
+        this.y = canvasHeight * ((this.actualY - (this.actualHeight / 2))/ ARENA_Y)
+    }
+
+    draw(context) {
+        context.fillStyle = this.color
+        context.rotate(this.actualTheta)
+        context.fillRect(this.x, this.y, this.width, this.height)
+    }
+}
 
 
 class Canvas {
@@ -121,7 +137,7 @@ class Canvas {
         this.rockyTerrain = new RockyTerrain()
         this.obstacles = undefined
         this.destination = undefined
-        this.osv = undefined
+        this.osv = new OSV()
         // this.osv_frames = undefined
     }
 

@@ -166,11 +166,11 @@ $(document).ready(() => {
     mcanvas.draw()
 
     $('#length').on('change', () => {
-        mcanvas.osv.actual_width = parseInt($('#length').val())
+        mcanvas.osv.actualWidth = parseInt($('#length').val())
         mcanvas.draw()
     })
     $('#width').on('change', () => {
-        mcanvas.osv.actual_height = parseInt($('#width').val())
+        mcanvas.osv.actualHeight = parseInt($('#width').val())
         mcanvas.draw()
     })
 })
