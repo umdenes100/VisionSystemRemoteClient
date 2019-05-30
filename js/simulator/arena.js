@@ -109,8 +109,6 @@ class OSV {
             this.actualTheta = actualTheta
         }
 
-        console.log(actualTheta)
-
         this.color = 'black'
     }
 
@@ -123,7 +121,7 @@ class OSV {
     }
 
     draw(context) {
-        console.log(actualTheta)
+        console.log(this.actualTheta)
         context.rotate(this.actualTheta)
         context.translate(this.x + this.width / 2, this.y + this.height / 2)
         context.fillStyle = this.color
