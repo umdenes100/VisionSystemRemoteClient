@@ -11,6 +11,7 @@ function requestRandomization() {
         let canvasses = [pcanvas, canvas]
 
         randomization = data
+        console.log(randomization)
         canvasses.map(canv => {
             canv.osv = new OSV(data.osv.x, data.osv.y, data.osv.theta, mcanvas.osv.actual_width / 1000, mcanvas.osv.actual_height / 1000)
             canv.obstacles = data.obstacles.map(obstacle => new Obstacle(obstacle.x, obstacle.y))
