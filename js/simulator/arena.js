@@ -9,6 +9,9 @@ const OBSTACLE_Y = 0.5
 
 const DESTINATION_RADIUS = 0.09
 
+const OSV_WIDTH = 0.3
+const OSV_HEIGHT = 0.3
+
 
 class Arena {
     constructor() {
@@ -97,8 +100,8 @@ class OSV {
         this.actualX = actualX
         this.actualY = actualY
 
-        this.actualWidth = actualWidth
-        this.actualHeight = actualHeight
+        this.actualWidth = OSV_WIDTH
+        this.actualHeight = OSV_HEIGHT
 
         // if (actualTheta < 0) {
         //     this.actualTheta = Math.PI + actualTheta
