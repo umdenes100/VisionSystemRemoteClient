@@ -123,7 +123,7 @@ class OSV {
     }
 
     draw(context) {
-        context.translate(this.x + this.width / 2, this.y + this.height / 2);
+        // context.translate(this.x + this.width / 2, this.y + this.height / 2);
         context.fillStyle = this.color
         context.rotate(this.actualTheta)
         context.fillRect(this.x, this.y, this.width, this.height)
