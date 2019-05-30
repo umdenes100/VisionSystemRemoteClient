@@ -26,6 +26,7 @@ $(document).ready(() => {
         console.log(frame)
         canvas.osv.actualX = frame.osv.x
         canvas.osv.actualY = frame.osv.y
+        canvas.osv.actualTheta = frame.osv.theta
         canvas.resize()
         canvas.draw()
     })
