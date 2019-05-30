@@ -103,11 +103,11 @@ class OSV {
         this.actualWidth = OSV_WIDTH
         this.actualHeight = OSV_HEIGHT
 
-        // if (actualTheta < 0) {
-        //     this.actualTheta = Math.PI + actualTheta
-        // } else {
-        //     this.actualTheta = actualTheta
-        // }
+        if (actualTheta < 0) {
+            this.actualTheta = Math.PI + actualTheta
+        } else {
+            this.actualTheta = actualTheta
+        }
 
         console.log(actualTheta)
 
@@ -123,8 +123,9 @@ class OSV {
     }
 
     draw(context) {
+        context.translate(this.x + this.width / 2, this.y + this.height / 2);
         context.fillStyle = this.color
-        // context.rotate(Math.PI * 0.2)
+        context.rotate(this.actualTheta)
         context.fillRect(this.x, this.y, this.width, this.height)
     }
 }
