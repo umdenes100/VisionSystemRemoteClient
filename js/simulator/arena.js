@@ -117,7 +117,7 @@ class OSV {
         this.height = canvasHeight * (this.actualHeight / ARENA_Y)
 
         this.x = canvasWidth * ((this.actualX - (this.actualWidth / 2)) / ARENA_X)
-        this.y = canvasHeight * ((this.actualY - (this.actualHeight / 2))/ ARENA_Y)
+        this.y = canvasHeight * (ARENA_Y - (this.actualY - (this.actualHeight / 2)) / ARENA_Y)
     }
 
     draw(context) {
