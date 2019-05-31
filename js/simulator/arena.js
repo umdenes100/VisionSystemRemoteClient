@@ -81,7 +81,7 @@ class Destination {
 
     resize(canvasWidth, canvasHeight) {
         this.x = canvasWidth * (this.actual_x / ARENA_X)
-        this.y = canvasHeight * ((2 - this.actual_y) / ARENA_Y)
+        this.y = canvasHeight * ((ARENA_Y - this.actual_y) / ARENA_Y)
         this.radius = canvasWidth * (DESTINATION_RADIUS / ARENA_X)
     }
 
@@ -117,7 +117,7 @@ class OSV {
         this.height = canvasHeight * (this.actualHeight / ARENA_Y)
 
         this.x = canvasWidth * ((this.actualX - (this.actualWidth / 2)) / ARENA_X)
-        this.y = canvasHeight * (ARENA_Y - (this.actualY - (this.actualHeight / 2)) / ARENA_Y)
+        this.y = canvasHeight * ((ARENA_Y - (this.actualY - (this.actualHeight / 2))) / ARENA_Y)
     }
 
     draw(context) {
