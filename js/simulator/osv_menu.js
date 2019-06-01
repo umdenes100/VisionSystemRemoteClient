@@ -47,8 +47,10 @@ class Sensor {
         } else if (this.number / 3 < 2) {
             this.vertical = false
             this.inverted = false
-            this.actual_y = 0.8
-            this.actual_x = 0.5
+            this.actual_y = 0.78
+            if (this.number == 3) {
+                this.actual_x = 0.61
+            }
         }
     }
 
