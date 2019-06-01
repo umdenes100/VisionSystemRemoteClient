@@ -43,6 +43,8 @@ class Sensor {
             this.actual_x = 0.75
             if (this.number == 0) {
                 this.actual_y = 0.24
+            } else if (this.number == 1) {
+                this.actual_y = 0.41
             }
         }
     }
@@ -129,6 +131,7 @@ class MenuCanvas {
 
         this.osv = new MenuOSV(250, 200)
         this.sensors = new Sensor(0)
+        this.sensors = new Sensor(1)
     }
 
     width() {
