@@ -87,7 +87,9 @@ class Sensor {
     }
 }
 
-const TREAD_WIDTH = 0.4
+// tread width in amount times canvas height
+const TREAD_WIDTH = 0.075
+const TREAD_SPACE = 0.01
 
 class MenuOSV {
     constructor(actualWidth, actualHeight) {
@@ -102,16 +104,20 @@ class MenuOSV {
         this.width = canvasWidth * this.actualWidth / 800
         this.height = canvasHeight * this.actualHeight / 800
 
+        this.treadWidth = canvasHeight * TREAD_WIDTH
+        this.treadSpace = canvasHeight * TREAD_SPACE
+
         this.x = (canvasWidth - this.width) / 2
         this.y = (canvasHeight - this.height) / 2
     }
 
     draw(context) {
+        // sum of 2 * tread + 2 * space + body = full height
+        var osv_height = this.height - 2 * this.treadWidth - 2 * this.treadSpace
         var osv_width = this.width * 0.9
-        var osv_height = this.height * 0.75
 
         context.fillStyle = this.color
-        context.fillRect(this.x + this.width * 0.05, this.y + this.height * 0.25 / 2, osv_width, osv_height)
+        context.fillRect(this.x + this.width * 0.05, this.y + this.treadSpace + this.treadWidth, osv_width, osv_height)
         /*
         context.fillRect(this.x - this.width * 0.1,
                          this.y - (this.height * 0.2),
