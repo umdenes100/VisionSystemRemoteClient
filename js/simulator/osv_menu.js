@@ -67,24 +67,22 @@ class Sensor {
 
 class MenuOSV {
     constructor(actualWidth, actualHeight) {
-        this.actual_width = actualWidth
-        this.actual_height = actualHeight
+        this.actualWidth = actualWidth
+        this.actualHeight = actualHeight
 
         this.tread_color = '#5c5b5c'
         this.color = '#000000'
     }
 
     resize(canvasWidth, canvasHeight) {
-        this.width = canvasWidth * this.actual_width / 800
-        this.height = canvasHeight * this.actual_height / 800
+        this.width = canvasWidth * this.actualWidth / 800
+        this.height = canvasHeight * this.actualHeight / 800
 
         this.x = (canvasWidth - this.width) / 2
         this.y = (canvasHeight - this.height) / 2
     }
 
     draw(context) {
-        console.log('redrawing')
-
         context.fillStyle = this.tread_color
         context.fillRect(this.x - this.width * 0.1,
                          this.y - (this.height * 0.2),
@@ -165,14 +163,11 @@ $(document).ready(() => {
     mcanvas.draw()
 
     $('#length').on('change', () => {
-        console.log('changing length')
-        console.log(parseInt($('#length').val()))
         mcanvas.osv.actualWidth = parseInt($('#length').val())
         mcanvas.draw()
     })
 
     $('#width').on('change', () => {
-        console.log('changing width')
         mcanvas.osv.actualHeight = parseInt($('#width').val())
         mcanvas.draw()
     })
