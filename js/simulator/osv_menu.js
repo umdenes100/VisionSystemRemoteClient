@@ -30,7 +30,7 @@ const PLATE_HEIGHT = 0.01
 
 class Sensor {
     constructor(number) {
-        console.log('sensor #' + number + ' trial #1')
+        console.log('sensor #' + number + ' trial #2')
         this.number = number
 
         if (this.number / 3 < 1) {
@@ -47,9 +47,9 @@ class Sensor {
         } else if (this.number / 3 < 2) {
             this.vertical = false
             this.inverted = false
-            this.actual_y = 0.78
+            this.actual_y = 0.79
             if (this.number == 3) {
-                this.actual_x = 0.58
+                this.actual_x = 0.57
             }
         }
     }
