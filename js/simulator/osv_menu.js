@@ -66,7 +66,17 @@ class Sensor {
             } else {
                 this.actual_y = 0.26
             }
-
+        } else {
+            this.vertical = false
+            this.inverted = true
+            this.actual_y = 0.23
+            if (this.number == 9) {
+                this.actual_x = 0.26
+            } else if (this.number == 10) {
+                this.actual_x = 0.435
+            } else {
+                this.actual_x = 0.61
+            }
         }
     }
 
