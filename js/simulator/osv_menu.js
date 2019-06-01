@@ -87,6 +87,8 @@ class Sensor {
     }
 }
 
+const TREAD_WIDTH = 0.4
+
 class MenuOSV {
     constructor(actualWidth, actualHeight) {
         this.actualWidth = actualWidth
@@ -105,7 +107,12 @@ class MenuOSV {
     }
 
     draw(context) {
-        context.fillStyle = this.tread_color
+        osv_width = this.width * 0.9
+        osv.height = this.height * 0.75
+
+        context.fillStyle = this.color
+        context.fillRect(this.x + this.width * 0.05, this.y + this.height * 0.25 / 2, osv_width, osv_height)
+        /*
         context.fillRect(this.x - this.width * 0.1,
                          this.y - (this.height * 0.2),
                          this.width * 1.2,
@@ -117,11 +124,12 @@ class MenuOSV {
 
         context.fillStyle = this.color
         context.fillRect(this.x, this.y, this.width, this.height)
+        */
 
         let aruco = new Image()
         aruco.src = 'img/aruco.png'
 
-        let imageDimension = Math.min(this.width, this.height) * 0.8
+        let imageDimension = Math.min(osv_width, osv_height) * 0.8
         let imageX = this.x + (this.width - imageDimension) / 2
         let imageY = this.y + (this.height - imageDimension) / 2
 
