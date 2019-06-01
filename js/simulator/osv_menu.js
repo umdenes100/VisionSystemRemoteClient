@@ -30,7 +30,6 @@ const PLATE_HEIGHT = 0.01
 
 class Sensor {
     constructor(number) {
-        console.log('now2 ')
         this.number = number
         this.inverted = false
         if (this.number / 3 < 1 || (this.number / 3 > 1 && this.number / 3 < 3)) {
@@ -44,7 +43,7 @@ class Sensor {
             if (this.number == 0) {
                 this.actual_y = 0.24
             } else if (this.number == 1) {
-                this.actual_y = 0.41
+                this.actual_y = 0.42
             }
         }
     }
@@ -130,8 +129,7 @@ class MenuCanvas {
         this.context = this.canvas.getContext('2d')
 
         this.osv = new MenuOSV(250, 200)
-        this.sensors = new Sensor(0)
-        this.sensors = new Sensor(1)
+        this.sensors = [new Sensor(0), new Sensor(1)]
     }
 
     width() {
