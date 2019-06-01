@@ -107,8 +107,8 @@ class MenuOSV {
     }
 
     draw(context) {
-        osv_width = this.width * 0.9
-        osv.height = this.height * 0.75
+        var osv_width = this.width * 0.9
+        var osv_height = this.height * 0.75
 
         context.fillStyle = this.color
         context.fillRect(this.x + this.width * 0.05, this.y + this.height * 0.25 / 2, osv_width, osv_height)
