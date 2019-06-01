@@ -81,31 +81,31 @@ class Sensor {
     draw(context) {
         if (this.vertical) {
             if (this.inverted) {
-                context.translate(this.x, this.y)
-                context.scale(-1, 1)
-                context.translate(0, 0)
+                context.fillStyle = '#0a2869'
+                context.fillRect(this.x - this.plate_height, this.y, this.plate_height, this.plate_width)
+    
+                context.fillStyle = '#6d6d6d'
+                context.fillRect(this.x - this.plate_height, this.y + this.plate_width / 5, -this.cylinder_height, this.cylinder_width)
+                context.fillRect(this.x - this.plate_height, this.y + this.plate_width * 3 / 5, -this.cylinder_height, this.cylinder_width)
+            } else {
+                context.fillStyle = '#0a2869'
+                context.fillRect(this.x, this.y, this.plate_height, this.plate_width)
+    
+                context.fillStyle = '#6d6d6d'
+                context.fillRect(this.x + this.plate_height, this.y + this.plate_width / 5, this.cylinder_height, this.cylinder_width)
+                context.fillRect(this.x + this.plate_height, this.y + this.plate_width * 3 / 5, this.cylinder_height, this.cylinder_width)
             }
-            context.fillStyle = '#0a2869'
-            context.fillRect(this.x, this.y, this.plate_height, this.plate_width)
-
-            context.fillStyle = '#6d6d6d'
-            context.fillRect(this.x + this.plate_height, this.y + this.plate_width / 5, this.cylinder_height, this.cylinder_width)
-            context.fillRect(this.x + this.plate_height, this.y + this.plate_width * 3 / 5, this.cylinder_height, this.cylinder_width)
         } else {
             if (this.inverted) {
-                context.translate(this.x, this.y)
-                context.scale(1, -1)
-                context.translate(0, 0)
+            } else {
+                context.fillStyle = '#0a2869'
+                context.fillRect(this.x, this.y, this.plate_width, this.plate_height)
+    
+                context.fillStyle = '#6d6d6d'
+                context.fillRect(this.x + this.plate_width / 5, this.y + this.plate_height, this.cylinder_width, this.cylinder_height)
+                context.fillRect(this.x + this.plate_width * 3 / 5, this.y + this.plate_height, this.cylinder_width, this.cylinder_height)
             }
-            context.fillStyle = '#0a2869'
-            context.fillRect(this.x, this.y, this.plate_width, this.plate_height)
-
-            context.fillStyle = '#6d6d6d'
-            context.fillRect(this.x + this.plate_width / 5, this.y + this.plate_height, this.cylinder_width, this.cylinder_height)
-            context.fillRect(this.x + this.plate_width * 3 / 5, this.y + this.plate_height, this.cylinder_width, this.cylinder_height)
         }
-
-        context.scale(1, 1)
     }
 }
 
