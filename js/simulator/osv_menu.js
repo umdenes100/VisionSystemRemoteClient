@@ -25,6 +25,8 @@ const sensors = ([...Array(12).keys()]).map(no => {
     }
 })
 
+const PLATE_WIDTH = 0.075
+const PLATE_HEIGHT = 0.01
 
 class Sensor {
     constructor(number) {
@@ -34,8 +36,8 @@ class Sensor {
     }
 
     resize(canvasWidth, canvasHeight) {
-        this.plate_width = (canvasWidth * 0.8) / 3
-        this.plate_height = canvasHeight * 0.01
+        this.plate_width = canvasWidth * PLATE_WIDTH
+        this.plate_height = canvasHeight * PLATE_HEIGHT
 
         this.cylinder_width = this.plate_width / 5
         this.cylinder_height = this.plate_width / 5
@@ -46,7 +48,6 @@ class Sensor {
     }
 
     draw(context) {
-
         if (self.vertical) {
             context.fillStyle = '#0a2869'
             context.fillRect(0, this.y, this.plate_height, this.plate_width)
