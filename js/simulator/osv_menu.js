@@ -118,6 +118,10 @@ class MenuOSV {
 
         context.fillStyle = this.color
         context.fillRect(this.x + this.width * 0.05, this.y + this.treadSpace + this.treadWidth, osv_width, osv_height)
+
+        context.fillStyle = this.tread_color
+        context.fillRect(this.x, this.y, this.width, this.treadWidth)
+        context.fillRect(this.x, this.y + this.treadWidth + 2 * this.treadSpace + osv_height, this.width, this.treadWidth)
         /*
         context.fillRect(this.x - this.width * 0.1,
                          this.y - (this.height * 0.2),
