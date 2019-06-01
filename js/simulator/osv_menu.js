@@ -88,7 +88,7 @@ class Sensor {
 }
 
 // tread width in amount times canvas height
-const TREAD_WIDTH = 0.075
+const TREAD_WIDTH = 0.025
 const TREAD_SPACE = 0.01
 
 class MenuOSV {
