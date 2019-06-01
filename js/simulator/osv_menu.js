@@ -25,7 +25,7 @@ const sensors = ([...Array(12).keys()]).map(no => {
     }
 })
 
-const PLATE_WIDTH = 0.075
+const PLATE_WIDTH = 0.1
 const PLATE_HEIGHT = 0.01
 
 class Sensor {
