@@ -113,6 +113,19 @@ class MenuOSV {
 
     draw(context) {
         // sum of 2 * tread + 2 * space + body = full height
+        var treadWidth = 0.1 * this.height
+        var treadSpace = 0.05 * this.height
+
+        var osv_height = this.height - 2 * treadWidth - 2 * treadSpace
+        var osv_width = this.width * 0.8
+
+        context.fillStyle = this.color
+        context.fillRect(this.x + this.width * 0.1, this.y + treadSpace + treadWidth, osv_width, osv_height)
+
+        context.fillStyle = this.tread_color
+        context.fillRect(this.x, this.y, this.width, treadWidth)
+        context.fillRect(this.x, this.y + treadWidth + 2 * treadSpace + osv_height, this.width, treadWidth)
+        /*
         var osv_height = this.height - 2 * this.treadWidth - 2 * this.treadSpace
         var osv_width = this.width * 0.8
 
@@ -122,6 +135,7 @@ class MenuOSV {
         context.fillStyle = this.tread_color
         context.fillRect(this.x, this.y, this.width, this.treadWidth)
         context.fillRect(this.x, this.y + this.treadWidth + 2 * this.treadSpace + osv_height, this.width, this.treadWidth)
+        */
         /*
         context.fillRect(this.x - this.width * 0.1,
                          this.y - (this.height * 0.2),
