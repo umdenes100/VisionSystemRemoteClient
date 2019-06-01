@@ -83,6 +83,7 @@ class MenuOSV {
     }
 
     draw(context) {
+        console.log('redrawing')
 
         context.fillStyle = this.tread_color
         context.fillRect(this.x - this.width * 0.1,
@@ -159,7 +160,6 @@ class MenuCanvas {
 }
 
 $(document).ready(() => {
-
     mcanvas = new MenuCanvas(document.getElementById('osv-menu'))
     mcanvas.resize(['preview-row'])
     mcanvas.draw()
