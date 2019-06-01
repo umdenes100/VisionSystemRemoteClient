@@ -61,6 +61,10 @@ class Sensor {
             this.actual_x = 0.23
             if (this.number == 6) {
                 this.actual_y = 0.61
+            } else if (this.number == 7) {
+                this.actual_y = 0.435
+            } else {
+                this.actual_y = 0.26
             }
 
         }
@@ -97,6 +101,12 @@ class Sensor {
             }
         } else {
             if (this.inverted) {
+                context.fillStyle = '#0a2869'
+                context.fillRect(this.x, this.y - this.plate_height, this.plate_width, this.plate_height)
+    
+                context.fillStyle = '#6d6d6d'
+                context.fillRect(this.x + this.plate_width / 5, this.y - this.plate_height, this.cylinder_width, -this.cylinder_height)
+                context.fillRect(this.x + this.plate_width * 3 / 5, this.y - this.plate_height, this.cylinder_width, -this.cylinder_height)
             } else {
                 context.fillStyle = '#0a2869'
                 context.fillRect(this.x, this.y, this.plate_width, this.plate_height)
