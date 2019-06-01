@@ -166,6 +166,7 @@ $(document).ready(() => {
 
     $('#length').on('change', () => {
         console.log('changing length')
+        console.log(parseInt($('#length').val()))
         mcanvas.osv.actualWidth = parseInt($('#length').val())
         mcanvas.draw()
     })
