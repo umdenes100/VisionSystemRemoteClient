@@ -40,7 +40,9 @@ class Sensor {
 
         if (this.number / 3 < 1) {
             this.actual_x = 0.75
-            this.actual_y = 0.5
+            if (this.number == 0) {
+                this.actual_y = 0.25
+            }
         }
     }
 
