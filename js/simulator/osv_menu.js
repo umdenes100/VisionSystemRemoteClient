@@ -25,8 +25,8 @@ const sensors = ([...Array(12).keys()]).map(no => {
     }
 })
 
-const PLATE_WIDTH = 0.15
-const PLATE_HEIGHT = 0.01
+const PLATE_WIDTH = 0.1
+const PLATE_HEIGHT = 0.005
 
 class Sensor {
     constructor(number) {
@@ -87,10 +87,6 @@ class Sensor {
     }
 }
 
-// tread width in amount times canvas height
-const TREAD_WIDTH = 0.04
-const TREAD_SPACE = 0.01
-
 class MenuOSV {
     constructor(actualWidth, actualHeight) {
         this.actualWidth = actualWidth
@@ -103,9 +99,6 @@ class MenuOSV {
     resize(canvasWidth, canvasHeight) {
         this.width = canvasWidth * this.actualWidth / 800
         this.height = canvasHeight * this.actualHeight / 800
-
-        this.treadWidth = canvasHeight * TREAD_WIDTH
-        this.treadSpace = canvasHeight * TREAD_SPACE
 
         this.x = (canvasWidth - this.width) / 2
         this.y = (canvasHeight - this.height) / 2
@@ -125,30 +118,6 @@ class MenuOSV {
         context.fillStyle = this.tread_color
         context.fillRect(this.x, this.y, this.width, treadWidth)
         context.fillRect(this.x, this.y + treadWidth + 2 * treadSpace + osv_height, this.width, treadWidth)
-        /*
-        var osv_height = this.height - 2 * this.treadWidth - 2 * this.treadSpace
-        var osv_width = this.width * 0.8
-
-        context.fillStyle = this.color
-        context.fillRect(this.x + this.width * 0.1, this.y + this.treadSpace + this.treadWidth, osv_width, osv_height)
-
-        context.fillStyle = this.tread_color
-        context.fillRect(this.x, this.y, this.width, this.treadWidth)
-        context.fillRect(this.x, this.y + this.treadWidth + 2 * this.treadSpace + osv_height, this.width, this.treadWidth)
-        */
-        /*
-        context.fillRect(this.x - this.width * 0.1,
-                         this.y - (this.height * 0.2),
-                         this.width * 1.2,
-                         this.height * 0.15)
-        context.fillRect(this.x - this.width * 0.1,
-                         this.y + this.height * 1.05,
-                         this.width * 1.2,
-                         this.height * 0.15)
-
-        context.fillStyle = this.color
-        context.fillRect(this.x, this.y, this.width, this.height)
-        */
 
         let aruco = new Image()
         aruco.src = 'img/aruco.png'
