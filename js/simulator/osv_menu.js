@@ -80,7 +80,11 @@ class Sensor {
 
     draw(context) {
         if (this.vertical) {
-            context.scale(-1, 1)
+            if (this.inverted) {
+                context.translate(this.x, this.y)
+                context.scale(-1, 1)
+                context.translate(0, 0)
+            }
             context.fillStyle = '#0a2869'
             context.fillRect(this.x, this.y, this.plate_height, this.plate_width)
 
@@ -88,7 +92,11 @@ class Sensor {
             context.fillRect(this.x + this.plate_height, this.y + this.plate_width / 5, this.cylinder_height, this.cylinder_width)
             context.fillRect(this.x + this.plate_height, this.y + this.plate_width * 3 / 5, this.cylinder_height, this.cylinder_width)
         } else {
-            context.scale(1, -1)
+            if (this.inverted) {
+                context.translate(this.x, this.y)
+                context.scale(1, -1)
+                context.translate(0, 0)
+            }
             context.fillStyle = '#0a2869'
             context.fillRect(this.x, this.y, this.plate_width, this.plate_height)
 
