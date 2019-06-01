@@ -52,6 +52,8 @@ class Sensor {
                 this.actual_x = 0.61
             } else if (this.number == 4) {
                 this.actual_x = 0.435
+            } else {
+                this.actual_x = 0.26
             }
         }
     }
