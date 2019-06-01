@@ -32,14 +32,10 @@ class Sensor {
     constructor(number) {
         console.log('sensor #' + number + ' trial #1')
         this.number = number
-        this.inverted = false
-        if (this.number / 3 < 1 || (this.number / 3 > 1 && this.number / 3 < 3)) {
-            this.vertical = true
-        } else {
-            this.vertical = false
-        }
 
         if (this.number / 3 < 1) {
+            this.vertical = true
+            this.inverted = false
             this.actual_x = 0.75
             if (this.number == 0) {
                 this.actual_y = 0.24
@@ -49,7 +45,9 @@ class Sensor {
                 this.actual_y = 0.61
             }
         } else if (this.number / 3 < 2) {
-            this.actual_y = 0.75
+            this.vertical = false
+            this.inverted = false
+            this.actual_y = 0.8
             this.actual_x = 0.5
         }
     }
