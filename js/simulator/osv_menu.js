@@ -88,11 +88,11 @@ class MenuOSV {
         context.fillRect(this.x - this.width * 0.1,
                          this.y - (this.height * 0.2),
                          this.width * 1.2,
-                        this.height * 0.15)
+                         this.height * 0.15)
         context.fillRect(this.x - this.width * 0.1,
-                        this.y + this.height * 1.05,
-                        this.width * 1.2,
-                        this.height * 0.15)
+                         this.y + this.height * 1.05,
+                         this.width * 1.2,
+                         this.height * 0.15)
 
         context.fillStyle = this.color
         context.fillRect(this.x, this.y, this.width, this.height)
@@ -140,7 +140,6 @@ class MenuCanvas {
     }
 
     resize(elements_to_resize) {
-
         if (elements_to_resize === undefined) {
             elements_to_resize = []
         }
@@ -166,10 +165,13 @@ $(document).ready(() => {
     mcanvas.draw()
 
     $('#length').on('change', () => {
+        console.log('changing length')
         mcanvas.osv.actualWidth = parseInt($('#length').val())
         mcanvas.draw()
     })
+
     $('#width').on('change', () => {
+        console.log('changing width')
         mcanvas.osv.actualHeight = parseInt($('#width').val())
         mcanvas.draw()
     })
