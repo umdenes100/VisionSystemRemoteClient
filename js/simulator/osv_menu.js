@@ -25,7 +25,7 @@ const sensors = ([...Array(12).keys()]).map(no => {
     }
 })
 
-const PLATE_WIDTH = 0.15
+const PLATE_WIDTH = 0.125
 const PLATE_HEIGHT = 0.005
 
 class Sensor {
@@ -36,7 +36,7 @@ class Sensor {
         if (this.number / 3 < 1) {
             this.vertical = true
             this.inverted = false
-            this.actual_x = 0.8
+            this.actual_x = 0.77
             if (this.number == 0) {
                 this.actual_y = 0.26
             } else if (this.number == 1) {
