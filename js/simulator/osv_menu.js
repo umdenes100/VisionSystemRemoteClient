@@ -57,7 +57,7 @@ class Sensor {
     }
 
     draw(context) {
-        if (self.vertical) {
+        if (this.vertical) {
             context.fillStyle = '#0a2869'
             context.fillRect(0, this.y, this.plate_height, this.plate_width)
 
