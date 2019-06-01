@@ -30,7 +30,7 @@ const PLATE_HEIGHT = 0.005
 
 class Sensor {
     constructor(number) {
-        console.log('sensor #' + number + ' trial #2')
+        console.log('sensor #' + number + ' trial #3')
         this.number = number
 
         if (this.number / 3 < 1) {
@@ -97,8 +97,8 @@ class MenuOSV {
     }
 
     resize(canvasWidth, canvasHeight) {
-        this.width = canvasWidth * this.actualWidth / 700
-        this.height = canvasHeight * this.actualHeight / 700
+        this.width = canvasWidth * this.actualWidth / 600
+        this.height = canvasHeight * this.actualHeight / 600
 
         this.x = (canvasWidth - this.width) / 2
         this.y = (canvasHeight - this.height) / 2
