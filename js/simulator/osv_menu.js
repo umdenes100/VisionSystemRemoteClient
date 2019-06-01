@@ -97,8 +97,8 @@ class MenuOSV {
     }
 
     resize(canvasWidth, canvasHeight) {
-        this.width = canvasWidth * this.actualWidth / 800
-        this.height = canvasHeight * this.actualHeight / 800
+        this.width = canvasWidth * this.actualWidth / 700
+        this.height = canvasHeight * this.actualHeight / 700
 
         this.x = (canvasWidth - this.width) / 2
         this.y = (canvasHeight - this.height) / 2
