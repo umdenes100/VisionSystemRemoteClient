@@ -49,7 +49,7 @@ class Sensor {
             this.inverted = false
             this.actual_y = 0.78
             if (this.number == 3) {
-                this.actual_x = 0.61
+                this.actual_x = 0.58
             }
         }
     }
