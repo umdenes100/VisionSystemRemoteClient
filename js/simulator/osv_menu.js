@@ -25,14 +25,23 @@ const sensors = ([...Array(12).keys()]).map(no => {
     }
 })
 
-const PLATE_WIDTH = 0.2
+const PLATE_WIDTH = 0.175
 const PLATE_HEIGHT = 0.01
 
 class Sensor {
     constructor(number) {
-        self.number = number
-        self.vertical = false
-        self.inverted = false
+        this.number = number
+        this.inverted = false
+        if (this.number / 3 < 1 || (this.number / 3 > 1 && this.number / 3 < 3)) {
+            this.vertical = true
+        } else {
+            this.vertical = false
+        }
+
+        if (this.number / 3 < 1) {
+            this.actual_x = 0.75
+            this.actual_y = 0.5
+        }
     }
 
     resize(canvasWidth, canvasHeight) {
@@ -43,8 +52,8 @@ class Sensor {
         this.cylinder_height = this.plate_width / 5
 
 
-        this.x = 0
-        this.y = canvasHeight * 0.05
+        this.x = canvasWidth * this.actual_x
+        this.y = canvasHeight * this.actual_y
     }
 
     draw(context) {
