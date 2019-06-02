@@ -22,6 +22,8 @@ function requestRandomization() {
 
 function requestSimulation() {
     let r = randomization
+    r.osv.height = mcanvas.osv.actualHeight / 1000
+    r.osv.width = mcanvas.osv.actualWidth / 1000
 
     let request = {
         type: 'simulation',

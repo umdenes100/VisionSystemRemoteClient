@@ -233,11 +233,13 @@ $(document).ready(() => {
     $('#length').on('change', () => {
         mcanvas.osv.actualHeight = parseInt($('#length').val())
         mcanvas.draw()
+        canvas.draw()
     })
 
     $('#width').on('change', () => {
         mcanvas.osv.actualWidth = parseInt($('#width').val())
         mcanvas.draw()
+        canvas.draw()
     })
 })
 
