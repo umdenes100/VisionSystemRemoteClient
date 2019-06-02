@@ -235,12 +235,14 @@ $(document).ready(() => {
         mcanvas.draw()
 
         // want to update the preview
+        pcanvas.osv.actualHeight = mcanvas.osv.actualHeight / 1000
         pcanvas.draw()
     })
 
     $('#width').on('change', () => {
         mcanvas.osv.actualWidth = parseInt($('#width').val())
         mcanvas.draw()
+        pcanvas.osv.actualWidth = mcanvas.osv.actualWidth / 1000
         pcanvas.draw()
     })
 })
