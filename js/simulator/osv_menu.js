@@ -1,30 +1,4 @@
 let mcanvas = undefined
-
-const sensors = ([...Array(12).keys()]).map(no => {
-    let side = undefined
-    if ([0, 1, 2].includes(no)) {
-        side = 'right'
-    } else if ([3, 4, 5].includes(no)) {
-        side = 'down'
-    } else if ([6, 7, 8].includes(no)) {
-        side = 'left'
-    } else if ([9, 10, 11].includes(no)) {
-        side = 'up'
-    }
-    let orientation = undefined
-    if (side === 'right' || side === 'left') {
-        orientation = 'vertical'
-    } else if (side === 'up' || side === 'down') {
-        orientation = 'horizontal'
-    }
-
-    return {
-        no,
-        orientation,
-        side,
-    }
-})
-
 const PLATE_WIDTH = 0.125
 const PLATE_HEIGHT = 0.005
 

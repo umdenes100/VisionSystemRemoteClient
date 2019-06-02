@@ -32,8 +32,6 @@ function requestSimulation() {
         distance_sensors: [],
     }
 
-    console.log(request)
-
     $.get(SERVER_URL, { 'json': JSON.stringify(request) }, data => {
         frames = data
         canvas.osv = new OSV(r.osv.x, r.osv.y, r.osv.theta, r.osv.width, r.osv.height)

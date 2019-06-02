@@ -21,9 +21,7 @@ let timer = undefined
 
 $(document).ready(() => {
     $('#timestep').on('change', () => {
-        console.log('Showing new frame')
         let frame = frames[parseInt($('#timestep').val())]
-        console.log(frame)
         canvas.osv.actualX = frame.osv.x
         canvas.osv.actualY = frame.osv.y
         canvas.osv.actualTheta = frame.osv.theta
@@ -45,7 +43,6 @@ $(document).ready(() => {
                 clearInterval(timer);
             }
             let frame = actualFrames[frameIndex]
-            console.log(frame)
 
             canvas.osv.actualX = frame.osv.x
             canvas.osv.actualY = frame.osv.y
