@@ -33,14 +33,15 @@ function requestSimulation() {
     }
 
     console.log(request)
-    canvas.osv = new OSV(r.osv.x, r.osv.y, r.osv.theta, r.osv.width, r.osv.height)
-    canvas.obstacles = r.obstacles.map(obstacle => new Obstacle(obstacle.x, obstacle.y))
-    canvas.destination = new Destination(r.destination.x, r.destination.y)
-    canvas.draw()
 
     $.get(SERVER_URL, { 'json': JSON.stringify(request) }, data => {
         frames = data
+        canvas.osv = new OSV(r.osv.x, r.osv.y, r.osv.theta, r.osv.width, r.osv.height)
+        canvas.obstacles = r.obstacles.map(obstacle => new Obstacle(obstacle.x, obstacle.y))
+        canvas.destination = new Destination(r.destination.x, r.destination.y)
+        canvas.draw()
     })
+    
 }
 
 $(document).ready(() => {
