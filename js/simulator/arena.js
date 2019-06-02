@@ -99,9 +99,8 @@ class OSV {
     constructor(actualX, actualY, actualTheta, actualWidth, actualHeight) {
         this.actualX = actualX
         this.actualY = actualY
-
-        this.actualWidth = OSV_WIDTH
-        this.actualHeight = OSV_HEIGHT
+        this.actualWidth = actualWidth
+        this.actualHeight = actualHeight
 
         if (actualTheta < 0) {
             this.actualTheta = Math.PI + actualTheta
@@ -121,7 +120,6 @@ class OSV {
     }
 
     draw(context) {
-        console.log(this.actualTheta)
         context.translate(this.x + this.width / 2, this.y + this.height / 2)
         context.rotate(-this.actualTheta)
         context.fillStyle = this.color
