@@ -30,6 +30,8 @@ function requestSimulation() {
         distance_sensors: [],
     }
 
+    console.log(r)
+
     $.get(SERVER_URL, { 'json': JSON.stringify(request) }, data => {
         frames = data
     })
