@@ -231,12 +231,15 @@ $(document).ready(() => {
     mcanvas.draw()
 
     $('#length').on('change', () => {
-        mcanvas.osv.actualWidth = parseInt($('#length').val())
+        mcanvas.osv.actualHeight = parseInt($('#length').val())
+        randomization.osv.height = mcanvas.osv.actualHeight
+        console.log(randomization)
         mcanvas.draw()
     })
 
     $('#width').on('change', () => {
-        mcanvas.osv.actualHeight = parseInt($('#width').val())
+        mcanvas.osv.actualWidth = parseInt($('#width').val())
+        randomization.osv.width = mcanvas.osv.actualWidth
         mcanvas.draw()
     })
 })
