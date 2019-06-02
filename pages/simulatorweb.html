@@ -39,30 +39,28 @@ custom_js_url:
             </label>
         </div>
         <div class="col-md-7 h-100">
-            <div id="preview-row" class="row mt-3">
-                <div class="col-md-5">
-                    <div id="preview-wrapper" class="pl-1 pr-1">
-                        <canvas id="pbg"></canvas>
-                        <canvas id="pfg"></canvas>
-                    </div>
+            <div class="col-md-5">
+                <div id="preview-wrapper" class="pl-1 pr-1">
+                    <canvas id="pbg"></canvas>
+                    <canvas id="pfg"></canvas>
                 </div>
-                <div class="col-md-7 pl-5 pr-5" style="border: 1px solid #6d6d6d">
-                    <canvas id="osv-menu" style="border: 0px solid #6d6d6d">
+            </div>
+            <div class="col-md-7 pl-5 pr-5" style="border: 1px solid #6d6d6d; padding: 0px!important;">
+                <canvas id="osv-menu" style="border: 0px solid #6d6d6d;">
 
-                    </canvas>
-                    <div id="osv-size" class="pt-5">
-                        <label for="length">
-                            Length: <strong><span id="actual-length"></span></strong>
-                            100 <input type="range" min="100" max="300" value="250" class="slider" id="length"> 300
-                        </label>
-                        <br>
-                        <br>
-                        <label for="width">
-                            Width: <strong><span id="actual-width"></span></strong>
-                            100 <input type="range" min="100" max="300" value="200" class="slider" id="width"> 300
-                        </label>
+                </canvas>
+                <div id="osv-size" class="pt-5">
+                    <label for="length">
+                        Length: <strong><span id="actual-length"></span></strong>
+                        100 <input type="range" min="100" max="300" value="250" class="slider" id="length"> 300
+                    </label>
+                    <br>
+                    <br>
+                    <label for="width">
+                        Width: <strong><span id="actual-width"></span></strong>
+                        100 <input type="range" min="100" max="300" value="200" class="slider" id="width"> 300
+                    </label>
 
-                    </div>
                 </div>
             </div>
         </div>
