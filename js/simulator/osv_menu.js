@@ -85,13 +85,23 @@ class Sensor {
                 y: this.y + this.height
             }]
         } else {
-            return [{
-                x: this.x,
-                y: this.y
-            }, {
-                x: this.x + this.width,
-                y: this.y + this.height
-            }]
+            if(this.vertical) {
+                return [{
+                    x: this.x - this.width,
+                    y: this.y
+                }, {
+                    x: this.x,
+                    y: this.y + this.height
+                }]
+            } else {
+                return [{
+                    x: this.x,
+                    y: this.y - this.height
+                }, {
+                    x: this.x + this.width,
+                    y: this.y
+                }]
+            }
         }
     }
 
@@ -259,6 +269,8 @@ $(document).ready(() => {
             } else {
                 element.hover = false
             }
+
+            element.draw()
         })
     }, false)
 
