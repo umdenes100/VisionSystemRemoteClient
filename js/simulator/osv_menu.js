@@ -63,11 +63,11 @@ class Sensor {
         this.cylinder_height = this.plate_width / 5
 
         if(this.vertical) {
-            this.width = this.plate_width + this.cylinder_width
-            this.height = this.plate_height
+            this.width = this.plate_height + this.cylinder_height
+            this.height = this.plate_width
         } else {
-            this.width = this.plate_height
-            this.height = this.plate_width + this.cylinder_width
+            this.width = this.plate_width
+            this.height = this.plate_height + this.cylinder_height
         }
 
 
