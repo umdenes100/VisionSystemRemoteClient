@@ -270,7 +270,7 @@ $(document).ready(() => {
                 element.hover = false
             }
 
-            element.draw()
+            element.draw(document.getElementById("osv-menu").getContext("2d"))
         })
     }, false)
 
