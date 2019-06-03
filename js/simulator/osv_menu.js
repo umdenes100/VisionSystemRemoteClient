@@ -244,6 +244,7 @@ $(document).ready(() => {
         console.log(mousePos.x + ',' + mousePos.y)
         mcanvas.sensors.forEach(element => {
             var box = element.getBox()
+            console.log(box)
             if(mousePos.x >= box[0].x && mousePos.x <= box[1].x && mousePos.y >= box[0].y && mousePos.y <= box[1].y) {
                 element.hover = true
                 console.log('hovering')
