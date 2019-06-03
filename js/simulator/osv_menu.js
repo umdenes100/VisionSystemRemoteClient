@@ -4,7 +4,6 @@ const PLATE_HEIGHT = 0.005
 
 class Sensor {
     constructor(number) {
-        console.log('sensor #' + number + ' trial #4')
         this.number = number
 
         if (this.number / 3 < 1) {
@@ -221,7 +220,8 @@ $(document).ready(() => {
     mcanvas.resize(['preview-row'])
     mcanvas.draw()
 
-    mcanvas.addEventListener("mousemove", function (evt) {
+    console.log('updated')
+    document.getElementById("osv-menu").addEventListener("mousemove", function(evt) {
         var mousePos = mcanvas.getMousePos(evt)
         console.log(mousePos.x + ',' + mousePos.y)
     }, false)
