@@ -29,8 +29,14 @@ function requestSimulation() {
         type: 'simulation',
         code: editor.getDoc().getValue(),
         randomization: r,
-        distance_sensors: [],
+        distance_sensors: mcanvas.sensors.map((sensor, index) => {
+            if(sensor.selected) {
+                return index
+            }
+        }),
     }
+
+    console.log(request.distance_sensors)
 
     $.get(SERVER_URL, { 'json': JSON.stringify(request) }, data => {
         frames = data
