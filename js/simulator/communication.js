@@ -33,7 +33,9 @@ function requestSimulation() {
             if(sensor.selected) {
                 return index
             }
-        }),
+        }).filter(element => {
+            return element !== undefined
+        })
     }
 
     console.log(request.distance_sensors)
