@@ -279,13 +279,12 @@ $(document).ready(() => {
     }, false)
 
     document.getElementById("osv-menu").addEventListener("click", function(evt) {
-        console.log('mouse click')
         var mousePos = getMousePos(document.getElementById("osv-menu"), evt)
         var cntx = document.getElementById("osv-menu").getContext("2d")
         mcanvas.sensors.forEach(element => {
             var box = element.getBox()
             if(mousePos.x >= box[0].x && mousePos.x <= box[1].x && mousePos.y >= box[0].y && mousePos.y <= box[1].y) {
-                this.selected = !this.selected
+                element.selected = !element.selected
             }
 
             cntx.clearRect(box[0].x - 1, box[0].y - 1, box[1].x - box[0].x + 2, box[1].y - box[0].y + 2)
