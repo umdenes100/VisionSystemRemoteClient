@@ -271,7 +271,7 @@ $(document).ready(() => {
                 element.hover = false
             }
 
-            cntx.clearRect(box[0].x, box[0].y, box[1].x - box[0].x, box[1].y - box[0].y)
+            cntx.clearRect(box[0].x - 1, box[0].y - 1, box[1].x - box[0].x + 1, box[1].y - box[0].y + 1)
             element.draw(cntx)
         })
     }, false)
