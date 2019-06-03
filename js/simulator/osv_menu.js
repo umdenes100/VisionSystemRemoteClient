@@ -244,8 +244,6 @@ $(document).ready(() => {
             } else {
                 element.hover = false
             }
-
-            element.draw()
         })
     }, false)
 
