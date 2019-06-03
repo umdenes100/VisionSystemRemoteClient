@@ -5,6 +5,8 @@ const PLATE_HEIGHT = 0.005
 class Sensor {
     constructor(number) {
         this.number = number
+        this.hover = false
+        this.state = ''
 
         if (this.number / 3 < 1) {
             this.vertical = true
@@ -65,7 +67,25 @@ class Sensor {
         this.y = canvasHeight * this.actual_y
     }
 
+    getBox() {
+        if(!this.inverted) {
+            return [{
+                x: this.x,
+                y: this.y
+            }, {
+                x: this.x + this.width,
+                y: this.y + this.height
+            }]
+        } else {
+            return []
+        }
+    }
+
     draw(context) {
+        if(this.hover) {
+            context.globalAlpha = 0.5
+        }
+
         if (this.vertical) {
             if (this.inverted) {
                 context.fillStyle = '#0a2869'
@@ -99,6 +119,8 @@ class Sensor {
                 context.fillRect(this.x + this.plate_width * 3 / 5, this.y + this.plate_height, this.cylinder_width, this.cylinder_height)
             }
         }
+
+        context.globalAlpha = 1
     }
 }
 
@@ -211,10 +233,20 @@ $(document).ready(() => {
     mcanvas.resize(['preview-row'])
     mcanvas.draw()
 
-    console.log('updated')
     document.getElementById("osv-menu").addEventListener("mousemove", function(evt) {
         var mousePos = getMousePos(document.getElementById("osv-menu"), evt)
         console.log(mousePos.x + ',' + mousePos.y)
+        mcanvas.sensors.forEach(element => {
+            var box = element.getBox()
+            if(mousePos.x >= box[0].x && mousePos.x <= box[1].x && mousePos.y >= box[0].y && mousePos.y <= box[1].y) {
+                element.hover = true
+                console.log('hovering')
+            } else {
+                element.hover = false
+            }
+
+            element.draw()
+        })
     }, false)
 
     $('#length').on('change', () => {
