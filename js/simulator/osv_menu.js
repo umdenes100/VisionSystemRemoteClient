@@ -108,8 +108,6 @@ class Sensor {
     draw(context) {
         if(this.hover) {
             context.globalAlpha = 0.5
-            console.log(context.globalAlpha)
-            console.log('here')
         }
 
         if (this.vertical) {
@@ -261,6 +259,7 @@ $(document).ready(() => {
 
     document.getElementById("osv-menu").addEventListener("mousemove", function(evt) {
         var mousePos = getMousePos(document.getElementById("osv-menu"), evt)
+        var cntx = document.getElementById("osv-menu").getContext("2d")
         console.log(mousePos.x + ',' + mousePos.y)
         mcanvas.sensors.forEach(element => {
             var box = element.getBox()
@@ -272,7 +271,8 @@ $(document).ready(() => {
                 element.hover = false
             }
 
-            element.draw(document.getElementById("osv-menu").getContext("2d"))
+            cntx.clearRect(box[0].x, box[0].y, box[1].x - box[0].x, box[1].y - box[0].y)
+            element.draw(cntx)
         })
     }, false)
 
