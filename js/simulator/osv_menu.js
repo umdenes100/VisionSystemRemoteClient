@@ -6,7 +6,7 @@ class Sensor {
     constructor(number) {
         this.number = number
         this.hover = false
-        this.state = ''
+        this.selected = false
 
         if (this.number / 3 < 1) {
             this.vertical = true
@@ -110,37 +110,39 @@ class Sensor {
             context.globalAlpha = 0.5
         }
 
-        if (this.vertical) {
-            if (this.inverted) {
-                context.fillStyle = '#0a2869'
-                context.fillRect(this.x - this.plate_height, this.y, this.plate_height, this.plate_width)
-    
-                context.fillStyle = '#6d6d6d'
-                context.fillRect(this.x - this.plate_height, this.y + this.plate_width / 5, -this.cylinder_height, this.cylinder_width)
-                context.fillRect(this.x - this.plate_height, this.y + this.plate_width * 3 / 5, -this.cylinder_height, this.cylinder_width)
+        if(this.selected || this.hover) {
+            if (this.vertical) {
+                if (this.inverted) {
+                    context.fillStyle = '#0a2869'
+                    context.fillRect(this.x - this.plate_height, this.y, this.plate_height, this.plate_width)
+        
+                    context.fillStyle = '#6d6d6d'
+                    context.fillRect(this.x - this.plate_height, this.y + this.plate_width / 5, -this.cylinder_height, this.cylinder_width)
+                    context.fillRect(this.x - this.plate_height, this.y + this.plate_width * 3 / 5, -this.cylinder_height, this.cylinder_width)
+                } else {
+                    context.fillStyle = '#0a2869'
+                    context.fillRect(this.x, this.y, this.plate_height, this.plate_width)
+        
+                    context.fillStyle = '#6d6d6d'
+                    context.fillRect(this.x + this.plate_height, this.y + this.plate_width / 5, this.cylinder_height, this.cylinder_width)
+                    context.fillRect(this.x + this.plate_height, this.y + this.plate_width * 3 / 5, this.cylinder_height, this.cylinder_width)
+                }
             } else {
-                context.fillStyle = '#0a2869'
-                context.fillRect(this.x, this.y, this.plate_height, this.plate_width)
-    
-                context.fillStyle = '#6d6d6d'
-                context.fillRect(this.x + this.plate_height, this.y + this.plate_width / 5, this.cylinder_height, this.cylinder_width)
-                context.fillRect(this.x + this.plate_height, this.y + this.plate_width * 3 / 5, this.cylinder_height, this.cylinder_width)
-            }
-        } else {
-            if (this.inverted) {
-                context.fillStyle = '#0a2869'
-                context.fillRect(this.x, this.y - this.plate_height, this.plate_width, this.plate_height)
-    
-                context.fillStyle = '#6d6d6d'
-                context.fillRect(this.x + this.plate_width / 5, this.y - this.plate_height, this.cylinder_width, -this.cylinder_height)
-                context.fillRect(this.x + this.plate_width * 3 / 5, this.y - this.plate_height, this.cylinder_width, -this.cylinder_height)
-            } else {
-                context.fillStyle = '#0a2869'
-                context.fillRect(this.x, this.y, this.plate_width, this.plate_height)
-    
-                context.fillStyle = '#6d6d6d'
-                context.fillRect(this.x + this.plate_width / 5, this.y + this.plate_height, this.cylinder_width, this.cylinder_height)
-                context.fillRect(this.x + this.plate_width * 3 / 5, this.y + this.plate_height, this.cylinder_width, this.cylinder_height)
+                if (this.inverted) {
+                    context.fillStyle = '#0a2869'
+                    context.fillRect(this.x, this.y - this.plate_height, this.plate_width, this.plate_height)
+        
+                    context.fillStyle = '#6d6d6d'
+                    context.fillRect(this.x + this.plate_width / 5, this.y - this.plate_height, this.cylinder_width, -this.cylinder_height)
+                    context.fillRect(this.x + this.plate_width * 3 / 5, this.y - this.plate_height, this.cylinder_width, -this.cylinder_height)
+                } else {
+                    context.fillStyle = '#0a2869'
+                    context.fillRect(this.x, this.y, this.plate_width, this.plate_height)
+        
+                    context.fillStyle = '#6d6d6d'
+                    context.fillRect(this.x + this.plate_width / 5, this.y + this.plate_height, this.cylinder_width, this.cylinder_height)
+                    context.fillRect(this.x + this.plate_width * 3 / 5, this.y + this.plate_height, this.cylinder_width, this.cylinder_height)
+                }
             }
         }
 
@@ -260,13 +262,10 @@ $(document).ready(() => {
     document.getElementById("osv-menu").addEventListener("mousemove", function(evt) {
         var mousePos = getMousePos(document.getElementById("osv-menu"), evt)
         var cntx = document.getElementById("osv-menu").getContext("2d")
-        console.log(mousePos.x + ',' + mousePos.y)
         mcanvas.sensors.forEach(element => {
             var box = element.getBox()
-            console.log(box)
             if(mousePos.x >= box[0].x && mousePos.x <= box[1].x && mousePos.y >= box[0].y && mousePos.y <= box[1].y) {
                 element.hover = true
-                console.log('hovering')
             } else {
                 element.hover = false
             }
@@ -274,6 +273,22 @@ $(document).ready(() => {
             cntx.clearRect(box[0].x - 1, box[0].y - 1, box[1].x - box[0].x + 2, box[1].y - box[0].y + 2)
             element.draw(cntx)
         })
+
+    }, false)
+
+    document.getElementById("osv-menu").addEventListener("click", function(evt) {
+        var mousePos = getMousePos(document.getElementById("osv-menu"), evt)
+        var cntx = document.getElementById("osv-menu").getContext("2d")
+        mcanvas.sensors.forEach(element => {
+            var box = element.getBox()
+            if(mousePos.x >= box[0].x && mousePos.x <= box[1].x && mousePos.y >= box[0].y && mousePos.y <= box[1].y) {
+                this.selected = !this.selected
+            }
+
+            cntx.clearRect(box[0].x - 1, box[0].y - 1, box[1].x - box[0].x + 2, box[1].y - box[0].y + 2)
+            element.draw(cntx)
+        })
+
     }, false)
 
     $('#length').on('change', () => {
