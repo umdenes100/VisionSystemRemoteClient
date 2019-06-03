@@ -108,6 +108,8 @@ class Sensor {
     draw(context) {
         if(this.hover) {
             context.globalAlpha = 0.5
+            console.log(context.globalAlpha)
+            console.log('here')
         }
 
         if (this.vertical) {
