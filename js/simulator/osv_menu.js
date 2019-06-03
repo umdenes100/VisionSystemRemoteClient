@@ -77,7 +77,13 @@ class Sensor {
                 y: this.y + this.height
             }]
         } else {
-            return []
+            return [{
+                x: this.x,
+                y: this.y
+            }, {
+                x: this.x + this.width,
+                y: this.y + this.height
+            }]
         }
     }
 
