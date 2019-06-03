@@ -106,43 +106,45 @@ class Sensor {
     }
 
     draw(context) {
+        if(!this.selected) {
+            context.globalAlpha = 0.1
+        }
+
         if(this.hover) {
             context.globalAlpha = 0.5
         }
 
-        if(this.selected || this.hover) {
-            if (this.vertical) {
-                if (this.inverted) {
-                    context.fillStyle = '#0a2869'
-                    context.fillRect(this.x - this.plate_height, this.y, this.plate_height, this.plate_width)
-        
-                    context.fillStyle = '#6d6d6d'
-                    context.fillRect(this.x - this.plate_height, this.y + this.plate_width / 5, -this.cylinder_height, this.cylinder_width)
-                    context.fillRect(this.x - this.plate_height, this.y + this.plate_width * 3 / 5, -this.cylinder_height, this.cylinder_width)
-                } else {
-                    context.fillStyle = '#0a2869'
-                    context.fillRect(this.x, this.y, this.plate_height, this.plate_width)
-        
-                    context.fillStyle = '#6d6d6d'
-                    context.fillRect(this.x + this.plate_height, this.y + this.plate_width / 5, this.cylinder_height, this.cylinder_width)
-                    context.fillRect(this.x + this.plate_height, this.y + this.plate_width * 3 / 5, this.cylinder_height, this.cylinder_width)
-                }
+        if (this.vertical) {
+            if (this.inverted) {
+                context.fillStyle = '#0a2869'
+                context.fillRect(this.x - this.plate_height, this.y, this.plate_height, this.plate_width)
+    
+                context.fillStyle = '#6d6d6d'
+                context.fillRect(this.x - this.plate_height, this.y + this.plate_width / 5, -this.cylinder_height, this.cylinder_width)
+                context.fillRect(this.x - this.plate_height, this.y + this.plate_width * 3 / 5, -this.cylinder_height, this.cylinder_width)
             } else {
-                if (this.inverted) {
-                    context.fillStyle = '#0a2869'
-                    context.fillRect(this.x, this.y - this.plate_height, this.plate_width, this.plate_height)
-        
-                    context.fillStyle = '#6d6d6d'
-                    context.fillRect(this.x + this.plate_width / 5, this.y - this.plate_height, this.cylinder_width, -this.cylinder_height)
-                    context.fillRect(this.x + this.plate_width * 3 / 5, this.y - this.plate_height, this.cylinder_width, -this.cylinder_height)
-                } else {
-                    context.fillStyle = '#0a2869'
-                    context.fillRect(this.x, this.y, this.plate_width, this.plate_height)
-        
-                    context.fillStyle = '#6d6d6d'
-                    context.fillRect(this.x + this.plate_width / 5, this.y + this.plate_height, this.cylinder_width, this.cylinder_height)
-                    context.fillRect(this.x + this.plate_width * 3 / 5, this.y + this.plate_height, this.cylinder_width, this.cylinder_height)
-                }
+                context.fillStyle = '#0a2869'
+                context.fillRect(this.x, this.y, this.plate_height, this.plate_width)
+    
+                context.fillStyle = '#6d6d6d'
+                context.fillRect(this.x + this.plate_height, this.y + this.plate_width / 5, this.cylinder_height, this.cylinder_width)
+                context.fillRect(this.x + this.plate_height, this.y + this.plate_width * 3 / 5, this.cylinder_height, this.cylinder_width)
+            }
+        } else {
+            if (this.inverted) {
+                context.fillStyle = '#0a2869'
+                context.fillRect(this.x, this.y - this.plate_height, this.plate_width, this.plate_height)
+    
+                context.fillStyle = '#6d6d6d'
+                context.fillRect(this.x + this.plate_width / 5, this.y - this.plate_height, this.cylinder_width, -this.cylinder_height)
+                context.fillRect(this.x + this.plate_width * 3 / 5, this.y - this.plate_height, this.cylinder_width, -this.cylinder_height)
+            } else {
+                context.fillStyle = '#0a2869'
+                context.fillRect(this.x, this.y, this.plate_width, this.plate_height)
+    
+                context.fillStyle = '#6d6d6d'
+                context.fillRect(this.x + this.plate_width / 5, this.y + this.plate_height, this.cylinder_width, this.cylinder_height)
+                context.fillRect(this.x + this.plate_width * 3 / 5, this.y + this.plate_height, this.cylinder_width, this.cylinder_height)
             }
         }
 
@@ -277,6 +279,7 @@ $(document).ready(() => {
     }, false)
 
     document.getElementById("osv-menu").addEventListener("click", function(evt) {
+        console.log('mouse click')
         var mousePos = getMousePos(document.getElementById("osv-menu"), evt)
         var cntx = document.getElementById("osv-menu").getContext("2d")
         mcanvas.sensors.forEach(element => {
