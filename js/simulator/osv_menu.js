@@ -195,24 +195,15 @@ class MenuCanvas {
     elements() {
         return [this.osv, this.sensors].flat()
     }
+}
 
-    getMousePos(evt) {
-        var rect = this.getBoundingClientRect();
-        return {
-            x: evt.clientX - rect.left,
-            y: evt.clientY - rect.top
-        };
-    }
-    
-    //Get Mouse Position
-    getMousePos(evt) {
-        var rect = this.getBoundingClientRect();
-        return {
-            x: evt.clientX - rect.left,
-            y: evt.clientY - rect.top
-        };
-    }
-
+//Get Mouse Position
+function getMousePos(canv, evt) {
+    var rect = canv.getBoundingClientRect();
+    return {
+        x: evt.clientX - rect.left,
+        y: evt.clientY - rect.top
+    };
 }
 
 $(document).ready(() => {
@@ -222,7 +213,7 @@ $(document).ready(() => {
 
     console.log('updated')
     document.getElementById("osv-menu").addEventListener("mousemove", function(evt) {
-        var mousePos = mcanvas.getMousePos(evt)
+        var mousePos = getMousePos(document.getElementById("osv-menu"), evt)
         console.log(mousePos.x + ',' + mousePos.y)
     }, false)
 
