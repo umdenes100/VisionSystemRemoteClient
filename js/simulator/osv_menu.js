@@ -197,12 +197,34 @@ class MenuCanvas {
         return [this.osv, this.sensors].flat()
     }
 
+    getMousePos(evt) {
+        var rect = this.getBoundingClientRect();
+        return {
+            x: evt.clientX - rect.left,
+            y: evt.clientY - rect.top
+        };
+    }
+    
+    //Get Mouse Position
+    getMousePos(evt) {
+        var rect = this.getBoundingClientRect();
+        return {
+            x: evt.clientX - rect.left,
+            y: evt.clientY - rect.top
+        };
+    }
+
 }
 
 $(document).ready(() => {
     mcanvas = new MenuCanvas(document.getElementById('osv-menu'))
     mcanvas.resize(['preview-row'])
     mcanvas.draw()
+
+    mcanvas.addEventListener("mousemove", function (evt) {
+        var mousePos = mcanvas.getMousePos(evt)
+        console.log(mousePos.x + ',' + mousePos.y)
+    }, false)
 
     $('#length').on('change', () => {
         mcanvas.osv.actualHeight = parseInt($('#length').val())
