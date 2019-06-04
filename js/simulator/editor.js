@@ -23,12 +23,10 @@ $(document).ready(() => {
             '#include "Enes100.h"\n' +
             '#include "Tank.h"\n' +
             '\n' +
-            'Tank tank;\n' +
-            '\n' +
             'void setup() {\n' +
-            '\ttank.begin();\n' +
-            '\ttank.setLeftMotorPWM(6, 255);\n' +
-            '\ttank.setRightMotorPWM(7, 255);\n' +
+            '\tTank.begin();\n' +
+            '\tTank.setLeftMotorPWM(6, 255);\n' +
+            '\tTank.setRightMotorPWM(7, 255);\n' +
             '}\n' +
             '\n' +
             'void loop() {\n' +
