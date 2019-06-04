@@ -25,8 +25,8 @@ $(document).ready(() => {
             '\n' +
             'void setup() {\n' +
             '\tTank.begin();\n' +
-            '\tTank.setLeftMotorPWM(6, 255);\n' +
-            '\tTank.setRightMotorPWM(7, 255);\n' +
+            '\tTank.setLeftMotorPWM(255);\n' +
+            '\tTank.setRightMotorPWM(255);\n' +
             '}\n' +
             '\n' +
             'void loop() {\n' +
