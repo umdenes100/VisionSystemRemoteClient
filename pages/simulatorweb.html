@@ -44,6 +44,29 @@ custom_js_url:
                 <input id="obstacles" type="checkbox" checked>&nbsp;&nbsp;Obstacles
             </label>
         </div>
+        <div class="col-md-5 h-100 m-0 p-0">
+            <div id="osv-editor" class="row h-70 m-0 p-0">
+                <canvas id="osv-menu" style="border: 0px solid #6d6d6d"></canvas>
+                <div id="osv-size" class="pt-5">
+                    <label for="length">
+                        Length: <strong><span id="actual-length"></span></strong>
+                        100 <input type="range" min="100" max="300" value="250" class="slider" id="length"> 300
+                    </label>
+                    <br>
+                    <br>
+                    <label for="width">
+                        Width: <strong><span id="actual-width"></span></strong>
+                        100 <input type="range" min="100" max="300" value="200" class="slider" id="width"> 300
+                    </label>
+                </div>
+            </div>
+            <div id="arena-preview" class="row h-30 m-0 p-0">
+                <div id="preview-wrapper" class="pl-1 pr-1">
+                    <canvas id="pbg"></canvas>
+                    <canvas id="pfg"></canvas>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 
