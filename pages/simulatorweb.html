@@ -27,50 +27,6 @@ custom_js_url:
   - https://cdnjs.cloudflare.com/ajax/libs/downloadjs/1.4.8/download.min.js
 ---
 
-<div class="container m-0 p-0">
-    <div class="row h-80 m-0 p-0">
-        <!-- first thing we want is the editor -->
-        <div id="left-pane" class="col-md-6 h-100 m-0 p-0">
-            <div id="editor" class="row h-70 m-0 p-0"></div>
-            <div id="console" class="row h-30 m-0 p-0">
-                Console
-            </div>
-        </div>
-        <div id="actions" class="col-md-1 h-100">
-            <button id="randomize" class="mt-4 mb-2">Randomize</button>
-            <button id="simulate" class="mt-2 mb-2">Simulate</button>
-            <button id="save" class="mt-2 mb-2">Save</button>
-            <label for="obstacles" class="mt-2 mb-2">
-                <input id="obstacles" type="checkbox" checked>&nbsp;&nbsp;Obstacles
-            </label>
-        </div>
-        <div class="col-md-5 h-100 m-0 p-0">
-            <div id="osv-editor" class="row h-70 m-0 p-0">
-                <canvas id="osv-menu" style="border: 0px solid #6d6d6d"></canvas>
-                <div id="osv-size" class="pt-5">
-                    <label for="length">
-                        Length: <strong><span id="actual-length"></span></strong>
-                        100 <input type="range" min="100" max="300" value="250" class="slider" id="length"> 300
-                    </label>
-                    <br>
-                    <br>
-                    <label for="width">
-                        Width: <strong><span id="actual-width"></span></strong>
-                        100 <input type="range" min="100" max="300" value="200" class="slider" id="width"> 300
-                    </label>
-                </div>
-            </div>
-            <div id="arena-preview" class="row h-30 m-0 p-0">
-                <div id="preview-wrapper" class="pl-1 pr-1">
-                    <canvas id="pbg"></canvas>
-                    <canvas id="pfg"></canvas>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!--
 <div class="content h-100">
     <div class="row wrapper h-100">
         <div id="editor" class="col-md-6 h-100"></div>
@@ -127,4 +83,3 @@ custom_js_url:
         </div>
     </div>
 </div>
--->
