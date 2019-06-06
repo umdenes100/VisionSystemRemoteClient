@@ -29,7 +29,15 @@ custom_js_url:
 
 <div class="content h-100">
     <div class="row wrapper h-100">
-        <div id="editor" class="col-md-6 h-100"></div>
+        <div class="row h-65">
+            <div id="editor" class="col-md-6 h-100"></div>
+        </div>
+        <div class="row h-35">
+            <div id="console" class="col-md-6 h-100">
+                bananas
+            </div>
+        </div>
+        
         <div id="actions" class="col-md-1 h-100">
             <button id="randomize" class="mt-4 mb-2">Randomize</button>
             <button id="simulate" class="mt-2 mb-2">Simulate</button>
@@ -39,29 +47,31 @@ custom_js_url:
             </label>
         </div>
         <div class="col-md-5 h-100">
-            <div id="preview-row" class="row h-70 mt-3">
-                <div id="osv-size" class="h-70 pt-5">
-                    <label for="length">
-                        Length: <strong><span id="actual-length"></span></strong>
-                        100 <input type="range" min="100" max="300" value="250" class="slider" id="length"> 300
-                    </label>
-                    <br>
-                    <br>
-                    <label for="width">
-                        Width: <strong><span id="actual-width"></span></strong>
-                        100 <input type="range" min="100" max="300" value="200" class="slider" id="width"> 300
-                    </label>
-
+            <div id="preview-row" class="row mt-3">
+                <div class="col-md-5">
+                    <div id="preview-wrapper" class="pl-1 pr-1">
+                        <canvas id="pbg"></canvas>
+                        <canvas id="pfg"></canvas>
+                    </div>
                 </div>
-            </div>
-            <div id="arena-row" class="row h-30">
-                <div id="preview-wrapper" class="pl-1 pr-1">
-                    <canvas id="pbg"></canvas>
-                    <canvas id="pfg"></canvas>
-                </div>
-                <canvas id="osv-menu" style="border: 0px solid #6d6d6d">
+                <div class="col-md-7 pl-5 pr-5" style="border: 1px solid #6d6d6d">
+                    <canvas id="osv-menu" style="border: 0px solid #6d6d6d">
 
-                </canvas>
+                    </canvas>
+                    <div id="osv-size" class="pt-5">
+                        <label for="length">
+                            Length: <strong><span id="actual-length"></span></strong>
+                            100 <input type="range" min="100" max="300" value="250" class="slider" id="length"> 300
+                        </label>
+                        <br>
+                        <br>
+                        <label for="width">
+                            Width: <strong><span id="actual-width"></span></strong>
+                            100 <input type="range" min="100" max="300" value="200" class="slider" id="width"> 300
+                        </label>
+
+                    </div>
+                </div>
             </div>
         </div>
     </div>
