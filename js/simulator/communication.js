@@ -39,9 +39,10 @@ function requestSimulation() {
     }
 
     $.get(SERVER_URL, { 'json': JSON.stringify(request) }, data => {
-        if(data['Error'] !== undefined) {
-            console.log(data['Error'])
+        if(data['error'] !== undefined) {
+            console.log(data['error'])
         } else {
+            console.log('Compilation successful.')
             frames = data
             canvas.osv = new OSV(r.osv.x, r.osv.y, r.osv.theta, r.osv.width, r.osv.height)
             canvas.obstacles = r.obstacles.map(obstacle => new Obstacle(obstacle.x, obstacle.y))
