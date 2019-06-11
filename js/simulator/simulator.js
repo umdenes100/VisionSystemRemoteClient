@@ -67,6 +67,7 @@ function simulation(startFrame) {
 $(document).ready(() => {
     $('#timestep').on('change', () => {
         let val = parseInt($('#timestep').val())
+        clearInterval(timer)
         commandsUntil(val)
         commandAt(val)
 
