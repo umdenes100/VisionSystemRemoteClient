@@ -53,13 +53,15 @@ function requestSimulation() {
                 element = data[i]
                 if(element.osv === undefined) {
                     // this is a command
-                    commands += element
+                    commands.push(element)
                 } else {
                     // this is a frame
-                    frames += element
-                    mapping += commands.length - 1
+                    frames.push(element)
+                    mapping.push(commands.length - 1)
                 }
             }
+
+            console.log(frames)
 
             canvas.osv = new OSV(r.osv.x, r.osv.y, r.osv.theta, r.osv.width, r.osv.height)
             canvas.obstacles = r.obstacles.map(obstacle => new Obstacle(obstacle.x, obstacle.y))
