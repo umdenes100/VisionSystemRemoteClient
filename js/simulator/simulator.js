@@ -25,7 +25,7 @@ function commandAt(frameNumber) {
     } else {
         if(mapping[frameNumber] !== mapping[frameNumber - 1]) {
             // we have a new command
-            command = commands[frameNumber]
+            command = commands[mapping[frameNumber]]
 
             if(command.command === 'print') {
                 $('#panel').append(command.data)
