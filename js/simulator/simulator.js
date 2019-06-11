@@ -28,6 +28,7 @@ function commandAt(frameNumber) {
             command = mapping[frameNumber]
 
             if(command.command === 'print') {
+                console.log('printing')
                 $('#panel').append(command.data)
             }
         }

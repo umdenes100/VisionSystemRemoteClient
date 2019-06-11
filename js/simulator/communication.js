@@ -62,6 +62,7 @@ function requestSimulation() {
             }
 
             console.log(commands)
+            console.log(mapping)
 
             canvas.osv = new OSV(r.osv.x, r.osv.y, r.osv.theta, r.osv.width, r.osv.height)
             canvas.obstacles = r.obstacles.map(obstacle => new Obstacle(obstacle.x, obstacle.y))
