@@ -16,9 +16,6 @@ $(window).resize(() => {
     canvas.draw()
 })
 
-
-let timer = undefined
-
 function commandAt(frameNumber) {
     if(frameNumber === 0) {
         $('#panel').text("")

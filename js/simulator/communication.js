@@ -3,6 +3,7 @@ let connection = undefined
 let frames = undefined
 let commands = undefined
 let mapping = undefined
+let timer = undefined
 
 const SERVER_URL = 'http://18.191.246.34:8888'
 
@@ -61,8 +62,7 @@ function requestSimulation() {
                 }
             }
 
-            console.log('changed')
-
+            clearInterval(timer)
             canvas.osv = new OSV(r.osv.x, r.osv.y, r.osv.theta, r.osv.width, r.osv.height)
             canvas.obstacles = r.obstacles.map(obstacle => new Obstacle(obstacle.x, obstacle.y))
             canvas.destination = new Destination(r.destination.x, r.destination.y)
