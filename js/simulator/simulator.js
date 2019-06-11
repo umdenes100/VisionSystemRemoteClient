@@ -19,9 +19,58 @@ $(window).resize(() => {
 
 let timer = undefined
 
+function commandAt(frameNumber) {
+    if(frameNumber === 0) {
+        $('#panel').text("")
+    } else {
+        if(mapping[frameNumber] !== mapping[frameNumber - 1]) {
+            // we have a new command
+            command = mapping[frameNumber]
+
+            if(command.command === 'print') {
+                $('#panel').append(command.data)
+            }
+        }
+    }
+}
+
+function commandsUntil(frameNumber) {
+    for(var i = 0; i < frameNumber; i++) {
+        commandAt(i)
+    }
+}
+
+function simulation(startFrame) {
+    // first we want to print everything to the screen until this point
+    commandsUntil(startFrame)
+    clearInterval(timer)
+    let frameIndex = startFrame
+    timer = setInterval(simulate, 16)   // 60 fps = 16 ms
+
+    function simulate() {
+        if (frameIndex > frames.length) {
+            clearInterval(timer);
+        }
+
+        let frame = frames[frameIndex]
+        canvas.osv.actualX = frame.osv.x
+        canvas.osv.actualY = frame.osv.y
+        canvas.osv.actualTheta = frame.osv.theta
+        canvas.resize()
+        canvas.draw()
+
+        commandAt(frameIndex)
+        frameIndex += 1
+    }
+}
+
 $(document).ready(() => {
     $('#timestep').on('change', () => {
-        let frame = frames[parseInt($('#timestep').val())]
+        let val = parseInt($('#timestep').val())
+        commandsUntil(val)
+        commandAt(val)
+
+        let frame = frames[val]
         canvas.osv.actualX = frame.osv.x
         canvas.osv.actualY = frame.osv.y
         canvas.osv.actualTheta = frame.osv.theta
@@ -30,25 +79,6 @@ $(document).ready(() => {
     })
 
     $('#play').on('click', () => {
-        clearInterval(timer);
-
-        let startTime = new Date().getTime()
-        let actualFrames = frames.filter(frame => frame.osv !== undefined)
-
-        timer = setInterval(simulate, 1)
-
-        function simulate() {
-            let frameIndex = Math.floor((new Date().getTime() - startTime) * 60 / 1000)
-            if (frameIndex > actualFrames.length) {
-                clearInterval(timer);
-            }
-            let frame = actualFrames[frameIndex]
-
-            canvas.osv.actualX = frame.osv.x
-            canvas.osv.actualY = frame.osv.y
-            canvas.osv.actualTheta = frame.osv.theta
-            canvas.resize()
-            canvas.draw()
-        }
+        simulation(0)
     })
 })

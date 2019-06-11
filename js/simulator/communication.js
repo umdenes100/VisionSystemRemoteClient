@@ -1,6 +1,8 @@
 let randomization = undefined
 let connection = undefined
 let frames = undefined
+let commands = undefined
+let mapping = undefined
 
 const SERVER_URL = 'http://18.191.246.34:8888'
 
@@ -43,7 +45,22 @@ function requestSimulation() {
             console.log(data['error'])
         } else {
             console.log('Compilation successful.')
-            frames = data
+            // we want frames, commands, and a mapping from frames to last executed commands
+            frames = []
+            commands = []
+            mapping = []
+            for(var i = 0; i < data.length; i++) {
+                element = data[i]
+                if(element.osv === undefined) {
+                    // this is a command
+                    commands += element
+                } else {
+                    // this is a frame
+                    frames += element
+                    mapping += commands.length - 1
+                }
+            }
+
             canvas.osv = new OSV(r.osv.x, r.osv.y, r.osv.theta, r.osv.width, r.osv.height)
             canvas.obstacles = r.obstacles.map(obstacle => new Obstacle(obstacle.x, obstacle.y))
             canvas.destination = new Destination(r.destination.x, r.destination.y)
