@@ -48,8 +48,8 @@ function simulation(startFrame) {
     timer = setInterval(simulate, 16)   // 60 fps = 16 ms
 
     function simulate() {
-        if (frameIndex > frames.length) {
-            clearInterval(timer);
+        if (frameIndex >= frames.length) {
+            clearInterval(timer)
         }
 
         let frame = frames[frameIndex]
