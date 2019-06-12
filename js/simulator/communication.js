@@ -50,6 +50,7 @@ function requestSimulation() {
             frames = []
             commands = []
             mapping = []
+            currentCommands = []
             for(var i = 0; i < data.length; i++) {
                 element = data[i]
                 if(element.osv === undefined) {

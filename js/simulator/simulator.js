@@ -31,7 +31,7 @@ function commandAt(frameNumber) {
                 $('#panel').append(command.data)
             }
 
-            if(currentCommands.length > 5) {
+            if(currentCommands.length > 4) {
                 currentCommands.shift()
             }
 
