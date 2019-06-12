@@ -54,7 +54,7 @@ function simulation(startFrame) {
     timer = setInterval(simulate, 16)   // 60 fps = 16 ms
 
     function simulate() {
-        console.log('wow')
+        console.log(currentCommands)
         currentFrame = frameIndex
         $("#timestep").slider({
             value: currentFrame
