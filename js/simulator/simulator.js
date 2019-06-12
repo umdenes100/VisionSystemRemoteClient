@@ -3,6 +3,8 @@
 
 let canvas = undefined
 let currentCommands = []
+let currentFrame = 0
+let state = 'PAUSE'
 
 $(document).ready(() => {
     canvas = new Canvas(document.getElementById('fg'),
@@ -52,6 +54,8 @@ function simulation(startFrame) {
     timer = setInterval(simulate, 16)   // 60 fps = 16 ms
 
     function simulate() {
+        currentFrame = frameIndex
+        $("#timestep").slider('value', currentFrame);
         if (frameIndex >= frames.length) {
             clearInterval(timer)
         }
@@ -71,7 +75,9 @@ function simulation(startFrame) {
 $(document).ready(() => {
     $('#timestep').on('change', () => {
         let val = parseInt($('#timestep').val())
+        currentFrame = val
         clearInterval(timer)
+        state = 'PAUSE'
         commandsUntil(val)
         commandAt(val)
 
@@ -84,6 +90,12 @@ $(document).ready(() => {
     })
 
     $('#play').on('click', () => {
-        simulation(0)
+        if(state === 'PAUSE') {
+            simulation(currentFrame)
+            state = 'PLAY'
+        } else {
+            clearInterval(timer)
+            state = 'PAUSE'
+        }
     })
 })
