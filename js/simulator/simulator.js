@@ -56,7 +56,9 @@ function simulation(startFrame) {
     function simulate() {
         console.log('wow')
         currentFrame = frameIndex
-        $("timestep").slider("option", "value", currentFrame)
+        $("#timestep").slider({
+            value: currentFrame
+        })
 
         if (frameIndex >= frames.length) {
             clearInterval(timer)
