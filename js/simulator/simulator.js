@@ -54,9 +54,9 @@ function simulation(startFrame) {
     timer = setInterval(simulate, 16)   // 60 fps = 16 ms
 
     function simulate() {
-        console.log('wow2')
+        console.log('wow')
         currentFrame = frameIndex
-        $("#timestep").val(currentFrame).slider('refresh')
+        $("timestep").slider("option", "value", currentFrame)
 
         if (frameIndex >= frames.length) {
             clearInterval(timer)
