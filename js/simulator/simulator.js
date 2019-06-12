@@ -2,6 +2,7 @@
 // bg is background and fg is foreground.
 
 let canvas = undefined
+let currentCommands = []
 
 $(document).ready(() => {
     canvas = new Canvas(document.getElementById('fg'),
@@ -27,6 +28,12 @@ function commandAt(frameNumber) {
             if(command.command === 'print') {
                 $('#panel').append(command.data)
             }
+
+            if(currentCommands.length > 5) {
+                currentCommands.shift()
+            }
+
+            currentCommands.push(command)
         }
     }
 }
