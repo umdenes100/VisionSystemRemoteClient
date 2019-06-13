@@ -39,9 +39,9 @@ class RockyTerrain {
 
     resize(canvasWidth, canvasHeight) {
         this.x = canvasWidth * (ROCKY_TERRAIN_OFFSET / ARENA_X)
-        this.y = 0
+        this.y = 1
         this.width = canvasWidth * (ROCKY_TERRAIN_X / ARENA_X)
-        this.height = canvasHeight
+        this.height = canvasHeight - 2
     }
 
     draw(context) {
@@ -148,12 +148,12 @@ class OSV {
 
         context.drawImage(arucoSim, imageX, imageY, imageDimension, imageDimension)
 
+        /*
         let fromx = imageX
         let fromy = imageY
         let tox = imageX + imageDimension
         let toy = imageY
 
-        /*
         context.fillStyle = this.arrow_color
         // we also want to draw an arrow indicating direction
         let headlen = 10;   // length of head in pixels
