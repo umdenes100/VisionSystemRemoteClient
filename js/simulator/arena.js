@@ -12,6 +12,8 @@ const DESTINATION_RADIUS = 0.09
 const OSV_WIDTH = 0.3
 const OSV_HEIGHT = 0.3
 
+let arucoSim = new Image()
+arucoSim.src = 'img/aruco.png'
 
 class Arena {
     constructor() {
@@ -121,37 +123,31 @@ class OSV {
     }
 
     draw(context) {
+        let offsetX = this.x + this.width / 2
+        let offsetY = this.y + this.height / 2
+        context.translate(offsetX, offsetY)
+        context.rotate(-this.actualTheta)
 
-        let aruco = new Image()
-        aruco.src = 'img/aruco.png'
-        
-        aruco.onload = () => {
-            let offsetX = this.x + this.width / 2
-            let offsetY = this.y + this.height / 2
-            context.translate(offsetX, offsetY)
-            context.rotate(-this.actualTheta)
+        let treadWidth = 0.1 * this.height
+        let treadSpace = 0.05 * this.height
 
-            let treadWidth = 0.1 * this.height
-            let treadSpace = 0.05 * this.height
-    
-            let osv_height = this.height - 2 * treadWidth - 2 * treadSpace
-            let osv_width = this.width * 0.8
-    
-            context.fillStyle = this.color
-            context.fillRect(this.x + this.width * 0.1 - offsetX, this.y + treadSpace + treadWidth - offsetY, osv_width, osv_height)
-    
-            context.fillStyle = this.tread_color
-            context.fillRect(this.x - offsetX, this.y - offsetY, this.width, treadWidth)
-            context.fillRect(this.x - offsetX, this.y + treadWidth + 2 * treadSpace + osv_height - offsetY, this.width, treadWidth)
-                
-            let imageDimension = Math.min(osv_width, osv_height) * 0.8
-            let imageX = this.x + (this.width - imageDimension) / 2 - offsetX
-            let imageY = this.y + (this.height - imageDimension) / 2 - offsetY
+        let osv_height = this.height - 2 * treadWidth - 2 * treadSpace
+        let osv_width = this.width * 0.8
 
-            context.drawImage(aruco, imageX, imageY, imageDimension, imageDimension)
+        context.fillStyle = this.color
+        context.fillRect(this.x + this.width * 0.1 - offsetX, this.y + treadSpace + treadWidth - offsetY, osv_width, osv_height)
 
-            context.translate(0, 0)
-        }        
+        context.fillStyle = this.tread_color
+        context.fillRect(this.x - offsetX, this.y - offsetY, this.width, treadWidth)
+        context.fillRect(this.x - offsetX, this.y + treadWidth + 2 * treadSpace + osv_height - offsetY, this.width, treadWidth)
+
+        let imageDimension = Math.min(osv_width, osv_height) * 0.8
+        let imageX = this.x + (this.width - imageDimension) / 2 - offsetX
+        let imageY = this.y + (this.height - imageDimension) / 2 - offsetY
+
+        context.drawImage(arucoSim, imageX, imageY, imageDimension, imageDimension)
+
+        context.translate(0, 0)
     }
 }
 
