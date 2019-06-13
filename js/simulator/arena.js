@@ -111,6 +111,7 @@ class OSV {
         }
 
         this.tread_color = '#5c5b5c'
+        this.arrow_color = '#7fff00'
         this.color = '#000000'
     }
 
@@ -146,6 +147,21 @@ class OSV {
         let imageY = this.y + (this.height - imageDimension) / 2 - offsetY
 
         context.drawImage(arucoSim, imageX, imageY, imageDimension, imageDimension)
+
+        let fromx = imageX
+        let fromy = imageY
+        let tox = imageX + imageDimension
+        let toy = imageY
+
+        context.fillStyle = this.arrow_color
+        // we also want to draw an arrow indicating direction
+        let headlen = 10;   // length of head in pixels
+        let angle = Math.atan2(toy - fromy, tox - fromx);
+        context.moveTo(fromx, fromy);
+        context.lineTo(tox, toy);
+        context.lineTo(tox - headlen * Math.cos(angle - Math.PI/6), toy - headlen * Math.sin(angle - Math.PI / 6));
+        context.moveTo(tox, toy);
+        context.lineTo(tox - headlen * Math.cos(angle + Math.PI / 6), toy - headlen * Math.sin(angle + Math.PI / 6));
 
         context.translate(0, 0)
     }
