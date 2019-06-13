@@ -41,6 +41,7 @@ function commandAt(frameNumber) {
 }
 
 function commandsUntil(frameNumber) {
+    currentCommands = []
     for(var i = 0; i < frameNumber; i++) {
         commandAt(i)
     }
