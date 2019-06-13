@@ -153,6 +153,7 @@ class OSV {
         let tox = imageX + imageDimension
         let toy = imageY
 
+        /*
         context.fillStyle = this.arrow_color
         // we also want to draw an arrow indicating direction
         let headlen = 10;   // length of head in pixels
@@ -162,6 +163,7 @@ class OSV {
         context.lineTo(tox - headlen * Math.cos(angle - Math.PI/6), toy - headlen * Math.sin(angle - Math.PI / 6));
         context.moveTo(tox, toy);
         context.lineTo(tox - headlen * Math.cos(angle + Math.PI / 6), toy - headlen * Math.sin(angle + Math.PI / 6));
+        */
 
         context.translate(0, 0)
     }
