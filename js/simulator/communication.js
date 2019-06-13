@@ -52,6 +52,7 @@ function requestSimulation() {
             mapping = []
             currentCommands = []
             currentFrame = 0
+            state = 'PAUSE'
             
             for(var i = 0; i < data.length; i++) {
                 element = data[i]
