@@ -121,6 +121,10 @@ class OSV {
     }
 
     draw(context) {
+
+        let aruco = new Image()
+        aruco.src = 'img/aruco.png'
+        
         aruco.onload = () => {
             let offsetX = this.x + this.width / 2
             let offsetY = this.y + this.height / 2
