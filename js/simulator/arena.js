@@ -121,32 +121,34 @@ class OSV {
     }
 
     draw(context) {
-        var treadWidth = 0.1 * this.height
-        var treadSpace = 0.05 * this.height
-
-        var osv_height = this.height - 2 * treadWidth - 2 * treadSpace
-        var osv_width = this.width * 0.8
-
-        context.fillStyle = this.color
-        context.fillRect(this.x + this.width * 0.1, this.y + treadSpace + treadWidth, osv_width, osv_height)
-
-        context.fillStyle = this.tread_color
-        context.fillRect(this.x, this.y, this.width, treadWidth)
-        context.fillRect(this.x, this.y + treadWidth + 2 * treadSpace + osv_height, this.width, treadWidth)
-
-        let aruco = new Image()
-        aruco.src = 'img/aruco.png'
-
-        let imageDimension = Math.min(osv_width, osv_height) * 0.8
-        let imageX = this.x + (this.width - imageDimension) / 2
-        let imageY = this.y + (this.height - imageDimension) / 2
-
         aruco.onload = () => {
-            context.drawImage(aruco, imageX, imageY, imageDimension, imageDimension)
-            context.translate(this.x + this.width / 2, this.y + this.height / 2)
-            context.rotate(-this.actualTheta)
+            let offsetX = this.x + this.width / 2
+            let offsetY = this.y + this.height / 2
+            context.translate(offsetX, offsetY)
+
+            let treadWidth = 0.1 * this.height
+            let treadSpace = 0.05 * this.height
+    
+            let osv_height = this.height - 2 * treadWidth - 2 * treadSpace
+            let osv_width = this.width * 0.8
+    
             context.fillStyle = this.color
-            context.fillRect(-this.width / 2, -this.height / 2, this.width, this.height)
+            context.fillRect(this.x + this.width * 0.1 - offsetX, this.y + treadSpace + treadWidth - offsetY, osv_width, osv_height)
+    
+            context.fillStyle = this.tread_color
+            context.fillRect(this.x - offsetX, this.y - offsetY, this.width, treadWidth)
+            context.fillRect(this.x - offsetX, this.y + treadWidth + 2 * treadSpace + osv_height - offsetY, this.width, treadWidth)
+    
+            let aruco = new Image()
+            aruco.src = 'img/aruco.png'
+    
+            let imageDimension = Math.min(osv_width, osv_height) * 0.8
+            let imageX = this.x + (this.width - imageDimension) / 2 - offsetX
+            let imageY = this.y + (this.height - imageDimension) / 2 - offsetY
+
+            context.drawImage(aruco, imageX, imageY, imageDimension, imageDimension)
+
+            context.rotate(-this.actualTheta)
             context.translate(0, 0)
         }        
     }
