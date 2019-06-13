@@ -41,7 +41,7 @@ class RockyTerrain {
         this.x = canvasWidth * (ROCKY_TERRAIN_OFFSET / ARENA_X)
         this.y = 1
         this.width = canvasWidth * (ROCKY_TERRAIN_X / ARENA_X)
-        this.height = canvasHeight - 2
+        this.height = canvasHeight - 1
     }
 
     draw(context) {
