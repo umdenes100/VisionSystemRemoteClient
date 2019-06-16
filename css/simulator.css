@@ -33,6 +33,7 @@
     width: 100%;
     color: black;
     direction: ltr;
+    overflow-y: scroll;
 }
 
 .Output pre {
