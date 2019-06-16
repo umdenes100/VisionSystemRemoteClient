@@ -16,6 +16,11 @@ label {
     white-space: nowrap;
 }
 
+[type="checkbox"]
+{
+    vertical-align:middle;
+}
+
 #actions {
     background-color: #f5f5f5;
     border-left: #c0c0c0 1px solid;
