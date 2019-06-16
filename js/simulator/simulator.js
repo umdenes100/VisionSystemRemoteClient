@@ -5,6 +5,7 @@ let canvas = undefined
 let currentCommands = []
 let currentFrame = 0
 let state = 'PAUSE'
+let lineIndexes = []
 
 $(document).ready(() => {
     canvas = new Canvas(document.getElementById('fg'),
