@@ -58,6 +58,7 @@ function requestSimulation() {
             mapping = []
             currentCommands = []
             currentFrame = 0
+            $('output').text('')
             state = 'PAUSE'
             
             for(var i = 0; i < data.length; i++) {

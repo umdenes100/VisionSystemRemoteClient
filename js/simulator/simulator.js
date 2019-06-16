@@ -21,14 +21,14 @@ $(window).resize(() => {
 
 function commandAt(frameNumber) {
     if(frameNumber === 0) {
-        $('#panel').text("")
+        $('#output').text("")
     } else {
         if(mapping[frameNumber] !== mapping[frameNumber - 1]) {
             // we have a new command
             command = commands[mapping[frameNumber]]
 
             if(command.command === 'print') {
-                $('#panel').append(command.data)
+                $('#output').append(command.data)
             }
 
             if(currentCommands.length > 4) {
