@@ -46,7 +46,12 @@ function requestSimulation() {
         if(data['error'] !== undefined) {   
             $('#terminal-output').text(data['error'])
         } else {
-            $('#terminal-output').text('Simulation successful.')
+            var today = new Date();
+            var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+            var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+            var dateTime = date + ' ' + time;
+
+            $('#terminal-output').text('Simulation successful: ' + dateTime + '.')
             // we want frames, commands, and a mapping from frames to last executed commands
             frames = []
             commands = []
