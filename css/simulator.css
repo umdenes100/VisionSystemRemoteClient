@@ -22,8 +22,9 @@
     padding-bottom: 1px;
     margin: 0px;
     height: 100%;
+    font-size: 5px;
     overflow-y: scroll;
-    white-space: pre-wrap;
+    overflow-x: hidden;
 }
 
 .Output {
