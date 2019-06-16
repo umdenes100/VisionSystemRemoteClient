@@ -22,6 +22,8 @@
     padding-bottom: 1px;
     margin: 0px;
     height: 100%;
+    overflow-y: scroll;
+    white-space: pre-wrap;
 }
 
 .Output {
@@ -44,6 +46,7 @@
     margin: 0px;
     height: 100%;
     overflow-y: scroll;
+    white-space: pre-wrap;
 }
 
 .Terminal {
