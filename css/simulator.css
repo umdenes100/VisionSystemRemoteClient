@@ -4,7 +4,8 @@
 }
 
 .Terminal {
-    background-color: #333333;
+    background-color: #f5f5f5;
+    border-top: #c0c0c0 1px solid;
 }
 
 body, html, .container-fluid {
