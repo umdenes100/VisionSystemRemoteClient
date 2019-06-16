@@ -43,14 +43,17 @@ function requestSimulation() {
 
     $.get(SERVER_URL, { 'json': JSON.stringify(request) }, data => {
         $('#terminal-output').text()
+        $('#output').text(' ')
+        $('#code').text(' ')
         if(data['error'] !== undefined) {   
             $('#terminal-output').text(data['error'])
-        } else {
+        } else {   
             var today = new Date();
             var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
             var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
             var dateTime = date + ' ' + time;
 
+            $('#code').text(editor.getDoc().getValue())
             $('#terminal-output').text('Simulation successful: ' + dateTime + '.')
             // we want frames, commands, and a mapping from frames to last executed commands
             frames = []
@@ -58,7 +61,6 @@ function requestSimulation() {
             mapping = []
             currentCommands = []
             currentFrame = 0
-            $('output').text('')
             state = 'PAUSE'
             
             for(var i = 0; i < data.length; i++) {
