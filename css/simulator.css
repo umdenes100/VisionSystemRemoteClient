@@ -3,6 +3,10 @@
     width: 100%;
 }
 
+.Terminal {
+    background-color: #333333;
+}
+
 body, html, .container-fluid {
     height: 100%;
 }
