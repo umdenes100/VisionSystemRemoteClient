@@ -4,6 +4,7 @@
 }
 
 .Terminal {
+    height: 30% !important;
     background-color: #f5f5f5;
     border-top: #c0c0c0 3px solid;
     font-family: monospace;
