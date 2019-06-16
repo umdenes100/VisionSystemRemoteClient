@@ -4,7 +4,6 @@
 
 body, html, .container-fluid {
     height: 100%;
-    overflow-y: scroll;
     overflow-x: hidden;
 }
 
