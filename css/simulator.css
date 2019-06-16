@@ -12,6 +12,13 @@
     direction: ltr;
 }
 
+.Terminal p {
+    padding-top: 1px;
+    padding-left: 3px;
+    padding-right: 3px;
+    padding-bottom: 1px;
+}
+
 body, html, .container-fluid {
     height: 100%;
 }
