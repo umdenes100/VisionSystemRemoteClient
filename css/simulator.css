@@ -42,6 +42,8 @@
     padding-right: 5px;
     padding-bottom: 1px;
     margin: 0px;
+    height: 100%;
+    width: 100%;
 }
 
 .Terminal {
