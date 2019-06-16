@@ -10,6 +10,10 @@ body, html, .container-fluid {
     height: 25% !important;
 }
 
+.editor-size {
+    height: 70% !important;
+}
+
 label {
     display: inline-block;
     padding-right: 10px;
