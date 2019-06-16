@@ -9,6 +9,7 @@
     border-top: #c0c0c0 3px solid;
     font-family: monospace;
     height: 100%;
+    width: 100%;
     color: black;
     direction: ltr;
 }
@@ -18,6 +19,7 @@
     padding-left: 3px;
     padding-right: 3px;
     padding-bottom: 1px;
+    margin: 0px;
 }
 
 body, html, .container-fluid {
