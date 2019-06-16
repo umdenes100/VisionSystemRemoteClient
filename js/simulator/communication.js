@@ -42,10 +42,11 @@ function requestSimulation() {
     }
 
     $.get(SERVER_URL, { 'json': JSON.stringify(request) }, data => {
-        if(data['error'] !== undefined) {
-            console.log(data['error'])
+        $('#terminal-output').text()
+        if(data['error'] !== undefined) {   
+            $('#terminal-output').text('<pre>' + data['error'] + '</pre>')
         } else {
-            console.log('Compilation successful.')
+            $('#terminal-output').text('Simulation successful.')
             // we want frames, commands, and a mapping from frames to last executed commands
             frames = []
             commands = []
