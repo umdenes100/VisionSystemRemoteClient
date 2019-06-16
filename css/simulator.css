@@ -10,6 +10,12 @@ body, html, .container-fluid {
     height: 25% !important;
 }
 
+label {
+    display: inline-block;
+    padding-right: 10px;
+    white-space: nowrap;
+}
+
 #actions {
     background-color: #f5f5f5;
     border-left: #c0c0c0 1px solid;
