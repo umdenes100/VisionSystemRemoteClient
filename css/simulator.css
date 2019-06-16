@@ -4,7 +4,6 @@
 
 body, html, .container-fluid {
     height: 100%;
-    overflow-x: hidden;
 }
 
 .preview-size {
