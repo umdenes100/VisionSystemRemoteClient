@@ -110,6 +110,10 @@ $(document).ready(() => {
 
     $('#randomize').on('click', requestRandomization)
     $('#simulate').on('click', requestSimulation)
+
+    $('#obstacles').on('click', () => {
+        console.log($('#obstacles').val())
+    })
 })
 
 

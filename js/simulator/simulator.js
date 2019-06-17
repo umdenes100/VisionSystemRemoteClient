@@ -118,6 +118,7 @@ $(document).ready(() => {
         currentFrame = val
         clearInterval(timer)
         state = 'PAUSE'
+        $('#control-button').text('play_arrow')
         commandsUntil(val)
         commandAt(val)
 
