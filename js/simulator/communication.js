@@ -116,6 +116,7 @@ $(document).ready(() => {
 
         } else {
             pcanvas.obstacles = []
+            randomization.obstacles = []
             pcanvas.draw()
         }
     })
