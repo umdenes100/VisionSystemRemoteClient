@@ -65,6 +65,10 @@ function requestSimulation() {
                 }
             }
 
+            if(lineIndexes[lineIndexes.length - 1] != code.length - 1) {
+                lineIndexes.push(code.length - 1)
+            }
+
             console.log(lineIndexes)
 
             $('#terminal-output').text('Simulation successful: ' + dateTime + '.')
