@@ -24,8 +24,8 @@ function focusLine(lineNumber) {
     if(lineIndexes.length > 0) {
         // we want to add a <span> tag aroung the appropriate line of the text
         var text = document.getElementById("code")
-        var innerHTML = inputText.innerHTML;
-        innerHTML = innerHTML.substring(0, lineIndexes[lineNumber]) + "<mark>" + innerHTML.substring(lineIndexes[lineNumber], lineIndexes[lineNumber + 1]) + "</mark>" + innerHTML.substring(lineIndexes[lineNumber + 1] + text.length);
+        var innerHTML = text.innerHTML;
+        innerHTML = innerHTML.substring(0, lineIndexes[lineNumber]) + "<mark>" + innerHTML.substring(lineIndexes[lineNumber], lineIndexes[lineNumber + 1]) + "</mark>" + innerHTML.substring(lineIndexes[lineNumber + 1]);
         inputText.innerHTML = innerHTML;
     }
 }
