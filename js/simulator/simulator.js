@@ -94,9 +94,7 @@ function simulation(startFrame) {
 
     function simulate() {
         currentFrame = frameIndex
-        $("#timestep").slider({
-            value: currentFrame
-        })
+        document.getElementById("timestep").value = currentFrame.toString();
 
         if (frameIndex >= frames.length) {
             clearInterval(timer)
