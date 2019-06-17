@@ -69,7 +69,10 @@ function requestSimulation() {
                 lineIndexes.push(code.length)
             }
 
-            lineIndexesAppended = lineIndexes
+            lineIndexesAppended = []
+            for(var i = 0; i < lineIndexes.length; i++) {
+                lineIndexesAppended.push(lineIndexes[i])
+            }
 
             $('#terminal-output').text('Simulation successful: ' + dateTime + '.')
             // we want frames, commands, and a mapping from frames to last executed commands

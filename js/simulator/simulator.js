@@ -24,7 +24,10 @@ $(window).resize(() => {
 
 function clearFocus() {
     $('#code').text(code)
-    lineIndexesAppended = lineIndexes
+    lineIndexesAppended = []
+    for(var i = 0; i < lineIndexes.length; i++) {
+        lineIndexesAppended.push(lineIndexes[i])
+    }
 }
 
 function focusLine(lineNumber) {
@@ -36,16 +39,16 @@ function focusLine(lineNumber) {
         text.innerHTML = innerHTML;
 
         for(var i = lineNumber + 1; i < lineIndexesAppended.length; i++) {
-            lineIndexesAppended[i] = lineIndexesAppended[i] + "<mark>".length + "<|mark>".length - 1
+            lineIndexesAppended[i] = lineIndexesAppended[i] + "<mark>".length + "<|mark>".length
         }
     }
 }
 
 function focusLines(lineNumbers) {
     clearFocus()
-    lineNumbers.forEach(val => {
-        focusLine(val)
-    })
+    for(var i = 0; i < lineNumbers.length; i++) {
+        focusLine(lineNumbers[i])
+    }
 }
 
 function commandAt(frameNumber) {
