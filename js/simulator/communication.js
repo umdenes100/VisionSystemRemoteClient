@@ -113,7 +113,7 @@ $(document).ready(() => {
 
     $('#obstacles').on('click', () => {
         if($('#obstacles').is(":checked")) {
-
+            requestRandomization()
         } else {
             pcanvas.obstacles = []
             randomization.obstacles = []
