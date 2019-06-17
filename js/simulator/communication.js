@@ -55,7 +55,7 @@ function requestSimulation() {
             var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
             var dateTime = date + ' ' + time;
 
-            var code = editor.getDoc().getValue()
+            code = editor.getDoc().getValue()
             $('#code').text(code)
             // we want to get the indexes of each line in the code
             lineIndexes.push(0)
@@ -68,6 +68,8 @@ function requestSimulation() {
             if(lineIndexes[lineIndexes.length - 1] != code.length) {
                 lineIndexes.push(code.length)
             }
+
+            lineIndexesAppended = lineIndexes
 
             $('#terminal-output').text('Simulation successful: ' + dateTime + '.')
             // we want frames, commands, and a mapping from frames to last executed commands

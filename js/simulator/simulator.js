@@ -6,6 +6,8 @@ let currentCommands = []
 let currentFrame = 0
 let state = 'PAUSE'
 let lineIndexes = []
+let lineIndexesAppended = []
+let code = undefined
 
 $(document).ready(() => {
     canvas = new Canvas(document.getElementById('fg'),
@@ -20,14 +22,30 @@ $(window).resize(() => {
     canvas.draw()
 })
 
+function clearFocus() {
+    $('#code').text(code)
+    lineIndexesAppended = lineIndexes
+}
+
 function focusLine(lineNumber) {
-    if(lineIndexes.length > 0) {
+    if(lineIndexesAppended.length > 0 || lineNumber >= lineIndexesAppended.length) {
         // we want to add a <span> tag aroung the appropriate line of the text
         var text = document.getElementById("code")
         var innerHTML = text.innerHTML;
-        innerHTML = innerHTML.substring(0, lineIndexes[lineNumber]) + "<mark>" + innerHTML.substring(lineIndexes[lineNumber], lineIndexes[lineNumber + 1]) + "</mark>" + innerHTML.substring(lineIndexes[lineNumber + 1]);
+        innerHTML = innerHTML.substring(0, lineIndexesAppended[lineNumber]) + "<mark>" + innerHTML.substring(lineIndexesAppended[lineNumber], lineIndexesAppended[lineNumber + 1]) + "</mark>" + innerHTML.substring(lineIndexesAppended[lineNumber + 1]);
         text.innerHTML = innerHTML;
+
+        for(var i = lineNumber + 1; i < lineIndexesAppended.length; i++) {
+            lineIndexesAppended[i] = lineIndexesAppended[i] + "<mark>".length + "<|mark>".length
+        }
     }
+}
+
+function focusLines(lineNumbers) {
+    clearFocus()
+    lineNumbers.forEach(val => {
+        focusLine(val)
+    })
 }
 
 function commandAt(frameNumber) {
