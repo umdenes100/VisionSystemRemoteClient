@@ -69,6 +69,10 @@
     margin: 0px;
 }
 
+.focus {
+    background-color: yellow;
+}
+
 body, html, .container-fluid {
     height: 100%;
 }
