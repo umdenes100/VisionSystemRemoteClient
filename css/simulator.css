@@ -50,6 +50,14 @@
     white-space: pre-wrap;
 }
 
+.Simulation {
+    height: 80% !important;
+}
+
+.Controls {
+    height: 80% !important;
+}
+
 .Terminal {
     height: 30% !important;
     background-color: #f5f5f5;

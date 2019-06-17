@@ -85,13 +85,21 @@ custom_js_url:
                 </div>
             </div>
         </div>
-        <div id="simulation" class="col-md-9">
-            <div id="simulation-wrapper" class="pt-5 pl-5 pr-5 h-75">
-                <canvas id="bg"></canvas>
-                <canvas id="fg"></canvas>
+        <div id="simulation" class="col-md-9 ml-0 pl-0">
+            <div class="row h-80 m-0 p-0 Simulation">
+                <div id="simulation-wrapper" class="col pt-5 pl-5 pr-5 h-100">
+                    <canvas id="bg"></canvas>
+                    <canvas id="fg"></canvas>
+                </div>
             </div>
-            <input type="range" min="1" max="5000" value="1" class="slider" id="timestep">
-            <button id="play">Play/Pause</button>
+            <div class="row h-20 m-0 p-0 Controls">
+                <div class="col-md-2 h-100 m-0 p-0">
+                    <button id="play">Play/Pause</button>
+                </div>
+                <div class="col-md-10 h-100 m-0 p-0">
+                    <input type="range" min="1" max="5000" value="1" class="slider" id="timestep">
+                </div>
+            </div>            
         </div>
     </div>
 </div>
