@@ -41,7 +41,7 @@ $(document).ready(() => {
 
         indentUnit: 4,
         indentWithTabs: true,
-        firstLineNumber: 0,
+        firstLineNumber: 3,
 
         lineNumbers: true,
         lineWrapping: true,
