@@ -65,8 +65,8 @@ function requestSimulation() {
                 }
             }
 
-            if(lineIndexes[lineIndexes.length - 1] != code.length - 1) {
-                lineIndexes.push(code.length - 1)
+            if(lineIndexes[lineIndexes.length - 1] != code.length) {
+                lineIndexes.push(code.length)
             }
 
             console.log(lineIndexes)
