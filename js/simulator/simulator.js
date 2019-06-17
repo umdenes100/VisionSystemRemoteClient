@@ -35,11 +35,11 @@ function focusLine(lineNumber) {
         // we want to add a <span> tag aroung the appropriate line of the text
         var text = document.getElementById("code")
         var innerHTML = text.innerHTML;
-        innerHTML = innerHTML.substring(0, lineIndexesAppended[lineNumber]) + "<span class=\"focus\">" + innerHTML.substring(lineIndexesAppended[lineNumber], lineIndexesAppended[lineNumber + 1]) + "</span class=\"focus\">" + innerHTML.substring(lineIndexesAppended[lineNumber + 1]);
+        innerHTML = innerHTML.substring(0, lineIndexesAppended[lineNumber]) + "<span class=\"focus\">" + innerHTML.substring(lineIndexesAppended[lineNumber], lineIndexesAppended[lineNumber + 1]) + "</span>" + innerHTML.substring(lineIndexesAppended[lineNumber + 1]);
         text.innerHTML = innerHTML;
 
         for(var i = lineNumber + 1; i < lineIndexesAppended.length; i++) {
-            lineIndexesAppended[i] = lineIndexesAppended[i] + "<span class=\"focus\">".length + "</span class=\"focus\">".length
+            lineIndexesAppended[i] = lineIndexesAppended[i] + "<span class=\"focus\">".length + "</span>".length
         }
     }
 }
@@ -93,7 +93,6 @@ function simulation(startFrame) {
     timer = setInterval(simulate, 16)   // 60 fps = 16 ms
 
     function simulate() {
-        console.log(currentCommands)
         currentFrame = frameIndex
         $("#timestep").slider({
             value: currentFrame
