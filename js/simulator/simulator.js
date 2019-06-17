@@ -68,6 +68,12 @@ function commandAt(frameNumber) {
             }
 
             currentCommands.push(command)
+
+            // now we need to focus the comands
+            // first we need to get the lines
+            focusLines(currentCommands.map(v => {
+                return v.line_number
+            }))
         }
     }
 }
