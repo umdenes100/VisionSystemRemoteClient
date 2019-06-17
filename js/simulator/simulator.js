@@ -26,7 +26,7 @@ function focusLine(lineNumber) {
         var text = document.getElementById("code")
         var innerHTML = text.innerHTML;
         innerHTML = innerHTML.substring(0, lineIndexes[lineNumber]) + "<mark>" + innerHTML.substring(lineIndexes[lineNumber], lineIndexes[lineNumber + 1]) + "</mark>" + innerHTML.substring(lineIndexes[lineNumber + 1]);
-        inputText.innerHTML = innerHTML;
+        text.innerHTML = innerHTML;
     }
 }
 
