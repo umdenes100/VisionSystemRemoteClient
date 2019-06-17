@@ -135,9 +135,11 @@ $(document).ready(() => {
         if(state === 'PAUSE') {
             simulation(currentFrame)
             state = 'PLAY'
+            $('#control-button').text('pause')
         } else {
             clearInterval(timer)
             state = 'PAUSE'
+            $('#control-button').text('play_arrow')
         }
     })
 })
