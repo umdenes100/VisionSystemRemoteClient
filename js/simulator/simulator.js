@@ -36,7 +36,7 @@ function focusLine(lineNumber) {
         text.innerHTML = innerHTML;
 
         for(var i = lineNumber + 1; i < lineIndexesAppended.length; i++) {
-            lineIndexesAppended[i] = lineIndexesAppended[i] + "<mark>".length + "<|mark>".length
+            lineIndexesAppended[i] = lineIndexesAppended[i] + "<mark>".length + "<|mark>".length - 1
         }
     }
 }
