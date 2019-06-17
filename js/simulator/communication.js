@@ -112,7 +112,12 @@ $(document).ready(() => {
     $('#simulate').on('click', requestSimulation)
 
     $('#obstacles').on('click', () => {
-        console.log($('#obstacles').val())
+        if($('#obstacles').is(":checked")) {
+
+        } else {
+            pcanvas.obstacles = []
+            pcanvas.draw()
+        }
     })
 })
 
