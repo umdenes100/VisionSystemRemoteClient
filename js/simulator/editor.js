@@ -24,6 +24,7 @@ $(document).ready(() => {
             '#include "Tank.h"\n' +
             '\n' +
             'void setup() {\n' +
+            '\tEnes100.begin("Team Name Here", BLACK_BOX, 3, 8, 9);\n' +
             '\tTank.begin();\n' +
             '\tTank.setLeftMotorPWM(255);\n' +
             '\tTank.setRightMotorPWM(255);\n' +
