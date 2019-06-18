@@ -58,12 +58,22 @@ function requestSimulation() {
             code = editor.getDoc().getValue()
             $('#code').text(code)
 
-            code = document.getElementById('code').innerHTML
             // we want to get the indexes of each line in the code
             lineIndexes.push(0)
+            var tackOn = 0
+            var map = {
+                '&': '&amp;'.length,
+                '<': '&lt;'.length,
+                '>': '&gt;'.length,
+                '"': '&quot;'.length,
+                "'": '&#039;'.length
+            };
+
             for(var i = 0; i < code.length; i++) {
-                if(code[i] == '\n') {
-                    lineIndexes.push(i + 1)
+                if(map[code[i]] !== undefined) {
+                    tackOn += map[code[i]]
+                } else if(code[i] == '\n') {
+                    lineIndexes.push(i + tackOn + 1)
                 }
             }
 
