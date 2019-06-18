@@ -57,6 +57,8 @@ function requestSimulation() {
 
             code = editor.getDoc().getValue()
             $('#code').text(code)
+
+            code = document.getElementById('code').innerHTML
             // we want to get the indexes of each line in the code
             lineIndexes.push(0)
             for(var i = 0; i < code.length; i++) {
