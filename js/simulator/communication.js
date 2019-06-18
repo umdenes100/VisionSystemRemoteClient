@@ -65,8 +65,6 @@ function requestSimulation() {
                 '&': '&amp;'.length - 1,
                 '<': '&lt;'.length - 1,
                 '>': '&gt;'.length - 1,
-                '"': '&quot;'.length - 1,
-                "'": '&#039;'.length - 1
             };
 
             for(var i = 0; i < code.length; i++) {
