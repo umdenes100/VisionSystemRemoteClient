@@ -62,11 +62,11 @@ function requestSimulation() {
             lineIndexes.push(0)
             var tackOn = 0
             var map = {
-                '&': '&amp;'.length,
-                '<': '&lt;'.length,
-                '>': '&gt;'.length,
-                '"': '&quot;'.length,
-                "'": '&#039;'.length
+                '&': '&amp;'.length - 1,
+                '<': '&lt;'.length - 1,
+                '>': '&gt;'.length - 1,
+                '"': '&quot;'.length - 1,
+                "'": '&#039;'.length - 1
             };
 
             for(var i = 0; i < code.length; i++) {
