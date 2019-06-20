@@ -3,6 +3,10 @@ function get_library_documentation(library) {
         let converter = new showdown.Converter({tables: true})
         $('.documentation').html(converter.makeHtml(data))
 
+        if(library === "VisionSystemSimulatorWeb") {
+            $('#d_button').remove()
+        }
+
         $.each($('.documentation p a'), (index, value) => {
         if (value.href.includes('youtube')) {
                 console.log(value.href)
