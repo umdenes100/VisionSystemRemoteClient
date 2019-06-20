@@ -126,6 +126,11 @@ label {
     border-top: #c0c0c0 1px solid;
 }
 
+a {
+    color: white !important;
+    text-decoration: none !important;
+}
+
 button {
     border-radius: 5px;
     background-color: #de223e;
