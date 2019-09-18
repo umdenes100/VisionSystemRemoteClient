@@ -57,7 +57,7 @@ $(document).ready(() => {
     let $port = $('#port')
 
     connection.onopen = () => {
-        console.log('OPEN')
+        // console.log('OPEN')
     }
 
     connection.onerror = error => {
@@ -74,7 +74,7 @@ $(document).ready(() => {
         switch(type) {
             case 'PORT_LIST':
 
-                console.log(message)
+                // console.log(message)
 
                 $port.empty()
                 $port.append($('<option>', {
@@ -121,33 +121,33 @@ $(document).ready(() => {
 
             case 'START':
 
-                console.log(message)
+                // console.log(message)
 
                 startTime = content
                 break
 
             case 'MISSION':
 
-                console.log(message)
+                // console.log(message)
 
                 printMessage(content)
                 break
 
             default:
 
-                console.log(message)
+                // console.log(message)
 
-                console.log(`Unexpected type: ${type}`)
+                // console.log(`Unexpected type: ${type}`)
                 break
         }
         
     }
 
     connection.onclose = () => {
-        console.log('CLOSE')
+        // console.log('CLOSE')
         connection.send('Closed.')
         setTimeout(() => {
-            console.log('Retrying...')
+            // console.log('Retrying...')
         }, 5000)
     }
 

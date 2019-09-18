@@ -1,6 +1,6 @@
 const MISSION_TO_ICON = {
     'BLACK_BOX': 'ml-3 fa-cube',
-    'DATA': 'ml-3 fa-laptop-code',
+    'DATA': 'ml-1 fa-laptop-code',
     'DEBRIS': 'ml-2 fa-truck',
     'FIRE': 'ml-3 fa-fire',
     'WATER': 'ml-3 fa-tint',
@@ -17,8 +17,8 @@ const MISSION_TO_ICON_COLOR = {
 }
 
 function updateGlyphicon() {
-	let $selected_port = $('#port option:selected')
-	let mission = $selected_port.attr('class')
+    let $selected_port = $('#port option:selected')
+    let mission = $selected_port.attr('class')
 
     let $mission_icon = $('#mission_icon i')
 
