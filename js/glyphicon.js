@@ -1,6 +1,6 @@
 const MISSION_TO_ICON = {
     'BLACK_BOX': 'ml-3 fa-cube',
-    'DATA': 'ml-1 fa-wave-square',
+    'DATA': 'ml-1 fa-laptop-code',
     'DEBRIS': 'ml-2 fa-truck',
     'FIRE': 'ml-3 fa-fire',
     'WATER': 'ml-3 fa-tint',
