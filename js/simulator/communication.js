@@ -118,12 +118,21 @@ function requestSimulation() {
 $(document).ready(() => {
     requestRandomization()
 
-    $('#randomize').on('click', requestRandomization)
+    $('#randomize').on('click', () => {
+        if($('#obstacles').is(":checked")) {
+            requestRandomization()
+        } else {
+            requestRandomization()
+            pcanvas.obstacles = []
+            randomization.obstacles = []
+            pcanvas.draw()
+        }
+    })
     $('#simulate').on('click', requestSimulation)
 
     $('#obstacles').on('click', () => {
         if($('#obstacles').is(":checked")) {
-            requestRandomization()
+            data.obstacles.map(obstacle => new Obstacle(obstacle.x, obstacle.y))
         } else {
             pcanvas.obstacles = []
             randomization.obstacles = []
