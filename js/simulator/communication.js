@@ -128,7 +128,6 @@ $(document).ready(() => {
             pcanvas.draw()
         }
     })
-
     $('#simulate').on('click', requestSimulation)
 
     $('#obstacles').on('click', () => {

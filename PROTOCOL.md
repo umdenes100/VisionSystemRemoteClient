@@ -88,8 +88,8 @@ The first thing that happens when you declare a new WebSocket is that you receiv
 			"MISSION": "BLACK_BOX"
 		},
 		"ttyUSB4": {
-			"NAME": "It's To Be Avoided At All Costs",
-			"MISSION": "CHEMICAL"
+			"NAME": "It Doesn't Have a Char in the World",
+			"MISSION": "DATA"
 		},
 		"ttyUSB5": {
 			"NAME": "ttyUSB5",
@@ -115,7 +115,7 @@ The second thing to note is that if a team hasn't actually connected to an RF Co
 
 As for `MISSION`, the `MISSION` types are the same as the ones in the ENES100 Arduino Library - 
 1. `BLACK_BOX`
-2. `CHEMICAL`
+2. `DATA`
 3. `DEBRIS`
 4. `FIRE`
 5. `WATER`
