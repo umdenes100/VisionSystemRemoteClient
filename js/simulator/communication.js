@@ -4,6 +4,7 @@ let frames = undefined
 let commands = undefined
 let mapping = undefined
 let timer = undefined
+let lastObstacles = undefined
 
 const SERVER_URL = 'http://18.191.246.34:8888'
 
@@ -20,6 +21,7 @@ function requestRandomization() {
             canv.destination = new Destination(data.destination.x, data.destination.y)
             canv.draw()
         })
+        lastObstacles = data.obstacles
     })
 }
 
@@ -120,7 +122,7 @@ $(document).ready(() => {
 
     $('#randomize').on('click', () => {
         if($('#obstacles').is(":checked")) {
-            requestRandomization()
+           requestRandomization()
         } else {
             requestRandomization()
             pcanvas.obstacles = []
@@ -132,7 +134,9 @@ $(document).ready(() => {
 
     $('#obstacles').on('click', () => {
         if($('#obstacles').is(":checked")) {
-            data.obstacles.map(obstacle => new Obstacle(obstacle.x, obstacle.y))
+            pcanvas.obstacles = lastObstacles.map(obstacle => new Obstacle(obstacle.x, obstacle.y))
+            randomization.obstacles = lastObstacles.map(obstacle => new Obstacle(obstacle.x, obstacle.y))
+            pcanvas.draw()
         } else {
             pcanvas.obstacles = []
             randomization.obstacles = []
