@@ -4,6 +4,7 @@ let frames = undefined
 let commands = undefined
 let mapping = undefined
 let timer = undefined
+let obstaclesChecked = true
 let lastObstacles = undefined
 
 const SERVER_URL = 'http://18.191.246.34:8888'
@@ -19,6 +20,10 @@ function requestRandomization() {
             canv.osv = new OSV(data.osv.x, data.osv.y, data.osv.theta, mcanvas.osv.actualWidth / 1000, mcanvas.osv.actualHeight / 1000)
             canv.obstacles = data.obstacles.map(obstacle => new Obstacle(obstacle.x, obstacle.y))
             canv.destination = new Destination(data.destination.x, data.destination.y)
+            if(obstaclesChecked == false){
+                canv.obstacles = [];
+                console.log("Got Here")
+            }
             canv.draw()
         })
         lastObstacles = data.obstacles
@@ -122,12 +127,11 @@ $(document).ready(() => {
 
     $('#randomize').on('click', () => {
         if($('#obstacles').is(":checked")) {
+           obstaclesChecked = true
            requestRandomization()
         } else {
+            obstaclesChecked = false
             requestRandomization()
-            pcanvas.obstacles = []
-            randomization.obstacles = []
-            pcanvas.draw()
         }
     })
     $('#simulate').on('click', requestSimulation)
