@@ -17,8 +17,9 @@ $(document).ready(() => {
     // $('#breadth').val(parseInt(breadth))
     //
     // let starting_code = Cookies.get('code')
-    let starting_code = undefined
-    if (starting_code === undefined) {
+    if(localStorage.code) {
+        starting_code = localStorage.code;
+    } else {
         starting_code = '' +
             '#include "Enes100.h"\n' +
             '#include "Tank.h"\n' +
@@ -57,8 +58,11 @@ $(document).ready(() => {
     })
 })
 
-// window.onbeforeunload = function (event) {
-//
+window.onbeforeunload = function (event) {
+    event.preventDefault();
+    localStorage.code = editor.getDoc().getValue();
+    //localStorage.length =  $('#length').val();
+    //localStorage.breadth = $('#breadth').val();
 //     // Cookies.remove('length')
 //     // Cookies.remove('breadth')
 //     // Cookies.remove('code')
@@ -75,7 +79,7 @@ $(document).ready(() => {
 //     //
 //     // }
 //     event.preventDefault()
-// }
+}
 
 hotkeys('ctrl+s,cmd+s', function(event, handler) {
     event.preventDefault()
