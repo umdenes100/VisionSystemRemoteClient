@@ -10,8 +10,14 @@ let lineIndexesAppended = []
 let code = undefined
 
 $(document).ready(() => {
-    canvas = new Canvas(document.getElementById('fg'),
+    if(lastCanvas){
+        canvas = localStorage.lastCanvas;
+    }
+    else{
+        canvas = new Canvas(document.getElementById('fg'),
                         document.getElementById('bg'))
+        localStorage.lastCanvas = canvas;
+    }
     canvas.resize()
     canvas.draw()
 })
