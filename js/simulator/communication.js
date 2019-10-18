@@ -6,6 +6,7 @@ let mapping = undefined
 let timer = undefined
 let obstaclesChecked = true
 let lastObstacles = undefined
+let inProgress = false
 
 const SERVER_URL = 'http://18.191.246.34:8888'
 
@@ -49,6 +50,8 @@ function requestSimulation() {
     }
 
     $.get(SERVER_URL, { 'json': JSON.stringify(request) }, data => {
+        inProgress = false
+        document.getElementById('simulate').style.backgroundColor = 'red'
         $('#terminal-output').text()
         $('#output').text(' ')
         $('#code').text(' ')
@@ -134,7 +137,15 @@ $(document).ready(() => {
             requestRandomization()
         }
     })
-    $('#simulate').on('click', requestSimulation)
+    //$('#simulate').on('click', requestSimulation)
+    $('#simulate').on('click', () => {
+        if(inProgress === false) {
+            inProgress = true
+            $('#terminal-output').text('Loading simulation...')
+            //document.getElementById('simulate').style.backgroundColor = 'grey'
+            requestSimulation;
+        }
+    })
 
     $('#obstacles').on('click', () => {
         if($('#obstacles').is(":checked")) {
