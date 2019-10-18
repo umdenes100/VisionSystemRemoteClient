@@ -17,9 +17,9 @@ $(document).ready(() => {
     // $('#breadth').val(parseInt(breadth))
     //
     // let starting_code = Cookies.get('code')
-    if(localStorage.code) {
-        starting_code = localStorage.code;
-    } else {
+    if(localStorage.code) {  // Saved code exists.
+        starting_code = localStorage.code;  // Reload the saved code.
+    } else {  // No code exists, so open the default.
         starting_code = '' +
             '#include "Enes100.h"\n' +
             '#include "Tank.h"\n' +
@@ -58,11 +58,13 @@ $(document).ready(() => {
     })
 })
 
+// This function will auto-save the code before the page closes.
 window.onbeforeunload = function (event) {
-    event.preventDefault();
-    localStorage.code = editor.getDoc().getValue();
+    // event.preventDefault();  // Prompt users before closing the page.
+    localStorage.code = editor.getDoc().getValue();  // Store the current code.
     //localStorage.length =  $('#length').val();
     //localStorage.breadth = $('#breadth').val();
+
 //     // Cookies.remove('length')
 //     // Cookies.remove('breadth')
 //     // Cookies.remove('code')
@@ -82,6 +84,6 @@ window.onbeforeunload = function (event) {
 }
 
 hotkeys('ctrl+s,cmd+s', function(event, handler) {
-    event.preventDefault()
-    download(editor.getDoc().getValue(), 'enes100.ino')
+    event.preventDefault()  // Prompt users before closing the page.
+    download(editor.getDoc().getValue(), 'enes100.ino')  // Save code to an arduino file.
 })
