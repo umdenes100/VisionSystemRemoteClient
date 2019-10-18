@@ -57,9 +57,9 @@ function requestSimulation() {
         $('#code').text(' ')
         lineIndexes = []
 
-        if(data['error'] !== undefined) {   
+        if(data['error'] !== undefined) {
             $('#terminal-output').text(data['error'])
-        } else {   
+        } else {
             var today = new Date();
             var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
             var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
@@ -102,7 +102,7 @@ function requestSimulation() {
             currentCommands = []
             currentFrame = 0
             state = 'PAUSE'
-            
+
             for(var i = 0; i < data.length; i++) {
                 element = data[i]
                 if(element.osv === undefined) {
@@ -120,9 +120,9 @@ function requestSimulation() {
             canvas.obstacles = r.obstacles.map(obstacle => new Obstacle(obstacle.x, obstacle.y))
             canvas.destination = new Destination(r.destination.x, r.destination.y)
             canvas.draw()
-        } 
+        }
     })
-    
+
 }
 
 $(document).ready(() => {
@@ -142,8 +142,8 @@ $(document).ready(() => {
         if(inProgress === false) {
             inProgress = true
             $('#terminal-output').text('Loading simulation...')
-            //document.getElementById('simulate').style.backgroundColor = 'grey'
-            requestSimulation;
+            document.getElementById('simulate').style.backgroundColor = 'grey'
+            requestSimulation()
         }
     })
 
