@@ -10,7 +10,7 @@ let lineIndexesAppended = []
 let code = undefined
 
 $(document).ready(() => {
-    if(lastCanvas){
+    if(localStorage.lastCanvas){
         canvas = localStorage.lastCanvas;
     }
     else{
