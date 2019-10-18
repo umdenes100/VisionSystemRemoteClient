@@ -51,7 +51,7 @@ function requestSimulation() {
 
     $.get(SERVER_URL, { 'json': JSON.stringify(request) }, data => {
         inProgress = false
-        document.getElementById('simulate').style.backgroundColor = 'red'
+        document.getElementById('simulate').style.backgroundColor = ""  // Reset simulate button to default style.
         $('#terminal-output').text()
         $('#output').text(' ')
         $('#code').text(' ')
@@ -142,7 +142,7 @@ $(document).ready(() => {
         if(inProgress === false) {
             inProgress = true
             $('#terminal-output').text('Loading simulation...')
-            document.getElementById('simulate').style.backgroundColor = 'grey'
+            document.getElementById('simulate').style.backgroundColor = 'grey'  // Grey out button when simulation is loading.
             requestSimulation()
         }
     })
