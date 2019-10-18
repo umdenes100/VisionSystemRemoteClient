@@ -99,7 +99,7 @@ function requestSimulation() {
             currentCommands = []
             currentFrame = 0
             state = 'PAUSE'
-            
+
             for(var i = 0; i < data.length; i++) {
                 element = data[i]
                 if(element.osv === undefined) {
@@ -117,9 +117,9 @@ function requestSimulation() {
             canvas.obstacles = r.obstacles.map(obstacle => new Obstacle(obstacle.x, obstacle.y))
             canvas.destination = new Destination(r.destination.x, r.destination.y)
             canvas.draw()
-        } 
+        }
     })
-    
+
 }
 
 $(document).ready(() => {
