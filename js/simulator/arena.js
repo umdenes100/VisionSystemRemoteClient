@@ -103,12 +103,7 @@ class OSV {
         this.actualY = actualY
         this.actualWidth = actualWidth
         this.actualHeight = actualHeight
-
-        if (actualTheta < 0) {
-            this.actualTheta = Math.PI + actualTheta
-        } else {
-            this.actualTheta = actualTheta
-        }
+        this.actualTheta = actualTheta
 
         this.tread_color = '#5c5b5c'
         this.arrow_color = '#7fff00'
