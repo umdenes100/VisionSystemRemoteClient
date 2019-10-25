@@ -21,13 +21,16 @@ function requestRandomization() {
             canv.osv = new OSV(data.osv.x, data.osv.y, data.osv.theta, mcanvas.osv.actualWidth / 1000, mcanvas.osv.actualHeight / 1000)
             canv.obstacles = data.obstacles.map(obstacle => new Obstacle(obstacle.x, obstacle.y))
             canv.destination = new Destination(data.destination.x, data.destination.y)
-            if(obstaclesChecked == false){
+            if (obstaclesChecked == false){
                 canv.obstacles = [];
-                console.log("Got Here")
             }
             canv.draw()
         })
-        lastObstacles = data.obstacles
+        if (obstaclesChecked == false) {
+            lastObstacles = data.obstacles;
+        } else {
+            lastObstacles = [];
+        }
     })
 }
 
@@ -41,7 +44,7 @@ function requestSimulation() {
         code: editor.getDoc().getValue(),
         randomization: r,
         distance_sensors: mcanvas.sensors.map((sensor, index) => {
-            if(sensor.selected) {
+            if (sensor.selected) {
                 return index
             }
         }).filter(element => {
@@ -57,7 +60,7 @@ function requestSimulation() {
         $('#code').text(' ')
         lineIndexes = []
 
-        if(data['error'] !== undefined) {
+        if (data['error'] !== undefined) {
             $('#terminal-output').text(data['error'])
         } else {
             var today = new Date();
@@ -77,15 +80,15 @@ function requestSimulation() {
                 '>': '&gt;'.length - 1,
             };
 
-            for(var i = 0; i < code.length; i++) {
-                if(map[code[i]] !== undefined) {
+            for (var i = 0; i < code.length; i++) {
+                if (map[code[i]] !== undefined) {
                     tackOn += map[code[i]]
                 } else if(code[i] == '\n') {
                     lineIndexes.push(i + tackOn + 1)
                 }
             }
 
-            if(lineIndexes[lineIndexes.length - 1] != code.length) {
+            if (lineIndexes[lineIndexes.length - 1] != code.length) {
                 lineIndexes.push(code.length)
             }
 
@@ -105,7 +108,7 @@ function requestSimulation() {
 
             for(var i = 0; i < data.length; i++) {
                 element = data[i]
-                if(element.osv === undefined) {
+                if (element.osv === undefined) {
                     // this is a command
                     commands.push(element)
                 } else {
@@ -132,7 +135,7 @@ $(document).ready(() => {
 
     //$('#simulate').on('click', requestSimulation)
     $('#simulate').on('click', () => {
-        if(inProgress === false) {
+        if (inProgress === false) {
             inProgress = true
             $('#terminal-output').text('Loading simulation...')
             document.getElementById('simulate').style.backgroundColor = 'grey'  // Grey out button when simulation is loading.
@@ -141,7 +144,7 @@ $(document).ready(() => {
     })
 
     $('#obstacles').on('click', () => {
-        if($('#obstacles').is(":checked")) {
+        if ($('#obstacles').is(":checked")) {
             obstaclesChecked = true
             pcanvas.obstacles = lastObstacles.map(obstacle => new Obstacle(obstacle.x, obstacle.y))
             randomization.obstacles = lastObstacles.map(obstacle => new Obstacle(obstacle.x, obstacle.y))
