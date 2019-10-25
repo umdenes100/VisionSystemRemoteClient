@@ -128,15 +128,8 @@ function requestSimulation() {
 $(document).ready(() => {
     requestRandomization()
 
-    $('#randomize').on('click', () => {
-        if($('#obstacles').is(":checked")) {
-           obstaclesChecked = true
-           requestRandomization()
-        } else {
-            obstaclesChecked = false
-            requestRandomization()
-        }
-    })
+    $('#randomize').on('click', requestRandomization)
+
     //$('#simulate').on('click', requestSimulation)
     $('#simulate').on('click', () => {
         if(inProgress === false) {
@@ -149,10 +142,12 @@ $(document).ready(() => {
 
     $('#obstacles').on('click', () => {
         if($('#obstacles').is(":checked")) {
+            obstaclesChecked = true
             pcanvas.obstacles = lastObstacles.map(obstacle => new Obstacle(obstacle.x, obstacle.y))
             randomization.obstacles = lastObstacles.map(obstacle => new Obstacle(obstacle.x, obstacle.y))
             pcanvas.draw()
         } else {
+            obstaclesChecked = false
             pcanvas.obstacles = []
             randomization.obstacles = []
             pcanvas.draw()
