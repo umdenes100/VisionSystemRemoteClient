@@ -26,11 +26,7 @@ function requestRandomization() {
             }
             canv.draw()
         })
-        if (obstaclesChecked == false) {
-            lastObstacles = data.obstacles;
-        } else {
-            lastObstacles = [];
-        }
+        lastObstacles = data.obstacles;
     })
 }
 
@@ -60,8 +56,9 @@ function requestSimulation() {
         $('#code').text(' ')
         lineIndexes = []
 
+
         if (data['error'] !== undefined) {
-            $('#terminal-output').text(data['error'])
+            $('#terminal-output').text(data['error'])  // Display error message on terminal.
         } else {
             var today = new Date();
             var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
@@ -71,7 +68,7 @@ function requestSimulation() {
             code = editor.getDoc().getValue()
             $('#code').text(code)
 
-            // we want to get the indexes of each line in the code
+            // We want to get the indexes of each line in the code.
             lineIndexes.push(0)
             var tackOn = 0
             var map = {
@@ -98,7 +95,7 @@ function requestSimulation() {
             }
 
             $('#terminal-output').text('Simulation successful: ' + dateTime + '.')
-            // we want frames, commands, and a mapping from frames to last executed commands
+            // We want frames, commands, and a mapping from frames to last executed commands
             frames = []
             commands = []
             mapping = []
@@ -120,7 +117,13 @@ function requestSimulation() {
 
             clearInterval(timer)
             canvas.osv = new OSV(r.osv.x, r.osv.y, r.osv.theta, r.osv.width, r.osv.height)
-            canvas.obstacles = r.obstacles.map(obstacle => new Obstacle(obstacle.x, obstacle.y))
+            if (obstaclesChecked) {
+                //lastObstacles = r.obstacles.map(obstacle => new Obstacle(obstacle.x, obstacle.y))
+                canvas.obstacles = lastObstacles.map(obstacle => new Obstacle(obstacle.x, obstacle.y))
+
+            } else {  // Obstacles button not checked.
+                canvas.obstacles = []
+            }
             canvas.destination = new Destination(r.destination.x, r.destination.y)
             canvas.draw()
         }
@@ -147,12 +150,10 @@ $(document).ready(() => {
         if ($('#obstacles').is(":checked")) {
             obstaclesChecked = true
             pcanvas.obstacles = lastObstacles.map(obstacle => new Obstacle(obstacle.x, obstacle.y))
-            randomization.obstacles = lastObstacles.map(obstacle => new Obstacle(obstacle.x, obstacle.y))
             pcanvas.draw()
         } else {
             obstaclesChecked = false
             pcanvas.obstacles = []
-            randomization.obstacles = []
             pcanvas.draw()
         }
     })
