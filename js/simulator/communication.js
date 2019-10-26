@@ -26,7 +26,7 @@ function requestRandomization() {
             }
             canv.draw()
         })
-        lastObstacles = data.obstacles;
+        lastObstacles = data.obstacles;  // Store obstacles for later toggling..
     })
 }
 
@@ -118,7 +118,6 @@ function requestSimulation() {
             clearInterval(timer)
             canvas.osv = new OSV(r.osv.x, r.osv.y, r.osv.theta, r.osv.width, r.osv.height)
             if (obstaclesChecked) {
-                //lastObstacles = r.obstacles.map(obstacle => new Obstacle(obstacle.x, obstacle.y))
                 canvas.obstacles = lastObstacles.map(obstacle => new Obstacle(obstacle.x, obstacle.y))
 
             } else {  // Obstacles button not checked.
@@ -136,7 +135,6 @@ $(document).ready(() => {
 
     $('#randomize').on('click', requestRandomization)
 
-    //$('#simulate').on('click', requestSimulation)
     $('#simulate').on('click', () => {
         if (inProgress === false) {
             inProgress = true
