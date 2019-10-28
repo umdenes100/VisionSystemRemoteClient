@@ -26,8 +26,12 @@ function requestRandomization() {
             }
             canv.draw()
         })
-        lastObstacles = data.obstacles;  // Store obstacles for later toggling..
-	if(obstaclesChecked == false){data.obstacles = [];}
+        lastObstacles = data.obstacles;  // Store obstacles for later toggling.
+	
+        // Handle case where calling randomization with obstacles button toggled off.
+        if (obstaclesChecked == false) {
+		data.obstacles = [];
+	}
     })
 }
 
