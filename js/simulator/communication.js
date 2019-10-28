@@ -121,7 +121,7 @@ function requestSimulation() {
                 canvas.obstacles = lastObstacles.map(obstacle => new Obstacle(obstacle.x, obstacle.y))
 
             } else {  // Obstacles button not checked.
-                canvas.obstacles = []
+                canvas.obstacles = [].map(obstacle => new Obstacle(obstacle.x, obstacle.y))
             }
             canvas.destination = new Destination(r.destination.x, r.destination.y)
             canvas.draw()
@@ -148,10 +148,12 @@ $(document).ready(() => {
         if ($('#obstacles').is(":checked")) {
             obstaclesChecked = true
             pcanvas.obstacles = lastObstacles.map(obstacle => new Obstacle(obstacle.x, obstacle.y))
+            randomization.obstacles = lastObstacles.map(obstacle => new Obstacle(obstacle.x, obstacle.y))  // If you remove these lines, you get invisible obstacles.
             pcanvas.draw()
         } else {
             obstaclesChecked = false
-            pcanvas.obstacles = []
+            pcanvas.obstacles = [].map(obstacle => new Obstacle(obstacle.x, obstacle.y))
+            randomization.obstacles = []  // If you remove these lines, you get invisible obstacles.
             pcanvas.draw()
         }
     })
