@@ -1,11 +1,11 @@
-let randomization = undefined
+let randomization = undefined  // Used to store the current randomization's data
 let connection = undefined
 let frames = undefined
 let commands = undefined
 let mapping = undefined
 let timer = undefined
 let obstaclesChecked = true
-let lastObstacles = undefined
+let lastObstacles = undefined  // Used to store obstacle data in case of toggligng.
 let inProgress = false
 
 const SERVER_URL = 'http://18.191.246.34:8888'
@@ -47,8 +47,6 @@ function requestSimulation() {
             return element !== undefined
         })
     }
-
-    console.log(JSON.stringify(request))
 
     $.get(SERVER_URL, { 'json': JSON.stringify(request) }, data => {
         inProgress = false
@@ -150,12 +148,13 @@ $(document).ready(() => {
         if ($('#obstacles').is(":checked")) {
             obstaclesChecked = true
             pcanvas.obstacles = lastObstacles.map(obstacle => new Obstacle(obstacle.x, obstacle.y))
-            randomization.obstacles = lastObstacles.map(obstacle => new Obstacle(obstacle.x, obstacle.y))  // If you remove these lines, you get invisible obstacles.
+            // randomization.obstacles = lastObstacles.map(obstacle => new Obstacle(obstacle.x, obstacle.y))  // If you remove these lines, you get invisible obstacles.
+            randomization.obstacles = lastObstacles
             pcanvas.draw()
         } else {
             obstaclesChecked = false
             pcanvas.obstacles = [].map(obstacle => new Obstacle(obstacle.x, obstacle.y))
-            randomization.obstacles = []  // If you remove these lines, you get invisible obstacles.
+            randomization.obstacles = []
             pcanvas.draw()
         }
     })
