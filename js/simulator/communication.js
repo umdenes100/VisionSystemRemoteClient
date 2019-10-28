@@ -148,12 +148,12 @@ $(document).ready(() => {
         if ($('#obstacles').is(":checked")) {
             obstaclesChecked = true
             pcanvas.obstacles = lastObstacles.map(obstacle => new Obstacle(obstacle.x, obstacle.y))
-            randomization.obstacles = lastObstacles.map(obstacle => new Obstacle(obstacle.x, obstacle.y))
+            randomization.obstacles = lastObstacles.map(obstacle => new Obstacle(obstacle.x, obstacle.y))  // If you remove these lines, you get invisible obstacles.
             pcanvas.draw()
         } else {
             obstaclesChecked = false
             pcanvas.obstacles = [].map(obstacle => new Obstacle(obstacle.x, obstacle.y))
-            randomization.obstacles = []
+            randomization.obstacles = []  // If you remove these lines, you get invisible obstacles.
             pcanvas.draw()
         }
     })
