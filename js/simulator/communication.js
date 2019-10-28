@@ -28,7 +28,7 @@ function requestRandomization() {
         })
         lastObstacles = data.obstacles;  // Store obstacles for later toggling.
 	
-	// Handle case where calling randomization with obstacles button toggled off.
+        // Handle case where calling randomization with obstacles button toggled off.
         if (obstaclesChecked == false) {
 		data.obstacles = [];
 	}
