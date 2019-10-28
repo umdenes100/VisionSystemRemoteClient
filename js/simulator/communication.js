@@ -121,7 +121,7 @@ function requestSimulation() {
                 canvas.obstacles = lastObstacles.map(obstacle => new Obstacle(obstacle.x, obstacle.y))
 
             } else {  // Obstacles button not checked.
-                canvas.obstacles = []
+                canvas.obstacles = [].map(obstacle => new Obstacle(obstacle.x, obstacle.y))
             }
             canvas.destination = new Destination(r.destination.x, r.destination.y)
             canvas.draw()
@@ -151,7 +151,7 @@ $(document).ready(() => {
             pcanvas.draw()
         } else {
             obstaclesChecked = false
-            pcanvas.obstacles = []
+            pcanvas.obstacles = [].map(obstacle => new Obstacle(obstacle.x, obstacle.y))
             pcanvas.draw()
         }
     })
