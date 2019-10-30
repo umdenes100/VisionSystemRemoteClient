@@ -53,6 +53,8 @@ function requestSimulation() {
         })
     }
 
+    console.log(JSON.stringify(request));  // Used for debugging script hanging.
+
     $.get(SERVER_URL, { 'json': JSON.stringify(request) }, data => {
         inProgress = false
         document.getElementById('simulate').style.backgroundColor = ""  // Reset simulate button to default style.
