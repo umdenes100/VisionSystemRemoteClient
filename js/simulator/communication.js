@@ -133,6 +133,13 @@ function requestSimulation() {
             canvas.destination = new Destination(r.destination.x, r.destination.y)
             canvas.draw()
         }
+    }).fail(function() {
+        inProgress = false
+        document.getElementById('simulate').style.backgroundColor = ""  // Reset simulate button to default style.
+        $('#terminal-output').text('HTTP Error')
+        $('#output').text(' ')
+        $('#code').text(' ')
+        lineIndexes = []   
     })
 
 }
