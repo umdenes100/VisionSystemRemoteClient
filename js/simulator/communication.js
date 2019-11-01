@@ -1,11 +1,11 @@
-let randomization = undefined
+let randomization = undefined  // Used to store the current randomization's data
 let connection = undefined
 let frames = undefined
 let commands = undefined
 let mapping = undefined
 let timer = undefined
 let obstaclesChecked = true
-let lastObstacles = undefined
+let lastObstacles = undefined  // Used to store obstacle data in case of toggligng.
 let inProgress = false
 
 const SERVER_URL = 'http://18.191.246.34:8888'
@@ -21,13 +21,17 @@ function requestRandomization() {
             canv.osv = new OSV(data.osv.x, data.osv.y, data.osv.theta, mcanvas.osv.actualWidth / 1000, mcanvas.osv.actualHeight / 1000)
             canv.obstacles = data.obstacles.map(obstacle => new Obstacle(obstacle.x, obstacle.y))
             canv.destination = new Destination(data.destination.x, data.destination.y)
-            if(obstaclesChecked == false){
+            if (obstaclesChecked == false){
                 canv.obstacles = [];
-                console.log("Got Here")
             }
             canv.draw()
         })
-        lastObstacles = data.obstacles
+        lastObstacles = data.obstacles;  // Store obstacles for later toggling.
+
+        // Handle case where calling randomization with obstacles button toggled off.
+        if (obstaclesChecked == false) {
+            data.obstacles = [];
+	}
     })
 }
 
@@ -41,7 +45,7 @@ function requestSimulation() {
         code: editor.getDoc().getValue(),
         randomization: r,
         distance_sensors: mcanvas.sensors.map((sensor, index) => {
-            if(sensor.selected) {
+            if (sensor.selected) {
                 return index
             }
         }).filter(element => {
@@ -49,17 +53,20 @@ function requestSimulation() {
         })
     }
 
+    console.log(JSON.stringify(request));  // Used for debugging script hanging.
+
     $.get(SERVER_URL, { 'json': JSON.stringify(request) }, data => {
         inProgress = false
-        document.getElementById('simulate').style.backgroundColor = 'red'
+        document.getElementById('simulate').style.backgroundColor = ""  // Reset simulate button to default style.
         $('#terminal-output').text()
         $('#output').text(' ')
         $('#code').text(' ')
         lineIndexes = []
 
-        if(data['error'] !== undefined) {   
-            $('#terminal-output').text(data['error'])
-        } else {   
+
+        if (data['error'] !== undefined) {
+            $('#terminal-output').text(data['error'])  // Display error message on terminal.
+        } else {
             var today = new Date();
             var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
             var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
@@ -68,7 +75,7 @@ function requestSimulation() {
             code = editor.getDoc().getValue()
             $('#code').text(code)
 
-            // we want to get the indexes of each line in the code
+            // We want to get the indexes of each line in the code.
             lineIndexes.push(0)
             var tackOn = 0
             var map = {
@@ -77,15 +84,15 @@ function requestSimulation() {
                 '>': '&gt;'.length - 1,
             };
 
-            for(var i = 0; i < code.length; i++) {
-                if(map[code[i]] !== undefined) {
+            for (var i = 0; i < code.length; i++) {
+                if (map[code[i]] !== undefined) {
                     tackOn += map[code[i]]
                 } else if(code[i] == '\n') {
                     lineIndexes.push(i + tackOn + 1)
                 }
             }
 
-            if(lineIndexes[lineIndexes.length - 1] != code.length) {
+            if (lineIndexes[lineIndexes.length - 1] != code.length) {
                 lineIndexes.push(code.length)
             }
 
@@ -95,17 +102,17 @@ function requestSimulation() {
             }
 
             $('#terminal-output').text('Simulation successful: ' + dateTime + '.')
-            // we want frames, commands, and a mapping from frames to last executed commands
+            // We want frames, commands, and a mapping from frames to last executed commands
             frames = []
             commands = []
             mapping = []
             currentCommands = []
             currentFrame = 0
             state = 'PAUSE'
-            
+
             for(var i = 0; i < data.length; i++) {
                 element = data[i]
-                if(element.osv === undefined) {
+                if (element.osv === undefined) {
                     // this is a command
                     commands.push(element)
                 } else {
@@ -117,42 +124,41 @@ function requestSimulation() {
 
             clearInterval(timer)
             canvas.osv = new OSV(r.osv.x, r.osv.y, r.osv.theta, r.osv.width, r.osv.height)
-            canvas.obstacles = r.obstacles.map(obstacle => new Obstacle(obstacle.x, obstacle.y))
+            if (obstaclesChecked) {
+                canvas.obstacles = lastObstacles.map(obstacle => new Obstacle(obstacle.x, obstacle.y))
+
+            } else {  // Obstacles button not checked.
+                canvas.obstacles = [].map(obstacle => new Obstacle(obstacle.x, obstacle.y))
+            }
             canvas.destination = new Destination(r.destination.x, r.destination.y)
             canvas.draw()
-        } 
+        }
     })
-    
+
 }
 
 $(document).ready(() => {
     requestRandomization()
 
-    $('#randomize').on('click', () => {
-        if($('#obstacles').is(":checked")) {
-           obstaclesChecked = true
-           requestRandomization()
-        } else {
-            obstaclesChecked = false
-            requestRandomization()
-        }
-    })
-    //$('#simulate').on('click', requestSimulation)
+    $('#randomize').on('click', requestRandomization)
+
     $('#simulate').on('click', () => {
-        if(inProgress === false) {
+        if (inProgress === false) {
             inProgress = true
             $('#terminal-output').text('Loading simulation...')
-            //document.getElementById('simulate').style.backgroundColor = 'grey'
-            requestSimulation;
+            document.getElementById('simulate').style.backgroundColor = 'grey'  // Grey out button when simulation is loading.
+            requestSimulation()
         }
     })
 
     $('#obstacles').on('click', () => {
-        if($('#obstacles').is(":checked")) {
+        if ($('#obstacles').is(":checked")) {
+            obstaclesChecked = true
             pcanvas.obstacles = lastObstacles.map(obstacle => new Obstacle(obstacle.x, obstacle.y))
-            randomization.obstacles = lastObstacles.map(obstacle => new Obstacle(obstacle.x, obstacle.y))
+            randomization.obstacles = lastObstacles
             pcanvas.draw()
         } else {
+            obstaclesChecked = false
             pcanvas.obstacles = []
             randomization.obstacles = []
             pcanvas.draw()
