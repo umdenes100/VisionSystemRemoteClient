@@ -28,13 +28,26 @@ $(document).ready(() => {
             'void setup() {\n' +
             '\tEnes100.begin("Team Name Here", BLACK_BOX, 3, 8, 9);\n' +
             '\tTank.begin();\n' +
-            '\tTank.setLeftMotorPWM(255);\n' +
-            '\tTank.setRightMotorPWM(255);\n' +
+	    '\tsetBothMotors(255);\n' +
             '}\n' +
             '\n' +
             'void loop() {\n' +
+            '\tprintPi();\n' +
+            '\twhile(1);  // Circumvent the loop and ensure the above statements only get run once.\n' +
+            '}\n' +
             '\n' +
-            '}\n'
+            '/* This is an example function to make both motors drive\n' +
+            ' * at the given power.\n' +
+            ' */\n' +
+ 	    'void setBothMotors(int speed) {\n' +
+	    '\tTank.setLeftMotorPWM(speed);\n' +
+            '\tTank.setRightMotorPWM(speed);\n' +
+	    '}\n' +
+            '\n' +
+	    'void printPi() {\n' +
+	    '\tEnes100.println(M_PI);  // M_PI is from the math.h library above.\n' +
+	    '}\n' +
+	    '\n'
     }
 
     // mresize()
