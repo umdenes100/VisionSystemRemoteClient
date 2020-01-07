@@ -12,27 +12,30 @@ const SERVER_URL = 'http://18.191.246.34:8888'
 
 function requestRandomization() {
     let request = { type: 'randomization' }
-
-    $.get(SERVER_URL, request, data => {
-        let canvasses = [pcanvas]
-
-        randomization = data
-        canvasses.map(canv => {
-            canv.osv = new OSV(data.osv.x, data.osv.y, data.osv.theta, mcanvas.osv.actualWidth / 1000, mcanvas.osv.actualHeight / 1000)
-            canv.obstacles = data.obstacles.map(obstacle => new Obstacle(obstacle.x, obstacle.y))
-            canv.destination = new Destination(data.destination.x, data.destination.y)
-            if (obstaclesChecked == false){
-                canv.obstacles = [];
+    axios.get(SERVER_URL, request)
+        .then(function(data){
+            data = data.data
+            let canvasses = [pcanvas]
+            randomization = data
+            canvasses.map(canv => {
+                canv.osv = new OSV(data.osv.x, data.osv.y, data.osv.theta, mcanvas.osv.actualWidth / 1000, mcanvas.osv.actualHeight / 1000)
+                canv.obstacles = data.obstacles.map(obstacle => new Obstacle(obstacle.x, obstacle.y))
+                canv.destination = new Destination(data.destination.x, data.destination.y)
+                if (obstaclesChecked == false){
+                    canv.obstacles = [];
+                }
+                canv.draw()
+            })
+            lastObstacles = data.obstacles;  // Store obstacles for later toggling.
+            // Handle case where calling randomization with obstacles button toggled off.
+            if (obstaclesChecked == false) {
+                data.obstacles = [];
             }
-            canv.draw()
         })
-        lastObstacles = data.obstacles;  // Store obstacles for later toggling.
-
-        // Handle case where calling randomization with obstacles button toggled off.
-        if (obstaclesChecked == false) {
-            data.obstacles = [];
-	}
-    })
+        .catch(function (error) {
+            $('#terminal-output').text(error)
+            console.log(error)
+        })
 }
 
 function requestSimulation() {
@@ -53,95 +56,95 @@ function requestSimulation() {
         })
     }
 
-    console.log(JSON.stringify(request));  // Used for debugging script hanging.
+    axios.post(SERVER_URL, request)
+            .then(function (data) {
+                data = data.data
+                inProgress = false
+                document.getElementById('simulate').style.backgroundColor = ""  // Reset simulate button to default style.
+                $('#terminal-output').text()
+                $('#output').text(' ')
+                $('#code').text(' ')
+                lineIndexes = []
 
-    $.get(SERVER_URL, { 'json': JSON.stringify(request) }, data => {
-        inProgress = false
-        document.getElementById('simulate').style.backgroundColor = ""  // Reset simulate button to default style.
-        $('#terminal-output').text()
-        $('#output').text(' ')
-        $('#code').text(' ')
-        lineIndexes = []
+                if (data['error'] !== undefined) {
+                    $('#terminal-output').text(data['error'])  // Display error message on terminal.
+                } 
+                else {
+                    var today = new Date();
+                    var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+                    var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+                    var dateTime = date + ' ' + time;
 
+                    code = editor.getDoc().getValue()
+                    $('#code').text(code)
 
-        if (data['error'] !== undefined) {
-            $('#terminal-output').text(data['error'])  // Display error message on terminal.
-        } else {
-            var today = new Date();
-            var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
-            var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-            var dateTime = date + ' ' + time;
+                    // We want to get the indexes of each line in the code.
+                    lineIndexes.push(0)
+                    var tackOn = 0
+                    var map = {
+                        '&': '&amp;'.length - 1,
+                        '<': '&lt;'.length - 1,
+                        '>': '&gt;'.length - 1,
+                    };
 
-            code = editor.getDoc().getValue()
-            $('#code').text(code)
+                    for (var i = 0; i < code.length; i++) {
+                        if (map[code[i]] !== undefined) {
+                            tackOn += map[code[i]]
+                        } else if(code[i] == '\n') {
+                            lineIndexes.push(i + tackOn + 1)
+                        }
+                    }
 
-            // We want to get the indexes of each line in the code.
-            lineIndexes.push(0)
-            var tackOn = 0
-            var map = {
-                '&': '&amp;'.length - 1,
-                '<': '&lt;'.length - 1,
-                '>': '&gt;'.length - 1,
-            };
+                    if (lineIndexes[lineIndexes.length - 1] != code.length) {
+                        lineIndexes.push(code.length)
+                    }
 
-            for (var i = 0; i < code.length; i++) {
-                if (map[code[i]] !== undefined) {
-                    tackOn += map[code[i]]
-                } else if(code[i] == '\n') {
-                    lineIndexes.push(i + tackOn + 1)
+                    lineIndexesAppended = []
+                    for(var i = 0; i < lineIndexes.length; i++) {
+                        lineIndexesAppended.push(lineIndexes[i])
+                    }
+
+                    $('#terminal-output').text('Simulation successful: ' + dateTime + '.')
+                    // We want frames, commands, and a mapping from frames to last executed commands
+                    frames = []
+                    commands = []
+                    mapping = []
+                    currentCommands = []
+                    currentFrame = 0
+                    state = 'PAUSE'
+
+                    for(var i = 0; i < data.length; i++) {
+                        element = data[i]
+                        if (element.osv === undefined) {
+                            // this is a command
+                            commands.push(element)
+                        } else {
+                            // this is a frame
+                            frames.push(element)
+                            mapping.push(commands.length - 1)
+                        }
+                    }
+
+                    clearInterval(timer)
+                    canvas.osv = new OSV(r.osv.x, r.osv.y, r.osv.theta, r.osv.width, r.osv.height)
+                    if (obstaclesChecked) {
+                        canvas.obstacles = lastObstacles.map(obstacle => new Obstacle(obstacle.x, obstacle.y))
+
+                    } else {  // Obstacles button not checked.
+                        canvas.obstacles = [].map(obstacle => new Obstacle(obstacle.x, obstacle.y))
+                    }
+                    canvas.destination = new Destination(r.destination.x, r.destination.y)
+                    canvas.draw()
                 }
-            }
-
-            if (lineIndexes[lineIndexes.length - 1] != code.length) {
-                lineIndexes.push(code.length)
-            }
-
-            lineIndexesAppended = []
-            for(var i = 0; i < lineIndexes.length; i++) {
-                lineIndexesAppended.push(lineIndexes[i])
-            }
-
-            $('#terminal-output').text('Simulation successful: ' + dateTime + '.')
-            // We want frames, commands, and a mapping from frames to last executed commands
-            frames = []
-            commands = []
-            mapping = []
-            currentCommands = []
-            currentFrame = 0
-            state = 'PAUSE'
-
-            for(var i = 0; i < data.length; i++) {
-                element = data[i]
-                if (element.osv === undefined) {
-                    // this is a command
-                    commands.push(element)
-                } else {
-                    // this is a frame
-                    frames.push(element)
-                    mapping.push(commands.length - 1)
-                }
-            }
-
-            clearInterval(timer)
-            canvas.osv = new OSV(r.osv.x, r.osv.y, r.osv.theta, r.osv.width, r.osv.height)
-            if (obstaclesChecked) {
-                canvas.obstacles = lastObstacles.map(obstacle => new Obstacle(obstacle.x, obstacle.y))
-
-            } else {  // Obstacles button not checked.
-                canvas.obstacles = [].map(obstacle => new Obstacle(obstacle.x, obstacle.y))
-            }
-            canvas.destination = new Destination(r.destination.x, r.destination.y)
-            canvas.draw()
-        }
-    }).fail(function() {
-        inProgress = false
-        document.getElementById('simulate').style.backgroundColor = ""  // Reset simulate button to default style.
-        $('#terminal-output').text('HTTP Error')
-        $('#output').text(' ')
-        $('#code').text(' ')
-        lineIndexes = []   
-    })
-
+            })
+            .catch(function (error) {
+                $('#terminal-output').text(error)
+                inProgress = false
+                document.getElementById('simulate').style.backgroundColor = ""  // Reset simulate button to default style.
+                $('#output').text(' ')
+                $('#code').text(' ')
+                lineIndexes = []
+            })
 }
 
 $(document).ready(() => {
