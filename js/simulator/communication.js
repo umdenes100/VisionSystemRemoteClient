@@ -8,7 +8,7 @@ let obstaclesChecked = true
 let lastObstacles = undefined  // Used to store obstacle data in case of toggligng.
 let inProgress = false
 
-const SERVER_URL = 'http://18.191.246.34:8888'
+const SERVER_URL = 'http://52.203.197.36:8888'
 
 function requestRandomization() {
     let request = { type: 'randomization' }
