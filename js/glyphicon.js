@@ -1,5 +1,5 @@
 const MISSION_TO_ICON = {
-    'BLACK_BOX': 'ml-3 fa-cube',
+    'CRASH_SITE': 'ml-3 fa-ruler-combined',
     'DATA': 'ml-1 fa-laptop-code',
     'DEBRIS': 'ml-2 fa-truck',
     'FIRE': 'ml-3 fa-fire',
@@ -8,7 +8,7 @@ const MISSION_TO_ICON = {
 }
 
 const MISSION_TO_ICON_COLOR = {
-    'BLACK_BOX': 'black',
+    'CRASH_SITE': 'black',
     'DATA': 'green',
     'DEBRIS': '#F0B823',
     'FIRE': '#F40D1A',
