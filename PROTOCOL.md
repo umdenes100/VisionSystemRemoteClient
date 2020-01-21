@@ -84,8 +84,8 @@ The first thing that happens when you declare a new WebSocket is that you receiv
 			"MISSION": "DEBRIS"
 		},
 		"ttyUSB3": {
-			"NAME": "It's Boxy",
-			"MISSION": "BLACK_BOX"
+			"NAME": "It's crashy",
+			"MISSION": "CRASH_SITE"
 		},
 		"ttyUSB4": {
 			"NAME": "It Doesn't Have a Char in the World",
@@ -93,15 +93,15 @@ The first thing that happens when you declare a new WebSocket is that you receiv
 		},
 		"ttyUSB5": {
 			"NAME": "ttyUSB5",
-			"MISSION": "BLACK_BOX"
+			"MISSION": "CRASH_SITE"
 		},
 		"ttyUSB6": {
 			"NAME": "ttyUSB6",
-			"MISSION": "BLACK_BOX"
+			"MISSION": "CRASH_SITE"
 		},
 		"ttyUSB7": {
 			"NAME": "ttyUSB7",
-			"MISSION": "BLACK_BOX"
+			"MISSION": "CRASH_SITE"
 		},
 	}
 }
@@ -111,10 +111,10 @@ There are several things to note when viewing the example above (aside from the 
 
 The USB port name is important. This is the unique identifier we'll use when communicating to the back end about a given port (and associated team). The reason we do this is because the combination of `NAME` and `MISSION` doesn't uniquely identify a team, but only one team can be assigned a given USB port.
 
-The second thing to note is that if a team hasn't actually connected to an RF Communicator, then the `NAME` attribute will read the USB port. This is useful because it means that you don't actually have to show that team in a select menu. Additionally, the reason the default mission seems to be `BLACK_BOX` is so that `BLACK_BOX` teams can't exploit `retrieveDestination()` by connecting as another team and then switching or some similar such shenanigan. By sending the `MISSION` to the front end, it allows the front end developer to build in some kind of visual cue as to what the team has connected as.
+The second thing to note is that if a team hasn't actually connected to an RF Communicator, then the `NAME` attribute will read the USB port. This is useful because it means that you don't actually have to show that team in a select menu. By sending the `MISSION` to the front end, it allows the front end developer to build in some kind of visual cue as to what the team has connected as.
 
 As for `MISSION`, the `MISSION` types are the same as the ones in the ENES100 Arduino Library - 
-1. `BLACK_BOX`
+1. `CRASH_SITE`
 2. `DATA`
 3. `DEBRIS`
 4. `FIRE`
