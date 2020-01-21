@@ -1,22 +1,6 @@
 let editor = undefined
 
 $(document).ready(() => {
-
-    // console.log(Cookies.get())
-
-    // let length = Cookies.get('length')
-    // if (length === undefined) {
-    //     length = 200
-    // }
-    // $('#length').val(parseInt(length))
-    //
-    // let breadth = Cookies.get('breadth')
-    // if (breadth === undefined) {
-    //     breadth = 200
-    // }
-    // $('#breadth').val(parseInt(breadth))
-    //
-    // let starting_code = Cookies.get('code')
     if(localStorage.code) {  // Saved code exists.
         starting_code = localStorage.code;  // Reload the saved code.
     } else {  // No code exists, so open the default.
@@ -50,8 +34,6 @@ $(document).ready(() => {
 	    '\n'
     }
 
-    // mresize()
-
     editor = CodeMirror(document.getElementById('editor'), {
         value: starting_code,
 
@@ -65,7 +47,12 @@ $(document).ready(() => {
         matchBrackets: true,
 
         mode: 'text/x-c++src',
+        //theme: 'ambiance',
     })
+    if(localStorage.dark == "true") { // User had previously set theme to dark.
+        document.getElementById("dark-theme").checked = true
+        changeTheme()
+    }
 
     $('#save').on('click', () => {
         download(editor.getDoc().getValue(), 'enes100.ino')
@@ -78,26 +65,33 @@ window.onbeforeunload = function (event) {
     localStorage.code = editor.getDoc().getValue();  // Store the current code.
     //localStorage.length =  $('#length').val();
     //localStorage.breadth = $('#breadth').val();
-
-//     // Cookies.remove('length')
-//     // Cookies.remove('breadth')
-//     // Cookies.remove('code')
-//
-//     console.log('here')
-//     console.log(Cookies.get())
-//     console.log($('#length').val())
-//     event.preventDefault()
-//     Cookies.set('length', $('#length').val(), { expires: 30, path: '/simulatorweb' })
-//     Cookies.set('breadth', $('#breadth').val(), { expires: 30, path: '/simulatorweb' })
-//     Cookies.set('code', editor.getDoc().getValue(), { expires: 30, path: '/simulatorweb' })
-//     console.log(Cookies.get())
-//     // while (true) {
-//     //
-//     // }
-//     event.preventDefault()
 }
 
 hotkeys('ctrl+s,cmd+s', function(event, handler) {
     event.preventDefault()  // Prompt users before closing the page.
     download(editor.getDoc().getValue(), 'enes100.ino')  // Save code to an arduino file.
 })
+
+function changeTheme() {
+    var dark = document.getElementById("dark-theme");
+    if (dark.checked == true) {
+        localStorage.dark = "true";
+        editor.setOption("theme", "ambiance")
+        document.documentElement.style.setProperty("--background","#202020")
+        document.documentElement.style.setProperty("--border","#000000")
+        document.documentElement.style.setProperty("--border-top","#000000")
+        document.documentElement.style.setProperty("--color","#f5f5f5")
+        document.documentElement.style.setProperty("--focus","#999900")
+        document.documentElement.style.setProperty("--scrollbar","#505050")
+        
+    } else {
+        localStorage.dark = "false";
+        editor.setOption("theme","default")
+        document.documentElement.style.setProperty("--background","#f5f5f5")
+        document.documentElement.style.setProperty("--border","#c0c0c0")
+        document.documentElement.style.setProperty("--border-top","#ffffff")
+        document.documentElement.style.setProperty("--color","#000000")
+        document.documentElement.style.setProperty("--focus","#ffff00")
+        document.documentElement.style.setProperty("--scrollbar","#a0a0a0")
+    }
+}

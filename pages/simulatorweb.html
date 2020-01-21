@@ -29,6 +29,7 @@ custom_js_url:
 ---
 
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" href="../css/ambiance.css">
 <div class="container-fluid h-100 p-0">
     <div class="row h-100 p-0 m-0">
         <div class="col-md-8 h-100 p-0 m-0">
@@ -46,6 +47,9 @@ custom_js_url:
             <button id="randomize" class="mt-2 mb-2">Randomize</button>
             <button id="simulate" class="mt-2 mb-2">Simulate</button>
             <button id="save" class="mt-2 mb-2">Save</button>
+            <label for="dark-theme" class="mt-2 mb-2">
+                <input id="dark-theme" type="checkbox" onclick="changeTheme()">&nbsp;&nbsp;Dark Theme
+            </label>
             <label for="obstacles" class="mt-2 mb-2">
                 <input id="obstacles" type="checkbox" checked>&nbsp;&nbsp;Obstacles
             </label>
