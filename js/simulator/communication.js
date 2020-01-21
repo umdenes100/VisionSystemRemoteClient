@@ -8,8 +8,8 @@ let obstaclesChecked = true
 let lastObstacles = undefined  // Used to store obstacle data in case of toggligng.
 let inProgress = false
 
-//const SERVER_URL = 'http://enes100.prod.io.umd.edu:8888' // Production
- const SERVER_URL = 'http://enes100.dev.io.umd.edu:8888' // Development
+const SERVER_URL = 'http://enes100.prod.io.umd.edu:8888' // Production
+// const SERVER_URL = 'http://enes100.dev.io.umd.edu:8888' // Development
 
 function requestRandomization() {
     let request = { type: 'randomization' }
