@@ -17,20 +17,40 @@ $(document).ready(() => {
         $logo.text('LTF > UTF')
     }
 
-
     // Keep track of the date to implement holiday flairs.
     var today = new Date();
+    month = today.getMonth();
+    date = today.getDate();
 
     // Add halloween-spirited emojis to the banner text.
     october = 09;  // 0-based indexing
-    weekBeforeHalloween = 31 - 7;
     halloween = 31;
-    month = today.getMonth();
-    date = today.getDate();
+    weekBeforeHalloween = halloween - 7;
 
     if (month === october && date >= weekBeforeHalloween && date <= halloween) {
         $logo.text(function(i, origText) {
             return origText + ' 🎃'  // Append the pumpkin emoji to the banner text.
         })
     }
+
+    february = 01;  // 0-based indexing
+    valentines = 14;
+    weekBeforeValentines = valentines - 7;
+
+    if (month === february && date >= weekBeforeValentines && date <= valentines) {
+        $logo.text(function(i, origText) {
+            return origText + ' ❤️'  // Append the heart emoji to the banner text.
+        })
+    }
+
+    march = 02;  // 0-based indexing
+    stPatricks = 17;
+    weekBeforeStPatricks = stPatricks - 7;
+
+    if (month === march && date >= weekBeforeStPatricks && date <= stPatricks) {
+        $logo.text(function(i, origText) {
+            return origText + ' 🍀'  // Append the clover emoji to the banner text.
+        })
+    }
+
 })
