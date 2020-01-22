@@ -36,7 +36,7 @@
 	}
 
 	.nav-link:hover {
-		/* color: #e11e39; */
+		color: white;
 
 		background-color: #c22235;
 		border-radius: 10px;
