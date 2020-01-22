@@ -65,7 +65,6 @@ $(document).ready(() => {
 
     $('#example-code').on('click', () => {
         if(confirm("This will overwrite whatever code you currently have! Make sure you have everything you need saved before proceeding.")) {
-            console.log("true")
             editor.setValue(example_code)
         } else {}
     })
