@@ -1,5 +1,5 @@
 let editor = undefined
-let example_code = '' +
+const example_code = '' +
     '#include "Enes100.h"\n' +
     '#include "Tank.h"\n' +
     '#include <math.h>\n' +
@@ -45,7 +45,7 @@ $(document).ready(() => {
 
         indentUnit: 4,
         indentWithTabs: true,
-        firstLineNumber: 3,
+        firstLineNumber: 1,
 
         lineNumbers: true,
         lineWrapping: true,
@@ -53,7 +53,6 @@ $(document).ready(() => {
         matchBrackets: true,
 
         mode: 'text/x-c++src',
-        //theme: 'ambiance',
     })
     if(localStorage.dark == "true") { // User had previously set theme to dark.
         document.getElementById("dark-theme").checked = true
@@ -62,6 +61,13 @@ $(document).ready(() => {
 
     $('#save').on('click', () => {
         download(editor.getDoc().getValue(), 'enes100.ino')
+    })
+
+    $('#example-code').on('click', () => {
+        if(confirm("This will overwrite whatever code you currently have! Make sure you have everything you need saved before proceeding.")) {
+            console.log("true")
+            editor.setValue(example_code)
+        } else {}
     })
 })
 
