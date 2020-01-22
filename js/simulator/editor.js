@@ -1,37 +1,43 @@
 let editor = undefined
+let example_code = '' +
+    '#include "Enes100.h"\n' +
+    '#include "Tank.h"\n' +
+    '#include <math.h>\n' +
+    '\n' +
+    '/* The code inside void setup() runs only once, before the code in void loop(). */\n' +
+    'void setup() {\n' +
+        '\tEnes100.begin("Team Name Here", CRASH_SITE, 3, 8, 9); // Required before you can use any other Enes100 functions.\n' +
+        '\tTank.begin(); // Required before you can use any other Tank functions.\n' +
+        '\tsetBothMotors(255); // Set both motors to full power.\n' +
+    '}\n' +
+    '\n' +
+    '/* The code in void loop() runs repeatedly forever, unless blocked by a while(1). */ \n' +
+    'void loop() { \n' +
+        '\tprintPi();\n' +
+        '\tEnes100.updateLocation(); // Update ``Enes100.location``.\n' +
+        '\tEnes100.println(Enes100.location.y); // Print the OSV`s y coordinate at the time ``Enes100.updateLocation()`` was called.\n' +
+        '\twhile(1);  // Circumvent the loop and ensure the above statements only get run once.\n' +
+    '}\n' +
+    '\n' +
+    '/* This is an example function to make both motors drive\n' +
+    ' * at the given power.\n' +
+    ' */\n' +
+    'void setBothMotors(int speed) {\n' +
+        '\tTank.setLeftMotorPWM(speed);\n' +
+        '\tTank.setRightMotorPWM(speed);\n' +
+    '}\n' +
+    '\n' +
+    '/* Another example function that prints pi. */\n' +
+    'void printPi() {\n' +
+        '\tEnes100.println(M_PI);  // M_PI is from the math.h library above.\n' +
+    '}\n' +
+    '\n'
 
 $(document).ready(() => {
     if(localStorage.code) {  // Saved code exists.
         starting_code = localStorage.code;  // Reload the saved code.
     } else {  // No code exists, so open the default.
-        starting_code = '' +
-            '#include "Enes100.h"\n' +
-            '#include "Tank.h"\n' +
-            '#include <math.h>\n' +
-	    '\n' +
-            'void setup() {\n' +
-            '\tEnes100.begin("Team Name Here", CRASH_SITE, 3, 8, 9);\n' +
-            '\tTank.begin();\n' +
-	    '\tsetBothMotors(255);\n' +
-            '}\n' +
-            '\n' +
-            'void loop() {\n' +
-            '\tprintPi();\n' +
-            '\twhile(1);  // Circumvent the loop and ensure the above statements only get run once.\n' +
-            '}\n' +
-            '\n' +
-            '/* This is an example function to make both motors drive\n' +
-            ' * at the given power.\n' +
-            ' */\n' +
- 	    'void setBothMotors(int speed) {\n' +
-	    '\tTank.setLeftMotorPWM(speed);\n' +
-            '\tTank.setRightMotorPWM(speed);\n' +
-	    '}\n' +
-            '\n' +
-	    'void printPi() {\n' +
-	    '\tEnes100.println(M_PI);  // M_PI is from the math.h library above.\n' +
-	    '}\n' +
-	    '\n'
+        starting_code = example_code;
     }
 
     editor = CodeMirror(document.getElementById('editor'), {
