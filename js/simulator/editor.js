@@ -11,7 +11,7 @@ const example_code = '' +
         '\tsetBothMotors(255); // Set both motors to full power.\n' +
     '}\n' +
     '\n' +
-    '/* The code in void loop() runs repeatedly forever, unless blocked by a while(1). */ \n' +
+    '/* The code in void loop() runs repeatedly forever s*/ \n' +
     'void loop() { \n' +
         '\tprintPi();\n' +
         '\tEnes100.updateLocation(); // Update ``Enes100.location``.\n' +
