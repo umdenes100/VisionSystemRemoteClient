@@ -81,7 +81,7 @@ The first thing that happens when you declare a new WebSocket is that you receiv
 		},
 		"ttyUSB2": {
 			"NAME": "It's Hard",
-			"MISSION": "DEBRIS"
+			"MISSION": "MATERIAL"
 		},
 		"ttyUSB3": {
 			"NAME": "It's crashy",
@@ -116,7 +116,7 @@ The second thing to note is that if a team hasn't actually connected to an RF Co
 As for `MISSION`, the `MISSION` types are the same as the ones in the ENES100 Arduino Library - 
 1. `CRASH_SITE`
 2. `DATA`
-3. `DEBRIS`
+3. `MATERIAL`
 4. `FIRE`
 5. `WATER`
 
@@ -204,7 +204,7 @@ One useful feature of the client is displaying a timer that shows users how long
 
 ##### DEBUG
 
-This is where the money is. These are the messages users send to the client to debug - see coordinates and print funny things. The reason these are labelled `DEBUG` is because by clearly separating them from client generated messages (for things like `START`), you can give users the option to ignore debug messages on the client. This is especially useful for instructors during competition.
+This is where the money is. These are the messages users send to the client to debug - see coordinates and print funny things. The reason these are labelled `DEBUG` is because by clearly separating them from client generated messages (for things like `START`), you can give users the option to ignore debug messages on the client. This is especially useful for instructors during product demonstration.
 
 ```json
 {
