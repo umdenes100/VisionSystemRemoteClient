@@ -60,7 +60,13 @@ $(document).ready(() => {
     }
 
     $('#save').on('click', () => {
-        download(editor.getDoc().getValue(), 'enes100.ino')
+        if(localStorage.version){
+            localStorage.version = parseInt(localStorage.version) + 1
+        } else {
+            localStorage.version = 1
+        }
+        var fileName = 'simulator-code-v' + localStorage.version + '.ino'
+        download(editor.getDoc().getValue(), fileName)
     })
 
     $('#example-code').on('click', () => {
