@@ -86,7 +86,13 @@ window.onbeforeunload = function (event) {
 
 hotkeys('ctrl+s,cmd+s', function(event, handler) {
     event.preventDefault()  // Prompt users before closing the page.
-    download(editor.getDoc().getValue(), 'enes100.ino')  // Save code to an arduino file.
+    if(localStorage.version){
+        localStorage.version = parseInt(localStorage.version) + 1
+    } else {
+        localStorage.version = 1
+    }
+    var fileName = 'simulator-code-v' + localStorage.version + '.ino'
+    download(editor.getDoc().getValue(), fileName)
 })
 
 function changeTheme() {
