@@ -178,7 +178,7 @@ class Canvas {
         this.backgroundContext = this.backgroundCanvas.getContext('2d')
 
         this.arena = new Arena()
-        this.rockyTerrain = new RockyTerrain()
+        // this.rockyTerrain = new RockyTerrain()
         this.obstacles = undefined
         this.destination = undefined
         this.osv = undefined
@@ -226,8 +226,11 @@ class Canvas {
         })
     }
 
+    //foregroundElements() {
+    //    return [this.rockyTerrain, this.obstacles, this.destination, this.osv].flat()
+    //}
     foregroundElements() {
-        return [this.rockyTerrain, this.obstacles, this.destination, this.osv].flat()
+	return [this.obstacles, this.destination, this.osv].flat()
     }
 
     backgroundElements() {
