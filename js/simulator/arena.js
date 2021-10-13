@@ -17,7 +17,7 @@ arucoSim.src = 'img/aruco.png'
 
 class Arena {
     constructor() {
-        this.color = '#fae3bf'
+        this.color = '#424242'
     }
 
     resize(canvasWidth, canvasHeight) {
@@ -56,7 +56,7 @@ class Obstacle {
         this.actual_x = x
         this.actual_y = y
 
-        this.color = '#a38966'
+        this.color = '#dedede'
     }
 
     resize(canvasWidth, canvasHeight) {
