@@ -21,6 +21,8 @@ $(document).ready(() => {
     var today = new Date();
     month = today.getMonth();
     date = today.getDate();
+    dayOfWeek = today.getUTCDay();
+    dayOfMonth = today.getUTCDate() - 1;
 
     // Add halloween-spirited emojis to the banner text.
     october = 09;  // 0-based indexing
@@ -52,5 +54,16 @@ $(document).ready(() => {
             return origText + ' 🍀'  // Append the clover emoji to the banner text.
         })
     }
+
+    november = 10;  // 0-based indexing
+    dayTheMonthStartsWith = (7 - ((dayOfMonth - dayOfWeek) % 7))
+    thanksgiving = 28 - (dayTheMonthStartsWith + 2 % 7)
+    weekBeforeThanksgiving = thanksgiving - 7;
+
+    if (month === november && date >= weekBeforeThanksgiving && date <= thanksgiving) {
+        $logo.text(function(i, origText) {
+            return origText + ' 🦃'  // Append the turkey emoji to the banner text.
+        })
+    } 
 
 })
