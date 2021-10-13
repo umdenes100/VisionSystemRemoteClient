@@ -78,7 +78,7 @@ class Destination {
         this.actual_x = x
         this.actual_y = y
 
-        this.color = 'blue'
+        this.color = 'cyan'
     }
 
     resize(canvasWidth, canvasHeight) {
