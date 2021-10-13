@@ -13,7 +13,7 @@ $(document).ready(() => {
         })
     }
 
-    if (Math.random() >= 0.999) {
+    if (Math.random() >= 0.95) {
         $logo.text('LTF > UTF')
     }
 
