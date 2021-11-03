@@ -226,11 +226,11 @@ class MenuCanvas {
     }
 
     width() {
-        return $(this.canvas).first().parent().width()
+        return this.width()
     }
 
     height() {
-        return this.width()
+        return $(this.canvas).first().parent().width()
     }
 
     draw() {
