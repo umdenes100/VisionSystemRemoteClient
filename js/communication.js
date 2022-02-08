@@ -1,4 +1,4 @@
-const WEBSOCKET_ADDRESS = 'ws://192.168.1.117:9000/'
+const WEBSOCKET_ADDRESS = 'ws://192.168.1.2:9000/'
 let connection = undefined
 
 let selectedPort = ''
