@@ -14,7 +14,7 @@
 }
 
 #select-container {
-	background-color: #F0C0B6;
+	background-color: #E8E8E8;
 	border: none;
 }
 
@@ -39,7 +39,7 @@
 
 #timer {
 
-	font-size: 16px;
+	font-size: 72px;
 
 	border-top: 0.5px solid lightgrey;
 	border-bottom: 0.5px solid lightgrey;
