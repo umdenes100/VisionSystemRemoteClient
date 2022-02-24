@@ -14,11 +14,9 @@ permalink: /faq
             <h2>What pins can be used for wifi communication on different types of Arduinos?</h2>
             <br><br>
             <p>
-                For an Arduino Uno, Arduino Romeo, and many others, we recommend using pins 8 and 9 for TX and RX as a first choice. 
+                For an Arduino Uno, Arduino Romeo, and many others, the TX and RX pins can be connected to any pin (except 0 and 1). 
                 <br><br>
-                If you are using an Arduino Mega microcontroller, please note that only the following pins can be set for RX: 10, 11, 12, 13, 14, 15, 50, 51, 52, 53, A8 (62), A9 (63), A10 (64), A11 (65), A12 (66), A13 (67), A14 (68), A15 (69)
-                <br><br>
-                If you are using another type of Arduino, and pins 8 and 9 aren't working, check your arduino's datasheet to see which pins support PWM, since only pins that support PWM can be used for RX.
+                If you are using an Arduino Mega microcontroller, please note that only the following pins can be set for TX (connected to the TX pin on the wifi module): 10, 11, 12, 13, 50, 51, 52, 53, A8 (62), A9 (63), A10 (64), A11 (65), A12 (66), A13 (67), A14 (68), A15 (69)
             </p>
             <br><br>
 	        <h2>Why does my simulator code stop compiling when I add comments?</h2>
