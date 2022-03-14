@@ -24,6 +24,29 @@ permalink: /faq
             <p>
                 Currently, the simulator doesn't perfectly distinguish between comments and code. Certain words in the comments can cause the simulator code to not compile. As a general practice, try avoiding using the names of variables in comments. If you encounter this error, delete the comment, verify that the simulation completes without the comments and then try to re-phrase the comment in a way that compiles.
             </p>
+            <br><br>
+	        <h2>Why is my wifi module not working?</h2>
+            <br><br>
+            <p>
+                More likely than not you have just switched the TX and RX pins. Just switch the numbers around in your code.
+            </p>
+            <br><br>
+	        <h2>My OTV is supposed to stop at a certain angle but it keeps momving around</h2>
+            <br><br>
+            <p>
+                More likely than not you have just switched the TX and RX pins. Just switch the numbers around in your code.
+            </p>
+            <br><br>
+	        <h2>My servo is very jittery when I use the ENES 100 libary</h2>
+            <br><br>
+            <p>
+                When you want to turn the servo, do servo.attach(). When you reach your angle do servo.detach()
+            </p>
+            <h2>My servo is not turning</h2>
+            <br><br>
+            <p>
+                Make sure that the servo is grounded
+            </p>
 		</div>
 	</div>
 </div>
