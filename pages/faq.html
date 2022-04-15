@@ -6,115 +6,176 @@ permalink: /faq
 
 ---
 
-<div class="container-fluid">
-	<div class="row h-100">
-		<div class="col-md-6 offset-md-3 mt-5">
-            <h1>Frequently Asked Questions</h1>
-            <br><br>
-            <h2>What pins can be used for wifi communication on different types of Arduinos?</h2>
-            <br><br>
-            <p>
-                For an Arduino Uno, Arduino Romeo, and many others, TX and RX can be connected to any pin (except 0 and 1). 
-                <br><br>
-                If you are using an Arduino Mega microcontroller, please note that only the following pins can be set for TX (connected to the TX pin on the wifi module): 10, 11, 12, 13, 50, 51, 52, 53, A8 (62), A9 (63), A10 (64), A11 (65), A12 (66), A13 (67), A14 (68), A15 (69)
-            </p>
-            <br><br>
-	        <h2>Why does my simulator code stop compiling when I add comments?</h2>
-            <br><br>
-            <p>
-                Currently, the simulator doesn't perfectly distinguish between comments and code. Certain words in the comments can cause the simulator code to not compile. As a general practice, try avoiding using the names of variables in comments. If you encounter this error, delete the comment, verify that the simulation completes without the comments and then try to re-phrase the comment in a way that compiles.
-            </p>
-            <br><br> 
-            <h2>Why is my wifi module not working?</h2> 
-            <br><br> 
-            <p> More likely than not you have just switched the TX and RX pins. Just switch the numbers around in your code. In addition, make sure that the blue light on the wifi module is blinking.</p>
-             <br><br> 
-             <h2>My OTV is supposed to stop at a certain angle but it keeps moving around</h2> 
-             <br><br> 
-             <p> Try to use a conditonal that accepts a range of values within a certain angle. For example, you might want your OTV to stop at 90 degrees. 
-		     In your program, tell your OTV to stop when the angle is greater than 80 degrees but less than 100 degrees. </p> 
-             <br><br> 
-		<h2>How do I get my servo motor to stop jittering?</h2>
-		<p>Try detaching the servo using the “.detach” method: </p>
-		<blockquote>
-	     <br><br>
-	<h2>How do I check for shorts in my circuit?</h2>
-		<p>Grab a multimeter (usually in the tall metal cabinets in the lab), and turn the dial to “continuity”. 
-			The symbol for “continuity” is highlighted by the red arrow below.  </p>
-		<blockquote>	
-		<p>Place one probe on a power component of the circuit and one on a ground component of the circuit. 
-			Both probes must touch the metal part of the component. If the multimeter beeps, the power and ground must cross somewhere. </p>
-		<blockquote>
-		<p>Repeat the process on different power and ground wires until you locate the exact location of the short.</p>
-		<blockquote>	
-	<br><br>
+# ENES100 FAQ
+#### Q. How do I get my servo motor to stop jittering?
+
+A. Try detaching the servo using the “.detach” method. You should only have the servo “attached” when the OTV is actually executing the mission. Before and after that, unless the servo is needed, it should be “detached”. View example below:
+
+```
+#include <Servo.h>  
+  
+Servo myservo;  
+  
+void setup()  
+{  
+  myservo.attach(9);  
+  // here 9 is the corresponding pin for the servo  
+}  
+  
+void loop() {  
+  myservo.detach  //detach it while navigation to mission site  
+  myservo.attach  //attach the servo when executing the mission or anything which requires the servo  
+  myservo.detach  //detach it when done  
+}
+
+```
 
 
+#### Q. How do I check for shorts in my circuit?
 
-<!---
+A. Grab a multimeter, from one of the cabinets in the lab, and turn the dial to “continuity”. The symbol for “continuity” is highlighted by the red arrow below.
 
-Detach before going to mission. Then attach for mission. When done with mission- then detach before nav or whenever done with servo - also make sure to attach before  you need it
+<p align="center">
+  <img src="https://raw.githubusercontent.com/umdenes100/VisionSystemRemoteClient/master/img/multimeter.png" alt="Multimeter" width="250">
 
-
-
-Q. How do I check for shorts in my circuit?
-A. Grab a multimeter (usually in the tall metal cabinets in the lab), and turn the dial to “continuity”. The symbol for “continuity” is highlighted by the red arrow below. 
-
-
-Place one probe on a power component of the circuit and one on a ground component of the circuit. Both probes must touch the metal part of the component. If the multimeter beeps, the power and ground must cross somewhere. 
+  <p>Place one probe on a power component of the circuit and one on a ground component of the circuit. Both probes must touch the metal part of the component. If the multimeter beeps, the power and ground must be touching somewhere. 
 
 Repeat the process on different power and ground wires until you locate the exact location of the short.
 
-[image]
 
-Q. Why isn’t my wifi module working?
-A. There could be many reasons why. First check to see if there is a red light on the wifi module. If there is, that means it is getting power (not necessarily the correct amount). 
+#### Q. Why isn't my WiFi module working?
 
-If there isn’t a red light, check your circuit to see if any wires are disconnected or placed incorrectly. If that is corrected and there is still no red light, then use a multimeter to check to see if the wifi module is actually receiving the amount of power it should be. 
+A. There could be many reasons why. First check to see if there is a red light on the wifi module. If there is, that means it is getting power (not necessarily the correct amount). If the red light is very dim, check to make sure that you’re giving the WiFi module 5V power (not 3.3V). If it’s still dim, your Arduino may be supplying too much current to other devices on your OTV so they should be powered from your battery instead.
 
-Turn the multimeter to 20v (this is because the wifi module requires 5V and the voltage of the multimeter should be higher than that) and then put one probe on the ground source (the wire or port which the wifi module is connected to) for the wifi module and the other on the power source. Make sure the battery is connected, the kill switch is on, and the arduino is not connected to a computer or power source other than the battery. The reading on the multimeter should be ~5V. If it is not, the wifi module is not receiving the correct amount of power. This means an error in the circuit.
+*If there isn’t a red light*, check your circuit to see if any wires are disconnected or placed incorrectly. If that is corrected and there is still no red light, then use a multimeter to check to see if the wifi module is actually receiving the correct voltage of 5V.
+
+Turn the multimeter to 20V (this is because the wifi module requires 5V and the voltage of the multimeter should be higher than that) and then put one probe on the ground source (the wire or port which the wifi module is connected to) for the wifi module and the other on the power source. Make sure the battery is connected, the kill switch is on, and the Arduino is not connected to a computer or power source other than the battery. The reading on the multimeter should be ~5V. If it is not, the wifi module is not receiving the correct amount of power. This means an error in the circuit.
 
 
-If there isn’t a blue light, that means that the wifi module is not communicating with the vision system. If you are using an Arduino Mega, check to see that RX is in 50, 51, 52, or 53. If RX is not in one of those, switch that and change the code accordingly. If that doesn’t work or you are using any other arduino, check the code and the datasheet for the arduino you are using. The datasheet will indicate which pins are suitable for transmitting/receiving.
+*If there isn’t a blue light*, that means that the WiFi module is not communicating with the vision system. First, do not use pins 0 or 1 (despite them being labeled TX and RX); on most microcontrollers, any digital pin except 0 and 1 should work. If you are using an Arduino Mega, check to see that TX is in 50, 51, 52, or 53. If TX is not in one of those, switch that and change the code accordingly. If all these conditions are met and the blue light is still not blinking, the problem is likely in your code.
 
-[image?]
 
-Q. Why is my OTV just driving in a circle in the arena?
+#### Q. Why is my OTV just driving in a circle in the arena? 
+
 A. Check your code. If there is no apparent error, try adding an extra delay so that the system has enough time to fully process. For the location of the delay, view sample below:
 
-[image]
 
-Q. Why do my 3D prints keep failing or don’t turn out well?
-A. You need to make sure you include supports and avoid large overhangs. Avoid putting too much support in small holes as it is hard to get out after and avoid putting holes close to the edges of the plate in CAD because those are likely to break. If you are ever unsure of whether you have set up a print correctly, feel free to ask an LTF or UTF.
+```
+#include <Enes100.h>  
+void setup() {  
+ Enes100.begin ("It's lit", FIRE, 3, 8, 9);  
+ // Valid mission names include: CRASH_SITE, DATA, MATERIAL, FIRE, and WATER  
+ // These are case sensitive.  
+ // The numbers are the pins used for RX, TX, and power.  
+ Serial.begin(9600);  
+}  
+  
+void loop() {  
+ if(!Enes100.updateLocation()){Enes100.printIn("Error");  
+  
+}  
+else{  
+ float x = Enes100.location.x;  
+ float y = Enes100.location.y;  
+ float theta = Enes100.location.theta;  
+ // This is where you might want to add a delay so that you can read what is printed and so the system has enough time to register the angle.  
+ Enes100.print(x);  
+ Enes100.print(",");  
+ Enes100.printIn(theta);  
+}  
+}
+```
+
+#### Q. Why is my sensor or motor not responding to my code?
+
+A. Isolate the code that you intend to use for the motor/sensor and place it in a new sketch. This can verify that your commands work and are pointing to the correct pins. If it does not work, verify that you have the correct pins and that the amount of voltage you predict to flow to a specific point is correct (view multimeter FAQ if necessary). Modify code and wiring as needed. If that also doesn’t work, try to reintegrate earlier parts of the loop to see if your code is getting stuck somewhere else. Rinse and repeat.
 
 
-Q. Why is my OTV not moving?
-A. Check that your battery has at least 11 volts otherwise you will not have enough power to operate. If that doesn’t solve the problem, check if the arduino is lighting up and your circuit/code. It could also be that your wheels do not have enough friction or the motors used are not powerful enough.
+#### Q. Why is my sensor working but not being triggered by the expected action?
+
+A. Consider lowering the threshold (or distance) at which the sensor is activated. This increases the relative sensitivity of the sensor.
 
 
-Q. Why is my sensor or motor not responding to my code?
-A. Isolate the code that you intend to use for the motor and place it in a new sketch...This can verify that your commands work and are pointing to the correct pins. If it does not work, verify that you have the correct pins and that the amount of voltage you predict to flow to a specific point is correct (view multimeter FAQ if necessary). Modify code and wiring as needed. If that also doesn’t work, try to reintegrate earlier parts of the loop to see if your code is getting stuck somewhere else. Rinse and repeat.
+#### Q. Why is my soldering iron not working/why can I not solder?
+
+*Step 0:* Check the condition of the tip of the iron. If it is very black, replace the tip (an example of a bad tip is pictured below). This is done by unscrewing the black grip of the soldering iron and removing the tip. Select a new one and insert it back into the iron. Screw the grip back into place over it. Do NOT do this with the iron plugged in or if the iron is hot!
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/umdenes100/VisionSystemRemoteClient/master/img/Solder_Tips.png" alt="Solder Tips + Order" width="250">
+	<p>
+	
+*Step 1:* Turn the soldering iron on to 600 and wait until you see that the small number (green arrow) matches the larger one (red arrow)
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/umdenes100/VisionSystemRemoteClient/master/img/Solder_Temp.png" alt="Temperature Adjustment" width="250">
+
+  <p>
+
+*Step 2*: Make sure that the sponge under the iron is wet and that the fan for your iron is on
+
+  <p align="center">
+  <img src="https://raw.githubusercontent.com/umdenes100/VisionSystemRemoteClient/master/img/Sponge_Water_Vent_Fan.png" alt="Sponge, Water, & Vent Fan" width="250">
+  <p>
+
+  
+
+*Step 3*: Make sure your wire is set up correctly. Both wires you are soldering should have the ends stripped about 0.5 inches. These should then be twisted together and mounted in the clips (helping hands) as shown below:
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/umdenes100/VisionSystemRemoteClient/master/img/Helping_Hands.png" alt="Helping Hands" width="250">
+  <p>
+	  
+*Note: Both wires should be partially connected thanks to the twisting and securely held by the clips so that they do not separate while you are soldering.*
+
+  
+  *Step 4*: Plunge the soldering iron tip into the tip tinner (pictured below). The tip tinner should bead up along the tip. After this, shove the entire tip into the steel wool (pictured below) and rotate it around. To remove any beads of solder but keep a thin layer behind. Then, use a brush to paint the flux onto your wires.
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/umdenes100/VisionSystemRemoteClient/master/img/Soldering_Accessories.png" alt="Soldering Accessories" width="250">
+  <p>
+ 
+  
+
+*Step 5*: To help ensure a strong solder connection, heat up the wires before begining soldering. To do this, touch the soldering iron tip to the wires and hold it there. It should take a few second for the wire to heat up. This will take longer for thicker gauge wire.
+
+Once the wires are hot, unwind the solder (pictured below) and feed the solder into the section which you just preheated. If your wires have been preheated and you have both the solder and the iron in contact with the wire, the solder should melt, flow along twisted wires, and then cool.
+	 
+Alternatively, for larger connections, after melting some solder onto the iron tip, touch the end of the solder to the wire connection and touch the iron to the same connection. Heating up the connection will melt the solder directly onto the connection.
+
+  <p align="center">
+  <img src="https://raw.githubusercontent.com/umdenes100/VisionSystemRemoteClient/master/img/Solder.png" alt="Solder" width="250">
+  <p>
+  
+
+*Step 6*: To test to see if the soldering job was done correctly: pull the wires apart. If they separate, try again. You can also check for connectivity with the multimeter (view Q: How do I find shorts in my circuit).
 
 
-Q. Why is my sensor working but not being triggered by the expected action?
-A. Consider lowering the threshold (or distance) at which the sensor is activated. This increases the relative sensitivity of the sensor. 
+#### Q. Why is my laser cut not working/the wrong size?
 
-Q. Why is my soldering iron not working/why can I not solder?
-A. There could be many reasons why but here is a general technique which usually works and a “dictionary” for the soldering station:
+A. For if it’s the wrong size, make sure the dimensions are 1:1 when exporting from Fusion360. You should also make sure that the style in Fusion360 is “line” (view screenshot)
 
-Step 1: Turn the soldering iron on to 450
+  <p align="center">
+  <img src="https://raw.githubusercontent.com/umdenes100/VisionSystemRemoteClient/master/img/Laser_Cutter_Settings.png" alt="Laser Cutter Settings" width="250">
+  <p>
 
-Flux, steel, tip tinner, - soldering troubleshooting
-Bead of solder and put in steel wool so coats tip
-Get close to wire and then get bead and drop onto wire and spread it out
+The mouse is over the correct selection for style 
+
+Make sure to delete any text boxes and text before exporting as a pdf as well.
+
+If the cut stops partway through, check that the piece of acrylic or birch is not right up to the edges of the laser bed. If it is, move it away from the edges slightly and start over.
 
 
-Laser cutting need to make sure dimensions are 1:1 when from fusion and line view 
+#### Q. Why are my servos, motors, and or other linear actions (components which run continuously) not working even though enough voltage is being applied?
 
-Turn into drawing, check dimensions- delete any text boxes and text and then export as pdf
+A. Check for common ground! The H-Bridge and Arduino should be commonly grounded. If two components that have ground terminals aren't connected, they will be "communicating" at different voltage levels and will most likely not work.
 
--->
+  
+#### Q. Why isn’t my text showing up on the Vision System debug console?
 
-		</div>
-	</div>
-</div>
+A. Check the code. Is the program only running once in the setup() function? Make sure that there is something in the setup that is not in loop and that there is something in both. Also check that you are not printing to serial but to the vision system. Finally,try looking over your code and see if it makes sense and is doing what you think it should.
+
+Other non-code related issues you could check for: Are the Tx and Rx pins connected properly (view wifi module FAQ)? Is the module getting enough power (again, view wifi module FAQ)? Is the program only running once in the setup() function? 
+
+If the answer was no to any of the above questions, change that and then try again.
+
+
