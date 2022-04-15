@@ -1,7 +1,11 @@
 ---
 layout: default
 ---
-
+<div class="content mt-5">
+    <div class="row">
+        <div id="{{ page.library }}" class="col-8 offset-1 col-md-5 offset-md-2 documentation"></div>
+    </div>
+</div>
 <script>
 $(document).ready(() => {
     get_library_documentation("{{ page.library }}");
