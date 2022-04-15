@@ -7,7 +7,7 @@ layout: default
 
         <div class="col-8 offset-1 col-md-1 offset-md-1">
             <form class="sticky" method="get" action="https://github.com/umdenes100/{{ page.library }}/archive/master.zip">
-                <button id="d_button" type="submit" class="btn btn-primary">Download</button>
+                
             </form>
         </div>
     </div>
