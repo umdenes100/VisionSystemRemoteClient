@@ -1,0 +1,9 @@
+---
+layout: default
+---
+
+<script>
+$(document).ready(() => {
+    get_library_documentation("{{ page.library }}");
+})
+</script>
