@@ -5,7 +5,9 @@ title: Frequently Asked Questions
 permalink: /faq
 
 ---
-
+<div class="container-fluid">
+	<div class="row h-100">
+		<div class="col-md-6 offset-md-3 mt-5">
 <h1 id="enes100-faq">ENES100 FAQ</h1>
 <h4 id="q-how-do-i-get-my-servo-motor-to-stop-jittering-">Q. How do I get my servo motor to stop jittering?</h4>
 <p>A. Try detaching the servo using the “.detach” method. You should only have the servo “attached” when the OTV is actually executing the mission. Before and after that, unless the servo is needed, it should be “detached”. View example below:</p>
@@ -104,3 +106,8 @@ permalink: /faq
 <p>If the cut stops partway through, check that the piece of acrylic or birch is not right up to the edges of the laser bed. If it is, move it away from the edges by about 2 inches and start over.</p>
 <h4 id="q-why-are-my-servos-motors-and-or-other-linear-actions-components-which-run-continuously-not-working-even-though-enough-voltage-is-being-applied-">Q. Why are my servos, motors, and or other linear actions (components which run continuously) not working even though enough voltage is being applied?</h4>
 <p>A. Check for common ground! The H-Bridge and Arduino should be commonly grounded. If two components that have ground terminals aren&#39;t connected, they will be &quot;communicating&quot; at different voltage levels and will most likely not work.</p>
+
+          
+		</div>
+	</div>
+</div>
