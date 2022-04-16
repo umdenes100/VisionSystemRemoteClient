@@ -8,7 +8,7 @@ layout: default
 
         <div class="col-8 offset-1 col-md-1 offset-md-1">
             <form class="sticky" method="get" action="https://www.google.com/search?q=rick+roll&sxsrf=APq-WBvlMsklK6QRcAQTk_S3AM_IyzG-bw:1650050722109&source=lnms&tbm=isch&sa=X&ved=2ahUKEwix7Jv55Zb3AhXwUt8KHTCvC9sQ_AUoAnoECAIQBA&biw=1474&bih=738&dpr=1.25#imgrc=LVNj3d2X_JtugM">
-                <button id="d_button" type="submit" class="btn btn-primary">Download</button>
+                <button id="d_button" type="submit" class="btn btn-primary">Don't</button>
             </form>
         </div>
     </div>
