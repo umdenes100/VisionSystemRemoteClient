@@ -105,7 +105,7 @@ permalink: /faq
 <p>Make sure to delete any text boxes and text before exporting as a pdf as well.</p>
 <p>If the cut stops partway through, check that the piece of acrylic or birch is not right up to the edges of the laser bed. If it is, move it away from the edges by about 2 inches and start over.</p>
 <h4 id="q-why-are-my-servos-motors-and-or-other-linear-actions-components-which-run-continuously-not-working-even-though-enough-voltage-is-being-applied-">Q. Why are my servos, motors, and or other linear actions (components which run continuously) not working even though enough voltage is being applied?</h4>
-<p>A. Check for common ground! The H-Bridge and Arduino should be commonly grounded. If two components that have ground terminals aren&#39;t connected, they will be &quot;communicating&quot; at different voltage levels and will most likely not work.</p>
+<p>A. Check for common ground! The H-Bridge and Arduino should be commonly grounded. There are multiple ground pins on the Arduino but there might not be enough. You need to make sure that all components&#39; (H-Bridge, servos, etc.) grounds are connected to a ground port on the Arduino, via breadboard or directly with a wire, thus creating a common ground.If two components that have ground terminals aren&#39;t connected, they will be &quot;communicating&quot; at different voltage levels and will most likely not work.</p>
 
           
 		</div>
