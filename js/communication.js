@@ -51,7 +51,7 @@ $(window).on('unload', e => {
 })
 
 $(document).ready(() => {
-	
+
     connection = new WebSocket(WEBSOCKET_ADDRESS)
 
     let $port = $('#port')
@@ -153,4 +153,3 @@ $(document).ready(() => {
 
     $port.on('change', changePort)
 })
-
