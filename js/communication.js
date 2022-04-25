@@ -1,4 +1,4 @@
-const WEBSOCKET_ADDRESS = 'wss://192.168.1.2:9000/'
+const WEBSOCKET_ADDRESS = 'ws://192.168.1.2:9000/'
 let connection = undefined
 
 let selectedPort = ''
@@ -51,11 +51,11 @@ $(window).on('unload', e => {
 })
 
 $(document).ready(() => {
-
-    var connection = new WebSocket(WEBSOCKET_ADDRESS, {
-		protocolVersion: 8,
-		origin: 'https://192.168.1.2:9000'
-	});
+	connection = new WebSocket(WEBSOCKET_ADDRESS);
+    //var connection = new WebSocket(WEBSOCKET_ADDRESS, {
+	//	protocolVersion: 8,
+	//	origin: 'https://192.168.1.2:9000'
+	//});
 
     let $port = $('#port')
 
