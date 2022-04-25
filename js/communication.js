@@ -52,7 +52,7 @@ $(window).on('unload', e => {
 
 $(document).ready(() => {
 
-    connection = new WebSocket(WEBSOCKET_ADDRESS)
+    let connection = new WebSocket(WEBSOCKET_ADDRESS)
 
     let $port = $('#port')
 
