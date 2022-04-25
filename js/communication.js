@@ -51,7 +51,7 @@ $(window).on('unload', e => {
 })
 
 $(document).ready(() => {
-	connection = new WebSocket(WEBSOCKET_ADDRESS);
+	connection = new WebSocket(WEBSOCKET_ADDRESS)
     //var connection = new WebSocket(WEBSOCKET_ADDRESS, {
 	//	protocolVersion: 8,
 	//	origin: 'https://192.168.1.2:9000'
