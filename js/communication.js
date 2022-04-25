@@ -1,4 +1,10 @@
 const WEBSOCKET_ADDRESS = 'wss://192.168.1.2:9000/'
+const WEBSOCKET_ADDRESS = new WebSocket('wss://192.168.1.2:9000/', {
+  protocolVersion: 8,
+  origin: 'https://192.168.1.2:9000',
+  rejectUnauthorized: false
+});
+
 let connection = undefined
 
 let selectedPort = ''
