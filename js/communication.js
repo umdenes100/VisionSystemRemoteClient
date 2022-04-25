@@ -1,5 +1,5 @@
 const WEBSOCKET_ADDRESS = 'ws://192.168.1.2:9000/'
-let connection = new WebSocket(WEBSOCKET_ADDRESS)
+//let connection = new WebSocket(WEBSOCKET_ADDRESS)
 
 let selectedPort = ''
 let startTime = 0
