@@ -55,14 +55,26 @@ $(document).ready(() => {
     connection = new WebSocket(WEBSOCKET_ADDRESS)
 
     let $port = $('#port')
+	
+	console.log('adding changePort')
+	
+	$port.on('change', changePort)
+	
+	console.log('OPEN')
+	
+	console.log('adding onopen')
 
     connection.onopen = () => {
         // console.log('OPEN')
     }
 
+	console.log('adding onerror')
+
     connection.onerror = error => {
         console.log('WebSocket Error.')
     }
+
+	console.log('adding onmessage')
 
     connection.onmessage = message => {
         message = JSON.parse(message.data)
@@ -143,13 +155,15 @@ $(document).ready(() => {
         
     }
 
+	console.log('adding onclose')
+
     connection.onclose = () => {
-        // console.log('CLOSE')
+        //console.log('CLOSE')
         connection.send('Closed.')
         setTimeout(() => {
             // console.log('Retrying...')
         }, 5000)
     }
 
-    $port.on('change', changePort)
+    //$port.on('change', changePort)
 })
