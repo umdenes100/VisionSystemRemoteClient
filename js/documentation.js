@@ -1,5 +1,5 @@
-function get_library_documentation(library) {
-    $.get(`https://raw.githubusercontent.com/umdenes100/${library}/master/README.md`, data => {
+function get_library_information(library, path) {
+    $.get(`https://raw.githubusercontent.com/umdenes100/${library}/${path}`, data => {
         let converter = new showdown.Converter({tables: true})
         $('.documentation').html(converter.makeHtml(data))
 

@@ -1,5 +1,5 @@
 ---
-layout: documentation
+layout: default
 
 title: Examples
 permalink: /examples
@@ -9,8 +9,21 @@ canonical: http://enes100.umd.edu/examples
 library: ENES100ArduinoLibrary
 
 custom_css:
- - documentation.css
+- documentation.css
 
 custom_js:
- - documentation2.js
+- documentation.js
+
 ---
+
+<div class="content mt-5">
+    <div class="row">
+        <div id="{{ page.library }}" class="col-8 offset-1 col-md-5 offset-md-2 documentation"></div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(() => {
+        get_library_information("{{ page.library }}", "master/EXAMPLES.md");
+    })
+</script>
