@@ -1,5 +1,5 @@
 function get_examples_documentation(library) {
-    $.get(`https://raw.githubusercontent.com/umdenes100/${library}}/master/EXAMPLES.md`, data => {
+    $.get(`https://raw.githubusercontent.com/umdenes100/${library}/master/EXAMPLES.md`, data => {
         let converter = new showdown.Converter({tables: true})
         $('.documentation').html(converter.makeHtml(data))
 
