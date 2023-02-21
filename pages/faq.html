@@ -10,12 +10,27 @@ library: website_faq
 
 custom_css:
 - documentation.css
+- sidebar.css
 
 custom_js:
 - documentation.js
 
 ---
-
+<div class="sidebar">
+  <a href="#q_sim">Why is my simulator code not working on my OTV?</a>
+  <a href="#q_pointers">Why are my pointers not working in the simulator?</a>
+  <a href="#q_direction">Why is my OTV not turning to the direction I want it to?</a>
+  <a href="#q_jitter">How do I get my servo motor to stop jittering?</a>
+  <a href="#q_circle">Why is my OTV just driving in a circle in the arena?</a>
+  <a href="#q_motor_response">Why is my sensor or motor not responding to my code?</a>
+  <a href="#q_sensor_action">Why is my sensor working but not being triggered by the expected action?</a>
+  <a href="#q_esp">Why isn't my WiFi module working?</a>
+  <a href="#q_short">How do I check for shorts in my circuit?</a>
+  <a href="#q_solder">Why is my soldering iron not working/why can I not solder?</a>
+  <a href="#q_laser">Why is my laser cut not working/the wrong size?</a>
+  <a href="#q_servo_voltage">Why are my servos, motors, and or other linear actions (components which run continuously) not working even though enough voltage is being applied?</a>
+  <a href="#q_wifi_pin">When I try to use pinMode() on the Tx and Rx pins, why does the wifi module does not work?</a>
+  </div>
 <div class="content mt-5">
   <div class="row">
       <div id="{{ page.library }}" class="offset-md-2 documentation"></div>
