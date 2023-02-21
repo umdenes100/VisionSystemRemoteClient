@@ -10,10 +10,10 @@ html, body {
     /* background :  #292b30; */
      background :  #292b30;
     color: white;
-    font-family: "Comic Sans MS", "Comic Sans", cursive;
+    font-family: 'Roboto', sans-serif;
 }
 pre {
-    font-family: "Comic Sans MS", "Comic Sans", cursive;
+    font-family: 'Roboto', sans-serif;
     background: white;
 }
 
