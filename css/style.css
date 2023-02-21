@@ -2,11 +2,19 @@
 
 * {
     box-sizing: border-box
+    
 }
 
 html, body {
     height: 100%;
-    font-family: 'Quicksand', sans-serif;
+    /* background :  #292b30; */
+     background :  #292b30;
+    color: white;
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+}
+pre {
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+    background: white;
 }
 
 .test {

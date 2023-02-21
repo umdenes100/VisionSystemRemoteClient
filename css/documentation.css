@@ -1,11 +1,13 @@
 .documentation img {
 	margin-top: 10px;
 	margin-bottom: 10px;
-	width: 80%;
+	width: 100%;
 }
 
 .documentation p, .documentation ul, .documentation ol {
 	font-size: 18px;
+	font-family: "Comic Sans MS", "Comic Sans", cursive;
+
 }
 
 .documentation table {
@@ -16,6 +18,4 @@
 
 .documentation tr, .documentation th, .documentation td {
 	border: 0.5px solid lightgrey;
-	padding-left: 10px;
-	padding-right: 10px;
 }
