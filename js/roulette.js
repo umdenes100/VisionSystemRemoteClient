@@ -25,7 +25,7 @@ $(document).ready(() => {
     dayOfMonth = today.getUTCDate() - 1;
 
     // Add halloween-spirited emojis to the banner text.
-    october = 09;  // 0-based indexing
+    october = 9;  // 0-based indexing
     halloween = 31;
     weekBeforeHalloween = halloween - 7;
 
@@ -35,7 +35,7 @@ $(document).ready(() => {
         })
     }
 
-    february = 01;  // 0-based indexing
+    february = 1;  // 0-based indexing
     valentines = 14;
     weekBeforeValentines = valentines - 7;
 
@@ -45,7 +45,7 @@ $(document).ready(() => {
         })
     }
 
-    march = 02;  // 0-based indexing
+    march = 2;  // 0-based indexing
     stPatricks = 17;
     weekBeforeStPatricks = stPatricks - 7;
 
