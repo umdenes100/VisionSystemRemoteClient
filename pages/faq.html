@@ -39,7 +39,7 @@ custom_js:
 
 <script>
     console.log("This is working....")
-    $(document).ready(() => {
+    $(document).ready((e) => {
         get_library_information("{{ page.library }}", "master/README.md");
     })
 </script>
