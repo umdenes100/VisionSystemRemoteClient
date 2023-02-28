@@ -137,32 +137,37 @@ https://medium.com/wdstack/bootstrap-4-custom-navbar-1f6a2da5ed3c
     </div>
 </nav>
 <!-- here -->
-<div class="content mt-5">
-   <div class="sidebar">
-    <a href="#q_sim">Why is my simulator code not working on my OTV?</a>
-    <a href="#q_pointers">Why are my pointers not working in the simulator?</a>
-    <a href="#q_direction">Why is my OTV not turning to the direction I want it to?</a>
-    <a href="#q_jitter">How do I get my servo motor to stop jittering?</a>
-    <a href="#q_circle">Why is my OTV just driving in a circle in the arena?</a>
-    <a href="#q_motor_response">Why is my sensor or motor not responding to my code?</a>
-    <a href="#q_sensor_action">Why is my sensor working but not being triggered by the expected action?</a>
-    <a href="#q_esp">Why isn't my WiFi module working?</a>
-    <a href="#q_short">How do I check for shorts in my circuit?</a>
-    <a href="#q_solder">Why is my soldering iron not working/why can I not solder?</a>
-    <a href="#q_laser">Why is my laser cut not working/the wrong size?</a>
-    <a href="#q_servo_voltage">Why are my servos, motors, and or other linear actions (components which run continuously) not working even though enough voltage is being applied?</a>
-    <a href="#q_wifi_pin">When I try to use pinMode() on the Tx and Rx pins, why does the wifi module does not work?</a>
-    </div>
-    <div class="row">
-        <div id="website_faq" class="col-8 offset-1 col-md-5 offset-md-2 documentation"></div>
-    </div>
-    
-</div>
 
+   <div class="sidebar">
+    <a href="#download">Download and Installation</a>
+    <a href="#setup">Setup</a>
+    <a href="#var">Variables</a>
+    <a href="#begin">Enes100.begin()</a>
+    <a href="#update">Enes100.updateLocation()</a>
+    <a href="#ping">Enes100.ping()</a>
+    <a href="#print">Enes100.print()</a>
+    <a href="#println">Enes100.println()</a>
+    <a href="#mission">Enes100.mission()</a>
+    <a href="#ex">Example Code and Debugging</a>
+    <a href="#prod">Product Demonstration Procedures</a>
+    </div>
+
+
+<div class="content mt-5">
+    <div class="row">
+        <div id="{{ page.library }}" class="col-8 offset-1 col-md-5 offset-md-2 documentation"></div>
+
+        <div class="col-8 offset-1 col-md-1 offset-md-1">
+            <form class="sticky" method="get" action="https://github.com/umdenes100/{{ page.library }}/archive/master.zip">
+                <button id="d_button" type="submit" class="btn btn-primary">Download</button>
+            </form>
+        </div>
+    </div>
+</div>
 
 <script>
 $(document).ready(() => {
-    get_library_information("website_faq", "master/README.md");
+    get_library_information("ENES100ArduinoLibrary", "master/README.md");
 })
 </script>
 
