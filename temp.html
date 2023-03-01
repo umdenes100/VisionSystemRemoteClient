@@ -49,9 +49,11 @@
         <link rel="stylesheet" href="/css/header.css">
         <link rel="stylesheet" href="/css/generics.css">
             
-        <link rel="stylesheet" href="/css/documentation.css">
-        
+        <!-- Change to the sheet we are working on -->
+        <link rel="stylesheet" href=/css/codemirror.css>
+        <link rel="stylesheet" href="/css/simulator.css">
         <link rel="stylesheet" href="/css/dropdown.css">
+
 
         <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
@@ -63,10 +65,22 @@
         <script src="/js/roulette.js"></script>
         <script src="/js/secret.js"></script>
        
-        <script src="/js/documentation.js"></script>
-      
 
+        <!-- change to js we are working on -->
+        <script src="/js/codemirror/lib/codemirror.js"></script>
+        <script src="/js/codemirror/mode/clike/clike.js"></script>
+        <script src="/js/simulator/arena.js"></script>
+        <script src="/js/simulator/preview.js"></script>
+        <script src="/js/simulator/osv_menu.js"></script>
+        <script src="/js/simulator/editor.js"></script>
+        <script src="/js/simulator/communication.js"></script>
+        <script src="/js/simulator/simulator.js"></script>
 
+        <script src="/js/https://unpkg.com/hotkeys-js/dist/hotkeys.min.js"></script>
+        <script src="/js/https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.32.0/codemirror.min.js"></script>
+        <script src="/js/https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+        <script src="/js/https://cdnjs.cloudflare.com/ajax/libs/downloadjs/1.4.8/download.min.js"></script>
+        <script src="/js/https://unpkg.com/axios/dist/axios.min.js"></script>
 
     </head>
     <body>
@@ -137,39 +151,99 @@ https://medium.com/wdstack/bootstrap-4-custom-navbar-1f6a2da5ed3c
     </div>
 </nav>
 <!-- here -->
-
-   <div class="sidebar">
-    <a href="#download">Download and Installation</a>
-    <a href="#setup">Setup</a>
-    <a href="#var">Variables</a>
-    <a href="#begin">Enes100.begin()</a>
-    <a href="#update">Enes100.updateLocation()</a>
-    <a href="#ping">Enes100.ping()</a>
-    <a href="#print">Enes100.print()</a>
-    <a href="#println">Enes100.println()</a>
-    <a href="#mission">Enes100.mission()</a>
-    <a href="#ex">Example Code and Debugging</a>
-    <a href="#prod">Product Demonstration Procedures</a>
-    </div>
-
-
-<div class="content mt-5">
-    <div class="row">
-        <div id="{{ page.library }}" class="col-8 offset-1 col-md-5 offset-md-2 documentation"></div>
-
-        <div class="col-8 offset-1 col-md-1 offset-md-1">
-            <form class="sticky" method="get" action="https://github.com/umdenes100/{{ page.library }}/archive/master.zip">
-                <button id="d_button" type="submit" class="btn btn-primary">Download</button>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" href="../css/ambiance.css">
+<div class="container-fluid h-100 p-0">
+    <div class="row h-100 p-0 m-0">
+        <div class="col-md-8 h-100 p-0 m-0">
+            <div class="row h-70 mb-0 pb-0 editor-size">
+                <div id="editor" class="col-md-12 h-100"></div>
+            </div>
+            <div class="row h-30 m-0 p-0 Terminal">
+                <pre id="terminal-output">Simulation status...</pre>
+            </div>
+        </div>
+        <div id="actions" class="col-md-1 h-100">
+            <form action="./libraries/simlibraries">
+                <button type="submit" class="mt-4 mb-2">Help</button>
             </form>
+            <button id="randomize" class="mt-2 mb-2">Randomize</button>
+            <button id="simulate" class="mt-2 mb-2">Simulate</button>
+            <button id="save" class="mt-2 mb-2">Save</button>
+            <button id="example-code" class="mt-2 mb-2">Example Code</button>
+            <form action="https://docs.google.com/forms/d/e/1FAIpQLSdXWXOnOTWa36rGPVNb_Lwf3SM33tvP5vrPOkl91RTcwjdZQA/viewform?usp=pp_url&entry.2072371640=N/A">
+              <!-- This form ^ most likely routes to a google sheet that does not exist... consider changing the link so we can see the bug reports? -->
+                <button type="submit" class="mt-2 mb-2">Bug Report</button>
+            </form>
+            <label for="dark-theme" class="mt-2 mb-2">
+                <input id="dark-theme" type="checkbox" onclick="changeTheme()">&nbsp;&nbsp;Dark Theme
+            </label>
+            <label for="obstacles" class="mt-2 mb-2">
+                <input id="obstacles" type="checkbox" checked>&nbsp;&nbsp;Obstacles
+            </label>
+        </div>
+        <div class="col-md-3 h-100">
+            <div id="preview-row" class="row h-20 mb-0 pb-0 preview-size">
+                <div id="preview-wrapper" class="col-md-12 h-100 mt-1 pl-1 pr-2 mb-0 pb-0">
+                    <canvas id="pbg" height="auto" width="100%"></canvas>
+                    <canvas id="pfg" height="auto" width="100%"></canvas>
+                </div>
+            </div>
+            <div id="preview-row" class="row h-75 pl-3 mt-2 pr-2 mb-0 pb-0">
+                <div class="col-md-12 h-100">
+                    <canvas id="osv-menu" style="border: 0;">
+                    </canvas>
+                    <div id="osv-size" class="pt-1">
+                        <label for="length" style="float: left; margin-left: 10%;">
+                            Width: <strong><span id="actual-length"></span></strong>
+                            100 <input type="range" min="100" max="300" value="250" class="slider" id="length"> 300
+                        </label>
+                        <br>
+                        <br>
+                        <label for="width" style="float: left; margin-left: 10%;">
+                            Length: <strong><span id="actual-width"></span></strong>
+                            100 <input type="range" min="100" max="300" value="200" class="slider" id="width"> 300
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row h-100 bt">
+        <div class="col-md-3 h-100">
+            <div class="row h-70 mb-0 pb-0 Code">
+                <div class="col-md-12 h-100 pr-0">
+                    <pre id="code"></pre>
+                </div>
+            </div>
+            <div class="row h-30 mb-0 pb-0 Output">
+                <div class="col-md-12 h-100 pr-0">
+                    <pre id="output">Output...</pre>
+                </div>
+            </div>
+        </div>
+        <div id="simulation" class="col-md-9 ml-0 pl-0">
+            <div class="row h-80 m-0 p-0 Simulation">
+                <div id="simulation-wrapper" class="col pt-5 pl-5 pr-5 h-100">
+                    <canvas id="bg"></canvas>
+                    <canvas id="fg"></canvas>
+                </div>
+            </div>
+            <div class="row h-20 m-0 p-0 pr-4 Controls">
+                <div class="col-md-1 h-100 m-0 mr-2 p-0 pr-2 ml-5">
+                    <button id="play" style="padding-bottom: 0px; padding-right: 0px; padding-left: 0px;"><i id="control-button" class="material-icons">play_arrow</i></button>
+                </div>
+                <div class="col-md-10 h-100 m-0 p-0">
+                    <input type="range" style="width: 100%; margin-top: 9px;" min="1" max="5000" value="1" class="slider" id="timestep">
+                </div>
+            </div>            
         </div>
     </div>
 </div>
 
-<script>
-$(document).ready(() => {
-    get_library_information("ENES100ArduinoLibrary", "master/README.md");
-})
-</script>
+
+
+
 
     </body>
 </html>
