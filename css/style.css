@@ -8,8 +8,8 @@
 html, body {
     height: 100%;
     /* background :  #292b30; */
-     background :  #292b30;
-    color: white;
+    color: #E6E1DC;
+    background-color: #202020;
     font-family: 'Roboto', sans-serif;
 }
 pre {
