@@ -17,7 +17,7 @@ arucoSim.src = 'img/aruco.png'
 
 class Arena {
     constructor() {
-        this.color = '#424242'
+        this.color = '#424242'       //the actual background color of the arena
     }
 
     resize(canvasWidth, canvasHeight) {
