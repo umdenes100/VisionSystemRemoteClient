@@ -157,10 +157,7 @@ label {
     border-top: var(--border) 1px solid;
 }
 
-a {
-    color: white !important;
-    text-decoration: none !important;
-}
+
 
 button {
     border-radius: 5px;
@@ -216,3 +213,8 @@ canvas {
     font-size: 11px;
     text-align: right;
 }
+
+/* a {
+    color: white !important;
+    text-decoration: none !important;
+} */

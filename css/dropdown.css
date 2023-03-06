@@ -6,7 +6,7 @@
   color: white;
 
   width: 100%;
-
+  z-index: 15;
 
   padding-top: 10px;
   padding-bottom: 10px;
@@ -25,6 +25,7 @@
   
   /* The container <div> - needed to position the dropdown content */
   .dropdown {
+    z-index: 16;
     position: relative;
     display: inline-block;
   }
