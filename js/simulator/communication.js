@@ -34,7 +34,10 @@ function requestRandomization() {
             }
         })
         .catch(function (error) {
-            $('#terminal-output').text(error)
+            if (String(error).startsWith('Axios')) {
+                alert("You must load this site over http, not https. Please change the URL to start with http instead of https")
+            } else
+                $('#terminal-output').text(error)
             console.log(error)
         })
 }
@@ -72,7 +75,7 @@ function requestSimulation() {
                         alert("You must load this site over http, not https. Please change the URL to start with http instead of https")
                     } else
                         $('#terminal-output').text(data['error'])  // Display error message on terminal.
-                } 
+                }
                 else {
                     var today = new Date();
                     var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
