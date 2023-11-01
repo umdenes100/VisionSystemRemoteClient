@@ -68,7 +68,10 @@ function requestSimulation() {
                 lineIndexes = []
 
                 if (data['error'] !== undefined) {
-                    $('#terminal-output').text(data['error'])  // Display error message on terminal.
+                    if (data['error'].startsWith('Axios')) {
+                        alert("You must load this site over http, not https. Please change the URL to start with http instead of https")
+                    } else
+                        $('#terminal-output').text(data['error'])  // Display error message on terminal.
                 } 
                 else {
                     var today = new Date();
