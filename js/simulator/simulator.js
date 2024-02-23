@@ -33,8 +33,8 @@ function clearFocus() {
 function focusLine(lineNumber) {
     if(lineIndexesAppended.length > 0 || lineNumber >= lineIndexesAppended.length) {
         // we want to add a <span> tag aroung the appropriate line of the text
-        var text = document.getElementById("code")
-        var innerHTML = text.innerHTML;
+        let text = document.getElementById("code");
+        let innerHTML = text.innerHTML;
         innerHTML = innerHTML.substring(0, lineIndexesAppended[lineNumber]) + "<span class=\"focus\">" + innerHTML.substring(lineIndexesAppended[lineNumber], lineIndexesAppended[lineNumber + 1]) + "</span>" + innerHTML.substring(lineIndexesAppended[lineNumber + 1]);
         text.innerHTML = innerHTML;
 

@@ -78,10 +78,7 @@ $(document).ready(() => {
 
 // This function will auto-save the code before the page closes.
 window.onbeforeunload = function (event) {
-    // event.preventDefault();  // Prompt users before closing the page.
     localStorage.code = editor.getDoc().getValue();  // Store the current code.
-    //localStorage.length =  $('#length').val();
-    //localStorage.breadth = $('#breadth').val();
 }
 
 hotkeys('ctrl+s,cmd+s', function(event, handler) {
@@ -96,8 +93,8 @@ hotkeys('ctrl+s,cmd+s', function(event, handler) {
 })
 
 function changeTheme() {
-    var dark = document.getElementById("dark-theme");
-    if (dark.checked == true) {
+    let dark = document.getElementById("dark-theme");
+    if (dark.checked) {
         localStorage.dark = "true";
         editor.setOption("theme", "ambiance")
         document.documentElement.style.setProperty("--background","#202020")
@@ -106,7 +103,6 @@ function changeTheme() {
         document.documentElement.style.setProperty("--color","#f5f5f5")
         document.documentElement.style.setProperty("--focus","#999900")
         document.documentElement.style.setProperty("--scrollbar","#505050")
-        
     } else {
         localStorage.dark = "false";
         editor.setOption("theme","default")

@@ -22,14 +22,14 @@ function requestRandomization() {
                 canv.osv = new OSV(data.osv.x, data.osv.y, data.osv.theta, mcanvas.osv.actualWidth / 1000, mcanvas.osv.actualHeight / 1000)
                 canv.obstacles = data.obstacles.map(obstacle => new Obstacle(obstacle.x, obstacle.y))
                 canv.destination = new Destination(data.destination.x, data.destination.y)
-                if (obstaclesChecked == false){
+                if (obstaclesChecked === false){
                     canv.obstacles = [];
                 }
                 canv.draw()
             })
             lastObstacles = data.obstacles;  // Store obstacles for later toggling.
             // Handle case where calling randomization with obstacles button toggled off.
-            if (obstaclesChecked == false) {
+            if (obstaclesChecked === false) {
                 data.obstacles = [];
             }
         })
@@ -77,37 +77,37 @@ function requestSimulation() {
                         $('#terminal-output').text(data['error'])  // Display error message on terminal.
                 }
                 else {
-                    var today = new Date();
-                    var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
-                    var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-                    var dateTime = date + ' ' + time;
+                    const today = new Date();
+                    const date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+                    const time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+                    const dateTime = date + ' ' + time;
 
                     code = editor.getDoc().getValue()
                     $('#code').text(code)
 
                     // We want to get the indexes of each line in the code.
                     lineIndexes.push(0)
-                    var tackOn = 0
-                    var map = {
+                    let tackOn = 0;
+                    const map = {
                         '&': '&amp;'.length - 1,
                         '<': '&lt;'.length - 1,
                         '>': '&gt;'.length - 1,
                     };
 
-                    for (var i = 0; i < code.length; i++) {
+                    for (let i = 0; i < code.length; i++) {
                         if (map[code[i]] !== undefined) {
                             tackOn += map[code[i]]
-                        } else if(code[i] == '\n') {
+                        } else if(code[i] === '\n') {
                             lineIndexes.push(i + tackOn + 1)
                         }
                     }
 
-                    if (lineIndexes[lineIndexes.length - 1] != code.length) {
+                    if (lineIndexes[lineIndexes.length - 1] !== code.length) {
                         lineIndexes.push(code.length)
                     }
 
                     lineIndexesAppended = []
-                    for(var i = 0; i < lineIndexes.length; i++) {
+                    for(let i = 0; i < lineIndexes.length; i++) {
                         lineIndexesAppended.push(lineIndexes[i])
                     }
 
@@ -120,8 +120,8 @@ function requestSimulation() {
                     currentFrame = 0
                     state = 'PAUSE'
 
-                    for(var i = 0; i < data.length; i++) {
-                        element = data[i]
+                    for(let i = 0; i < data.length; i++) {
+                        let element = data[i]
                         if (element.osv === undefined) {
                             // this is a command
                             commands.push(element)
@@ -136,7 +136,6 @@ function requestSimulation() {
                     canvas.osv = new OSV(r.osv.x, r.osv.y, r.osv.theta, r.osv.width, r.osv.height)
                     if (obstaclesChecked) {
                         canvas.obstacles = lastObstacles.map(obstacle => new Obstacle(obstacle.x, obstacle.y))
-
                     } else {  // Obstacles button not checked.
                         canvas.obstacles = [].map(obstacle => new Obstacle(obstacle.x, obstacle.y))
                     }
