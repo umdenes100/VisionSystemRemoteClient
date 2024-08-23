@@ -35,7 +35,7 @@ function requestRandomization() {
         })
         .catch(function (error) {
             if (String(error).startsWith('Axios')) {
-                alert("You must load this site over http, not https. Please change the URL to start with http instead of https")
+                alert("You must load this site over http, not https. Please change the URL to start with http instead of https. Or, try the new simulator at https://umdenes100.github.io/enes100-simulator/")
             } else
                 $('#terminal-output').text(error)
             console.log(error)
@@ -72,7 +72,7 @@ function requestSimulation() {
 
                 if (data['error'] !== undefined) {
                     if (data['error'].startsWith('Axios')) {
-                        alert("You must load this site over http, not https. Please change the URL to start with http instead of https")
+                        alert("You must load this site over http, not https. Please change the URL to start with http instead of https. Or, try the new simulator at https://umdenes100.github.io/enes100-simulator/")
                     } else
                         $('#terminal-output').text(data['error'])  // Display error message on terminal.
                 }
